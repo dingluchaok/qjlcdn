@@ -1,0 +1,539 @@
+<include file="Public:header" />
+		
+<div class="autobox ">
+	<div class="now">
+		<i class="fa fa-home fa-lg move mr5"></i><a href="/" class="movesay">首页</a> &gt; <a href="/finan/index.html" class="movesay">财务中心 </a> &gt; 转入数字资产	</div>
+	<div class="main-content">
+		<style>
+	.nav-tab-list .nav-tab-hover{
+		width:100%;
+		top:60px;
+		height:50px;
+		line-height:50px;
+		background:#EAEDF4;
+		position:absolute;
+		box-sizing:content-box;
+		z-index:1;
+		transition:all 0.5s;
+		-webkit-transition:all 0.5s;
+		display:none;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		(function () {
+			var tab   = $('.nav-tab-list dd');
+			var hover = $('.nav-tab-hover');
+			var pos   = 0;
+			tab.each(function (index) {
+				var $this = $(this);
+				if ($this.hasClass('active')) {
+					pos = index;
+				}
+				$this.hover(function () {
+					_moveTo(index);
+				}, function () {
+					_moveTo(pos);
+				});
+			});
+			_moveTo(pos);
+			$('.nav-tab-hover').show();
+			function _moveTo(index) {
+				hover.css("top", 60 + 50 * index);
+				tab.removeClass('active');
+				tab.eq(index).addClass('active');
+			}
+		})();
+	});
+	$(window).on('scroll resize', function () {
+		if (document.body.scrollTop < 100) {
+			$('#left-nav-bar').css("top", 0);
+		} else if (document.body.scrollTop > ($('.tag-list-content').height() - $('#left-nav-bar').height() + 100)) {
+			$('#left-nav-bar').css("top", ($('.tag-list-content').height() - $('#left-nav-bar').height()));
+		} else {
+			$('#left-nav-bar').css("top", document.body.scrollTop - 100);
+		}
+	});
+</script>
+
+
+<include file="Finance:left" />
+<include file="$kefu"/>
+
+
+
+		<div class="tag-list-content assets_content bg_w">
+			<div class="safe_center clear">
+				<h1>
+					<span>
+						转入数字资产</span>
+					<span>
+												<a class="right" onclick="$('#hints').slideToggle();"><i class="fa fa-hand-o-right move fz_14 mr5"></i><span class="fz_12 move">查看介绍</span></a>
+											</span>
+				</h1>
+			</div>
+			<div id="hints" class="mytips" style="display:none;">
+				<p>
+				
+				<notempty name="prompt_text">
+					{$prompt_text}
+				</notempty>
+				
+				</p>			
+			</div>
+			
+			
+			
+			
+			<div class="mytable-body">
+				<div class="step1 cny_record">
+					<div class="weituo_bizhong">
+						<div class="bizhong_select">
+							<div class="bz_btn">
+								<img src="__UPLOAD__/coin/{$coin_list[$xnb]['img']}" alt="" style=" width: 22px;float: left;margin-top: 7px;margin-right: 5px;"/>
+								<span id="coin-default">
+									<select name="type" id="coin-select" style="margin-top: 6px;">
+										<volist name="coin_list" id="vo">
+											<eq name="xnb" value="$key">
+												<option value="{$vo['name']}" selected="selected">{$vo.title} ({$vo['name']|strtoupper})</option>
+											<else/>
+												<option value="{$vo['name']}">{$vo.title} ({$vo['name']|strtoupper})</option>
+											</eq>
+										</volist>
+									</select>
+								</span>
+							</div>
+						</div>
+						<div class="bizhong_type" style="width: 220px;">
+							<span>可用<em class="coin-name"></em>：<font class="coin-balance">{$user_coin[$xnb]|Num}</font></span>
+						</div>
+					</div>
+					<br>
+					
+					
+					<eq name="mollymobi_opencoin" value="1">
+						<div class="cnyin_record">
+							<div class="adr-zhuanru" style="position: relative;z-index:0;">
+								<div id="pt-qrcode" style="position:absolute;top:0;right:0;display: inline-block;;">
+									<div id="qrcode-wallet" style="display: inline-block;">
+										<saon id="codeaa"></saon>
+									</div>
+									<p id="qrcode-t" style="font-size:13px;text-align: center; color:#05BDC7;">{$coin_list[$xnb]['title']}充值地址</p>
+									<p id="qrcode-t" style="font-size:13px;text-align: center; color:red;">扫一扫快速充值</p>
+								</div>
+								<div class="qb_tishi">
+									这是您的钱包地址，请将您的 <b class="coin-name"><font style="color:#05BDC7;">{$coin_list[$xnb]['title']}</font></b> 转入此地址： 
+									<notempty name="coin_list[$xnb]['zr_zs']">
+										<span id="zengsong" style="color: red; font-size: 14px;">转入即赠{$coin_list[$xnb]['zr_zs']}%</span>
+									</notempty>
+								</div>
+								<div class="qb_dizhi ts mb20">
+									<p id="wallets">
+										{$qianbao}
+									</p>
+								</div>
+								<div>
+									<lable for="cny_num">您的钱包地址：</lable>
+									<input type="text" class="texts" id="mycz_address" value="" style="width:300px;"><font style="color:#05BDC7;">  填写您的转出钱包地址,以便系统快速验资! </font>
+								</div>
+								<div style="margin-top:20px;">
+									<lable for="cny_num">您的充值数量：</lable>
+									<input type="text" class="texts" id="mycz_amount" maxlength="12" value="" style="width:300px;">
+								</div>
+								<div class="" style="margin-top:20px;">
+									<input type="button" class="btns2" value="立即转入" onclick="" id="btn-submit">
+								</div>
+							</div>
+						</div>
+					<else/>
+
+						<!--<div class="pwtrade  pw  mt50">
+							<dl>
+									<dt>转入地址：</dt>
+									<dd>
+										<span>
+											{$qianbao}
+										</span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>转入数量：</dt>
+									<dd style="position: relative;">
+										<input type="text" class="texts" id="cny_num" maxlength="12" value="">
+																
+																</dd>
+								</dl>
+								<dl class="step5">
+									<dt>短信验证码：</dt>
+									<dd class="yuyin">
+										<div class="clear">
+																			<input type="button" value="发送短信验证码" class="btns" onclick="send_moble_coinout('sms')" style="width: 100px;font-size: 12px;"/>
+																											{$moble}(接收验证码)
+										</div>
+									</dd>
+								</dl>
+								<dl class="step6" style="display:none;">
+									<dt>短信验证码：</dt>
+									<dd>
+										<input type="text" id="cny_moble_verify" value="" class="texts" placeholder="请输入短信验证码"/> <span id="reg_moble_new"></span>
+									</dd>
+								</dl>
+								<dl>
+									<dt>交易密码：</dt>
+									<dd>
+										<input type="password" class="texts" id="cny_paypassword"  value=""><a href="/findpwd/findpwd" class="move ml5">忘记?</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt></dt>
+									<dd>
+										<empty name="zc_jz">
+											<input type="button" class="btns2" value="立即转入" onclick="coinin_up()">
+										<else/>
+											<input type="button" class="btns2" value="{$zr_jz}" disabled>
+										</empty>
+									</dd>
+								</dl>
+						</div>-->
+
+					
+					</eq>
+					
+					
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="step2 f_body">
+					<table class="f_table" id="investLog_content">
+						<thead>
+						<tr>
+							<th>转入地址</th>
+							<th>转入时间</th>
+							<th>转入币种</th>
+							<th>转入数量</th>
+							<th>转入赠送</th>
+							<th>到账数量</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+						</thead>
+						<tbody>
+						
+                        <volist name="list" id="vo">
+                            <tr>
+                            	<td>{$vo.zr_address}</td>
+                                <td>{$vo.addtime|addtime}</td>
+                                <td>{$vo.coinname}</td>
+                                <td>{$vo['num']|NumToStr}</td>
+                                <td>{$vo['fee']|NumToStr}</td>
+                                <td>{$vo['mum']|NumToStr}</td>
+                                <td>
+                                    <eq name="vo.status" value="1">
+                                        <font color="#23a800">转入成功 </font>
+                                        <else/>
+                                        <eq name="vo.status" value="3">
+                                        <font color="red">处理中</font>
+                                        </eq>
+                                        <eq name="vo.status" value="0">
+                                        <div>未转账<a data-action="{$vo.typeEn}" data="{$vo['id']}"  onclick="cnyin_huikuan(this)" href="javascript:void(0)" style="color: #2674FF!important;">我已转账 </a></div>
+                                        </eq>
+                                    </eq>
+                                </td>
+                                <td>
+                                	<eq name="vo.status" value="1">
+             <font color="#23a800">暂无 </font> <else /> <a onclick="myczChakan({$vo['id']},{$vo['num']},'{$vo['tradeno']}')" href="javascript:void(0)" class="cur">查看</a></font></eq>
+                                </td>
+                            </tr>
+                        </volist>
+						
+						
+						</tbody>
+					</table>
+					<div class="pages"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="show1" style="display:none;">
+
+<br><br>
+	<p style="text-align:center; font-size: 20px;">请转帐到下面地址:</p>
+	<br>
+	<p style="text-align:center; font-size: 20px; color:#ff3300;">{$qianbao}</p>
+	<br><br><br>
+	<p style="text-align:center;font-size: 20px;">您提交的转入数量：<font id="zr_num" style="text-align:center;font-size: 20px; color:#ff3300;"></font></p>
+	<br><br><br>
+	<p style="text-align:center; font-size: 20px;">订单编号：<font id="tradeno" style="text-align:center;font-size: 20px; color:#ff3300;"></font></p>
+	<br><br>
+	<p style="text-align:center; font-size: 16px; color:#05BDC7;">请在转入［备注/附言］中严格按要求填写转入订单编号,以便系统自动验资!</p><br><br>
+
+</div>
+
+<script type="text/javascript" src="/mollymobi/js/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+		$('#codeaa').qrcode({
+		render: "table", //table方式
+		width: 100, //宽度
+		height: 100, //高度
+		text: "{$qianbao}" //任意内容
+	});
+	</script>
+<script>
+
+	$("#coin-select").change(function () {
+		var coin        = $("#coin-select option:selected").val();
+		window.location = '/Finance/myzr/coin/' + coin + '.html';
+	});
+	function myczChakan(id,num,tradeno) {
+		$('#zr_num').html(num);
+		$('#tradeno').html(tradeno);
+		layer.open({
+			title: "{$coin_list[$xnb]['name']}充值",
+			type: 1,
+			area: ['650px', '500px'],
+			skin: 'layui-layer-rim', //加上边框
+			content: $('#show1')
+		});
+	}
+	function cnyin_huikuan(_this) {
+        var id = $(_this).attr('data');
+        var type = $(_this).attr('data-action');
+	    if(type == 'tenpay'){
+		    layer.config({
+			    extend: 'extend/layer.ext.js'
+		    });
+		    layer.ready(function () {
+			    layer.prompt({
+				    title: "输入充值成功订单后4位，并确认",
+				    formType: 0
+			    }, function (val) {
+				    if (val) {
+					    $.post("/finan/pay_huikuan.html", {id: id,type:type, remark: val}, function (data) {
+						    if (data.status == 1) {
+							    layer.msg(data.info, {icon: 1});
+							    location.reload();
+						    } else {
+							    layer.msg(data.info, {icon: 2});
+							    if (data.url) {
+								    window.location = data.url;
+							    }
+						    }
+					    }, "json");
+				    }
+				    ;
+			    });
+		    });
+	    }else{
+		    $.post("/Finance/myczHuikuan2", {id: id,type:type}, function (data) {
+			    if (data.status == 1) {
+				    layer.msg(data.info, {icon: 1});
+				    window.location.reload();
+			    } else {
+				    layer.msg(data.info, {icon: 2});
+			    }
+		    }, "json");
+	    }
+    }
+	
+	
+	function send_new() {
+		$(".step6").hide();
+		$(".step5").show();
+	}
+	function send_moble_coinout(type) {
+		$.post("{:U('Verify/myzr')}", {
+			type: type,
+		}, function (data) {
+			if (data.status == 1) {
+				layer.msg(data.info, {icon: 1});
+				$(".step5").hide();
+				$(".step6").show();
+				$("#cnyout_moble_verify").focus();
+				$('#moble_new').attr("disabled", "disabled");
+				var obj      = $('#reg_moble_new');
+				var wait     = 60;
+				var interval = setInterval(function () {
+					obj.html(wait + "秒可再次发送");
+					wait--;
+					if (wait < 0) {
+						clearInterval(interval);
+						$(".reloadverify_new").click();
+						$("#verify_new").val('');
+						obj.html('<a class="move" onclick="send_new()">没有收到？重新发送</a>');
+					}
+					;
+				}, 1000);
+			} else {
+				layer.msg(data.info, {icon: 2});
+				if (data.url) {
+					window.location = data.url;
+				}
+			}
+		}, "json");
+	}
+	
+	
+	
+	
+	function coinin_up() {
+		var num          = $("#cny_num").val();
+		var paypassword  = $("#cny_paypassword").val();
+		var moble_verify = $("#cny_moble_verify").val();
+		var coin         = $('#coin-select option:selected').val();
+		if (moble_verify == "" || moble_verify == null) {
+			layer.msg('请输入短信验证码', {
+				icon: 2
+			});
+			return false;
+		}
+		if (num == "" || num == null) {
+			layer.tips('请输入转出数量', '#cnyout_num', {
+				tips: 2
+			});
+			return false;
+		}
+
+		if (paypassword == "" || paypassword == null) {
+			layer.tips('请输入交易密码', '#cnyout_paypassword', {
+				tips: 2
+			});
+			return false;
+		}
+		if (coin == "" || coin == null) {
+			layer.tips('请选择币种', '#coin-select', {
+				tips: 2
+			});
+			return false;
+		}
+		var goole ="0";
+		if(goole == 1){
+			layer.config({
+				extend: 'extend/layer.ext.js'
+			});
+			layer.ready(function () {
+				layer.prompt({
+					title: '输入谷歌验证码，并确认',
+					formType: 1
+				}, function (val) {
+					if (val) {
+						$.post("/finan/coinout_up", {
+							coin:coin,
+							num: num,
+							paypassword: paypassword,
+							moble_verify: moble_verify,
+							bank: bank,
+							goole:val,
+						}, function (data) {
+							if (data.status == 1) {
+								layer.msg(data.info, {
+									icon: 1
+								});
+								window.location = "/finan/coinoutlog.html";
+							} else {
+								layer.msg(data.info, {
+									icon: 2
+								});
+								if (data.url) {
+									window.location = data.url;
+								}
+							}
+						}, "json");
+					}
+					;
+				});
+			});
+		}else{
+			$.post("{:U('Finance/upmyzr')}", {
+				coin:coin,
+				num: num,
+				paypassword: paypassword,
+				moble_verify: moble_verify,
+			}, function (data) {
+				if (data.status == 1) {
+					layer.msg(data.info, {
+						icon: 1
+					});
+					window.location = "/finance/myzr.html";
+				} else {
+					layer.msg(data.info, {
+						icon: 2
+					});
+					if (data.url) {
+						window.location = data.url;
+					}
+				}
+			}, "json");
+		}
+	}
+	$('#btn-submit').click(function(){
+	    var mbTest_num=/^([1-9]{1}\d*)(\.(\d){1,2})?$/;
+	    var num=$("#mycz_amount").val();
+	    var address = $('#mycz_address').val();
+	    //银行编码
+	    //新增17-05-18 
+	    //
+	    
+	    if(num==""||num==null){
+		    layer.tips('请输入转入数量', '#mycz_amount', {
+				tips: 2
+			});
+			return false;
+	    }
+	    if(num <= 0){
+	    	layer.tips('请输入转入数量', '#mycz_amount', {
+				tips: 2
+			});
+			return false;
+	    }	    
+	    //新增17-05-18 
+	    $.post("{:U('Finance/upmyczrgb')}",{num:num, coin:"{$coin_list[$xnb]['name']}", address:address},function(data){
+		    if(data.status==1){
+		    		$('#zr_num').html(num);
+		    		$('#tradeno').html(data.url.tradeno);
+		    		layer.open({
+						title: "{$coin_list[$xnb]['name']}充值",
+						type: 1,
+						area: ['650px', '500px'],
+						content: $('#show1'),
+						cancel: function(){
+							window.location.reload();
+						}
+					});	
+		    }else{
+			    layer.msg(data.info);
+			    if(data.url){
+				    window.location=data.url;
+			    }
+		    }
+	    },"json");
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+
+
+
+<script>
+	var hints = "0";
+	if(hints == 1){
+		$('#hints').show();
+	}
+	$('#finance_box').addClass('active');
+	$('.finan_coinin').addClass('active');
+</script>	
+	
+<include file="Public:footer" />

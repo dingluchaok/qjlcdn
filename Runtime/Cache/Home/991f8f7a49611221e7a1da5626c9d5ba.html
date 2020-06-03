@@ -1,0 +1,1088 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title><?php echo C('web_title');?></title>
+<meta name="Keywords" content="<?php echo C('web_keywords');?>">
+<meta name="Description" content="<?php echo C('web_description');?>">
+<meta name="author" content="mollymobi">
+<meta name="coprright" content="mollymobi">
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="stylesheet" href="/mollymobi/css/font-awesome.min.css">
+<link rel="stylesheet" href="/mollymobi/css/style.css" id="theme"/>
+<link rel="stylesheet" href="/mollymobi/css/common.css"/>
+<script type="text/javascript" src="/mollymobi/js/jquery.min.js"></script>
+<script type="text/javascript" src="/mollymobi/js/jquery.cookies.2.2.0.js"></script>
+<script type="text/javascript" src="/mollymobi/js/layer.js"></script>
+<script type="text/javascript" src="/mollymobi/js/posfixed.js"></script>
+<script type="text/javascript" src="/mollymobi/js/dot.min.js"></script>
+<link rel="stylesheet" href="/mollymobi/css/slider.css">
+<script type="text/javascript" src="/mollymobi/js/slider.js"></script>
+</head>
+<body lang="zh-CN">
+<!--[if lt IE 10]>
+<div id="kie-bar" class="kie-bar ">
+    您现在使用的浏览器版本过低，可能会导致浏览效果和信息的缺失。 建议立即升级到
+    <a href="http://rj.baidu.com/soft/detail/14917.html" target="_blank" title="免费升级至IE8浏览器">IE 10+</a> 或
+    <a href="http://rj.baidu.com/soft/detail/14744.html" target="_blank" title="免费升级至360安全浏览器">谷歌浏览器</a> 或
+    <a href="http://rj.baidu.com/soft/detail/17451.html" target="_blank" title="免费升级至360安全浏览器">360安全浏览器</a> ，安全更放心！
+</div><![endif]-->
+<div id="mollymobi_header" style="z-index: 999;min-width: 1200px;width:100%;" ;>
+    <div class="header">
+        <div class="header-content">
+            <ul class="trade-status">
+
+                <li style="padding: 0px 10px 0px 0px;">
+                    <i class="fa fa-home fa-lg left move mr5"></i> 
+					<span><?php echo C('top_name');?></span>
+                </li>
+            </ul>
+            <ul class="user-status">
+				
+				<?php if(($_SESSION['userId']) > "0"): ?><li>
+                    <i class="fa fa-user fa-lg left move mr5"></i>
+                    <a href="/finance/" id="user_top" class="move"><?php echo (session('userName')); ?></a>
+                    <em style="color:red;font-weight:bold;position:absolute;bottom:11px;left:84px;width: 137px;display:none;" class="ccnotice"></em>
+                    <div id="mywallet_list" class="mywallet_list" style="display: none;">
+                        <div class="clear">
+                            <ul class="freeze_list">
+                                <h4>可用人民币</h4>
+                                <li style=" padding: 0;">
+                                    <a href="javascript:void(0)">
+                                        <img src="/Upload/coin/cny.png" width="18" class="left mt5 mr5">
+                                        <span class="fz_14"><?php echo ($userCoin_top['cny']*1); ?></span></a>
+                                </li>
+                            </ul>
+                            <ul class="freeze_list">
+                                <h4>冻结人民币</h4>
+                                <li style=" padding: 0;">
+                                    <a href="javascript:void(0)">
+                                        <img src="/Upload/coin/cny.png" width="18" class="left mt5 mr5">
+                                        <span class="fz_14"><?php echo ($userCoin_top['cnyd']*1); ?></span></a>
+                                </li>
+                            </ul>
+                            <ul class="balance_list">
+                                <h4>人民币总资产:</h4>
+                                <li style=" padding: 0;">
+                                    <a href="javascript:void(0)">
+                                        <img src="/Upload/coin/cny.png" width="18" class="left mt5 mr5 ">
+                                        <span class="fz_14"><?php echo ($userCoin_top['allcny']*1); ?></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mywallet_btn_box">
+                            <a href="/Finance/mycz.html" class="texts">人民币充值</a>
+                            <a href="/Finance/mytx.html" class="texts">人民币提现</a>
+                            <a href="/Finance/index.html" class="texts">财务中心</a>
+                            <a href="/User/index.html" class="texts">安全中心</a>
+                        </div>
+                        <i class="fa fa-caret-up move" style="position: absolute;top: -21px;right: 34px;font-size: 28px;"></i>
+                        <div class="nocontent"></div>
+                    </div>
+                </li>
+                <li>
+                    <a href="<?php echo U('Login/loginout');?>" class="">退出</a>
+                </li>
+				<?php else: ?>
+				
+                <li>
+                    <i class="fa fa-user left move fz_16"></i> <a href="<?php echo U('Login/register');?>" class="ma-l move"> 注册</a>
+                </li>
+
+                <li>
+                    <a href="javascript:loginpop();" class="darker">登录</a>
+                </li><?php endif; ?>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="common-nav">
+    <div class="nav-bar">
+        <div class="logo" style="margin-top: 12px;">
+            <a href="/" class="xiaozhu-logo"> 
+				<img src="/Upload/public/<?php echo ($C['web_logo']); ?>" alt=""/>
+			</a>         
+		</div>
+        <div class="nav-content">
+            <ul class="common-nav-list">
+                <li id="index_box">
+                    <a href="/">首页</a>
+                </li>
+                <li id="trade_box">
+                    <a href="#" id="trade_top" class="darker">交易中心                    
+						<i class="fa fa-angle-down"></i> 
+					</a>
+                    
+					
+					
+					
+                   <script id="trade_list_tpl" type="text/x-dot-template">
+                        <ul id="trade-nav-tabs">
+                            {{ for(var k in it) { }}
+                            <li class="trade-tab {{? k == 0}}current{{?}}">
+                                {{=it[k]['title']}}
+                            </li>
+                            {{ } }}
+                        </ul>
+                        <div id="trade-nav-body">
+                            {{ for(var k in it) { }} {{? k == 0}}
+                            <dl style="display: block">
+                                {{??}}
+                                <dl style="display: none">
+                                    {{?}} {{ for(var kk in it[k]['data']) { }}
+                                    <dd>
+                                        <a href="/trade/index/market/{{=kk}}"><img src="/Upload/coin/{{=it[k]['data'][kk]['img']}}" style="width: 18px;vertical-align: -4px;margin-right: 5px;">{{=it[k]['data'][kk]['title']}}</a>
+                                    </dd>
+                                    {{ } }}
+                                </dl>
+                                {{ } }}
+                            </dl>
+                        </div>
+                        <i class="fa fa-caret-up move" style="position: absolute;top: -21px;left: 18px;font-size: 28px;"></i>
+                        <div class="nocontent"></div>
+                    </script>
+
+                    <div id="trade_list" class="deal_list " style="left:1px;     top: 80px;">
+                    </div>
+                    </li>
+					
+					
+					
+					<?php if(is_array($daohang)): $i = 0; $__LIST__ = $daohang;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li id="<?php echo ($vo['name']); ?>_box">
+							<a href="/<?php echo ($vo['url']); ?>"><?php echo ($vo['title']); ?></a>
+						</li><?php endforeach; endif; else: echo "" ;endif; ?>	
+
+						
+						
+				</ul>
+        </div>
+    </div>
+</div>
+<script>
+    $('#trade_top').hover(function () {
+        $('#trade_list').show();
+    }, function () {
+        $('#trade_list').hide();
+    });
+    $('#trade_tops').hover(function () {
+        $('#trade_lists').show();
+    }, function () {
+        $('#trade_lists').hide();
+    });
+    $('#trade_list').hover(function () {
+        $('#trade_list').show();
+    }, function () {
+        $('#trade_list').hide();
+    });
+    $('#trade_lists').hover(function () {
+        $('#trade_lists').show();
+    }, function () {
+        $('#trade_lists').hide();
+    });
+    $.post("/ajax/top_coin_menu?t=" + Math.random(), function (data) {
+        if (data) {
+            var interText = doT.template($("#trade_list_tpl").text());
+            var interTexts = doT.template($("#trade_list_tpls").text());
+            $("#trade_list").html(interText(data));
+            $("#trade_lists").html(interTexts(data));
+            var $li = $('#trade-nav-tabs > li');
+            var $lis = $('#trade-nav-tabss > li');
+            var $ul = $('#trade-nav-body > dl');
+            var $uls = $('#trade-nav-bodys > dl');
+            $li.mouseover(function () {
+                var $this = $(this);
+                var $t = $this.index();
+                $li.removeClass();
+                $this.addClass('current');
+                $ul.css('display', 'none');
+                $ul.eq($t).css('display', 'block');
+            })
+            $lis.mouseover(function () {
+                var $this = $(this);
+                var $t = $this.index();
+                $lis.removeClass();
+                $this.addClass('current');
+                $uls.css('display', 'none');
+                $uls.eq($t).css('display', 'block');
+            })
+        }
+    }, "json");
+    $('#game_top').hover(function () {
+        $('#game_list').show();
+    }, function () {
+        $('#game_list').hide();
+    });
+    $('#game_list').hover(function () {
+        $('#game_list').show();
+    }, function () {
+        $('#game_list').hide();
+    });
+    $('#user_top').hover(function () {
+        $('#mywallet_list').show();
+    }, function () {
+        $('#mywallet_list').hide();
+    });
+    $('#mywallet_list').hover(function () {
+        $('#mywallet_list').show();
+    }, function () {
+        $('#mywallet_list').hide();
+    });
+	var tp;
+	function checkorder(){
+		$.post("<?php echo U('Ajax/checkorder');?>", {
+		}, function (data) {
+			if(data.status == 1){
+				$('.ccnotice').html('（未处理订单'+data.num+'条）');
+				$('.ccnotice').show();
+				clearTimeout(tp);
+			}else{
+				tp = setTimeout(function(){checkorder()},3000);
+			}
+		}, "json");
+	}
+</script>
+<script>
+    $(document).ready(function () {
+        $("#mollymobi_header").posfixed({});
+		if("<?php echo (session('userId')); ?>" > 0) {
+			checkorder();
+		}
+    });
+</script>
+
+<!-- top 结束  -->
+<link rel="stylesheet" href="/movesay/css/cstyle.css"/>
+<link rel="stylesheet" href="/Public/Home/css/common_0926.css"/>
+<link rel="stylesheet" href="/Public/Home/css/index_0926.css"/>
+<style>
+.change_tab{height: 40px;line-height: 40px;text-align: center;}
+.change_tab a{display: inline-block;width:130px;color:#666;font-weight: bold;font-size: 14px;}
+.change_tab a:hover{color:#108ee9;border-bottom: 3px solid #108ee9;}
+.change_tab .on_new{color:#108ee9;border-bottom: 3px solid #108ee9;}
+.select_div{margin:0 auto;height: 85px;text-align:center;background: #fff;border-radius: 4px;margin-top:3px;}
+.select_div form{margin:0 auto;height:35px;overflow:hidden;margin-top:25px;}
+.select_div select{width: 165px;height: 35px;float:left;border:1px solid #d6dbdd;border-radius: 4px;color:#252525;text-indent: 5px;margin-right: 5px;font-size: 13px;}
+.search_input{height:35px;float:left;}
+.search_trade{float:left;background: #108ee9;color:#fff;width: 100px;height: 35px;outline: none;border:1px solid #108ee9;border-radius: 4px;margin-left: 20px;font-size: 13px;}
+.table_trade{width: 1200px;margin-top:30px;background: #fff;padding-bottom: 20px;border-radius: 4px 4px 0 0;min-height: 750px;}
+.table_trade table tr th{background: #f7f7f7;font-size: 14px;color:rgba(0, 0, 0, 0.9);text-align: left;font-weight: 500;height:53px;}
+.table_trade table tr td{padding:16px 0;border-bottom: 1px solid #d6dbdd;font-size: 14px;color: rgba(0, 0, 0, 0.7);}
+.table_trade table tr:hover{background: #ecf6fd;}
+.bsedit{color:#108ee9;display: inline-block;width:72px;height:30px;border:1px solid #108ee9;line-height:30px;text-align: center;border-radius: 4px;}
+
+</style>
+<!-- 改版开始 -->
+<div class="wapper">
+        <div class="ptp-PageHome">
+            <!--公告-->
+            <div class="pageHomeMain1">
+                
+
+<!--首页内容-->
+<style>
+    .pageHomeMain1 {
+        padding: 0px;
+    }
+</style>
+<div class="pageHomeMain">
+    <div class="w1200">
+        <!--导航-->
+        <!--内容中心-->
+        <div class="ptp-contentCore cf">
+            <div class="fl contentCore_fl">
+
+                <div style="position:relative;">
+                    
+                    <div class="headTabs pageHomeHeadTabs">
+                    	<?php if(is_array($coin)): $i = 0; $__LIST__ = $coin;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="/Ctrade/index.html?type=<?php echo ($_GET['type']); ?>&obj=1&coin=<?php echo ($vo["id"]); ?>&loca=&curr=&paym=&uname=" <?php if(($_GET['coin']) == $vo["id"]): ?>class="curr"<?php endif; ?>><img src="/Upload/coin/<?php echo ($vo["img"]); ?>"><em><?php echo (strtoupper($vo["name"])); ?></em></a><?php endforeach; endif; else: echo "" ;endif; ?>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="select_div">
+                <form action="/Ctrade/index.html" method="get">
+                    <input type="hidden" name="type" value="1">
+                    <div class="search_input" id="adbox">
+                        <select name="coin">
+                            <option value="" <?php if(empty($_GET['coin'])): ?>selected<?php endif; ?>>币种</option>
+                            <?php if(is_array($coin)): $i = 0; $__LIST__ = $coin;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php if(($_GET['coin']) == $vo["id"]): ?>selected<?php endif; ?>><?php echo (strtoupper($vo["name"])); ?> <?php echo ($vo["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>                        </select>
+                        <select name="curr">
+                            <option value="" <?php if(empty($_GET['curr'])): ?>selected<?php endif; ?>>货币</option>
+                            <?php if(is_array($currency)): $i = 0; $__LIST__ = $currency;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php if(($_GET['curr']) == $vo["id"]): ?>selected<?php endif; ?>><?php echo ($vo["short_name"]); ?> <?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>                        </select>
+                        <select name="paym">
+                            <option value="" <?php if(empty($_GET['paym'])): ?>selected<?php endif; ?>>支付方式</option>
+                            <?php if(is_array($pay_method)): $i = 0; $__LIST__ = $pay_method;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php if(($_GET['paym']) == $vo["id"]): ?>selected<?php endif; ?>><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>                        </select>
+                    </div>
+                    <input type="submit" value="搜索" class="search_trade">
+                    <input type="button" value="出售" class="search_trade" onclick="window.location.href='/Newad/index.html'">
+                </form>
+            </div>
+                    <div class="buySell">
+                        <table class="buySell_table">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="25%">
+                                <col width="10%">
+                                <col width="10%">
+                            </colgroup>
+                            <tbody><tr>
+                                <th>用户名</th>
+                                <th>币种</th>
+                                <th>信用</th>
+                                <th>支付方式</th>
+                                <th>交易限额</th>
+                                <th>价格</th>
+                                <th>操作</th>
+                            </tr>
+                        </tbody></table>
+                        
+                        <div class="item buyItem data_Hide">
+                        	<table>
+                        		<colgroup>
+                        			<col width="20%">
+                        			<col width="10%">
+                        			<col width="10%">
+                        			<col width="15%">
+                        			<col width="25%">
+                        			<col width="10%">
+                        			<col width="10%">
+                        		</colgroup>
+                        		<tbody>
+                        			<?php if(is_array($list2)): $i = 0; $__LIST__ = $list2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr class="trItem">
+                        				<td>
+                        					<div class="headImg" style="max-width:190px;">
+                        						<a href="javascript:void(0);" onclick="" style="">
+                        							<img src="<?php echo ($vo["headpic"]); ?>" class="img">
+                        							<span style=""><?php echo ($vo["enname"]); ?></span>
+                        							<img src="/Public/Home/images/merchant.png" style="margin:0;"/>
+                        						</a>
+                        					</div>
+                        				</td>   
+                        				<td><?php echo (strtoupper($vo["coin"])); ?></td>  
+                        				<td>好评度 <?php echo ($vo["goodcomm"]); ?>%</td> 
+                        				<td> 
+                        					<img src="/Public/Home/images/<?php echo ($vo["pay_method"]); ?>" class="imgshow_icon">
+                        				</td> 
+                        				<td class="part-buy"> 
+                        					<!-- <p><em>1666.8</em><em>CNY</em>/<em>ETH</em></p> --> 
+                        					<span><em><?php echo (num($vo['min_limit'])); ?></em> - <em><?php echo (num($vo['max_limit'])); ?></em><?php echo ($vo['currency_type']); ?></span>
+                        				</td> 
+                        				<td> <?php echo ($vo['price']); ?> <?php echo ($vo['currency_type']); ?></td> 
+                        				<td> 
+                        					<a href="<?php echo U('Newad/advdetail',array('type'=>$type,'id'=>$vo['id']));?>" class="bsedit"><?php if(($type) == "0"): ?>出售<?php else: ?>购买<?php endif; ?></a> 
+                        				</td>
+                        			</tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                        			<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr class="trItem">
+                        				<td>
+                        					<div class="headImg">
+                        						<a href="javascript:void(0);" onclick="PenCenter('5744')">
+                        							<img src="<?php echo ($vo["headpic"]); ?>" class="img">
+                        							<span><?php echo ($vo["enname"]); ?></span>
+                        						</a>
+                        					</div>
+                        				</td>   
+                        				<td><?php echo (strtoupper($vo["coin"])); ?></td>  
+                        				<td>好评度 <?php echo ($vo["goodcomm"]); ?>%</td> 
+                        				<td> 
+                        					<img src="/Public/Home/images/<?php echo ($vo["pay_method"]); ?>" class="imgshow_icon">
+                        				</td> 
+                        				<td class="part-buy"> 
+                        					<!-- <p><em>1666.8</em><em>CNY</em>/<em>ETH</em></p> --> 
+                        					<span><em><?php echo (num($vo['min_limit'])); ?></em> - <em><?php echo (num($vo['max_limit'])); ?></em><?php echo ($vo['currency_type']); ?></span>
+                        				</td> 
+                        				<td> <?php echo ($vo['price']); ?> <?php echo ($vo['currency_type']); ?></td> 
+                        				<td> 
+                        					<a href="<?php echo U('Newad/advdetail',array('type'=>$type,'id'=>$vo['id']));?>" class="bsedit"><?php if(($type) == "0"): ?>出售<?php else: ?>购买<?php endif; ?></a> 
+                        				</td>
+                        			</tr><?php endforeach; endif; else: echo "" ;endif; ?> 
+                        		</tbody>
+                        	</table>
+                        	<div class="pages"><?php echo ($page); ?></div>
+                        </div>
+                        
+                    <div class="buySellLoading" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; min-height: 500px; background-color: rgb(255, 255, 255); z-index: 300; display: none;"><img src="/img/Gear.gif" style="position:absolute;top:150px;left:0;right:0;margin:0 auto;width:100px"></div></div>
+
+                </div>
+            </div>
+            <div class="fr">
+                <div class="frItem">
+                    <div class="head">
+                        <img src="/Public/Home/images/mxjyy.png">明星交易员
+                    </div>
+                    <div class="starNews">
+                    	<ul>
+                    		<?php if(is_array($users)): $i = 0; $__LIST__ = $users;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl"><?php echo ($i); ?></em>
+                    				<span class="fl"><i><?php echo ($vo["username"]); ?></i></span> 
+                    				<img src="/Public/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="javascript:void(0)">
+                    				<dl>
+                    					<dt>
+                    						<img src="<?php echo ($vo["img"]); ?>">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i><?php echo ($vo["trade_amount"]); ?></i></p>
+                    						<p>累计交易量：<i><?php echo ($vo["trade_money"]); ?></i> </p>
+                    						<p>被<i><?php echo ($vo["trust"]); ?></i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li><?php endforeach; endif; else: echo "" ;endif; ?>
+                    		<!-- <li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">2</em>
+                    				<span class="fl"><i>诚信卖币</i></span> 
+                    				<img src="/Public/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=5744">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/0778fbef39d54c64ba4a9ef1884f99c6.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>79</i></p>
+                    						<p>累计交易量：<i>1803.683644</i> </p>
+                    						<p>被<i>9</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">3</em>
+                    				<span class="fl"><i>LEZAN</i></span> 
+                    				<img src="/Public/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=5693">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/60c839c873954bed8689e520a7744835.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>60</i></p>
+                    						<p>累计交易量：<i>523.972408</i> </p>
+                    						<p>被<i>7</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">4</em>
+                    				<span class="fl"><i>币圈管家</i></span> 
+                    				<img src="/Public/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=48">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/31228f59958d4bfd8afea80f65de52e4.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>45</i></p>
+                    						<p>累计交易量：<i>2602.866686</i> </p>
+                    						<p>被<i>2</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">5</em>
+                    				<span class="fl"><i>诸葛币行</i></span> 
+                    				<img src="/Public/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=5702">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/7354535936a74ae0a3dd5de8d6b059c9.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>40</i></p>
+                    						<p>累计交易量：<i>151.540074</i> </p>
+                    						<p>被<i>2</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li> -->
+                    	</ul>
+                    </div>
+                </div>
+                <div class="frItem">
+                    <div class="head">
+                        <img src="/Public/Home/images/newsjy.png">最新交易
+                    </div>
+                    <div class="newDeal">
+                    	<ul style="margin-top: -8px;">
+                    		<?php if(is_array($newtrade)): $i = 0; $__LIST__ = $newtrade;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                    			<span class="col333"><em><?php echo ($vo["username"]); ?></em></span>
+                    			<span class="colf76b6b"><em>线上卖</em></span>
+                    			<span class="col999"><em><?php echo ($vo["time"]); ?></em>前</span>
+                    		</li><?php endforeach; endif; else: echo "" ;endif; ?>
+                    		
+                    	</ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+    </div>
+<!-- 改版结束 -->
+
+<script>
+$(function() {
+	//明星人员信息展示
+    $(".ptp-contentCore .starNews").on("click", ".firstA", function () {
+        var _this = $(this);
+        if (_this.parent().find("dl").is(":hidden")) {
+            _this.find(".showState").attr("src", "/Public/Home/images/sl.png");
+            _this.parents("li").siblings().find(".showState").attr("src", "/Public/Home/images/xl.png");
+        } else {
+            _this.find(".showState").attr("src", "/Public/Home/images/xl.png");
+        }
+        _this.parent().find("dl").slideToggle().parents("li").siblings().find("dl").slideUp();
+    });
+    slideGD();
+})
+//侧边栏滚动
+function slideGD() {
+    var index = 10;
+    var dd = setInterval(function () {
+
+        var _table = $(".ptp-contentCore .newDeal");
+        if (!index) { clearInterval(dd); }
+        index--;
+        if (_table.find("ul li").length >= 10) {
+            clearInterval(dd);
+            _table.find("ul").append(_table.find("ul").html());
+            var _top = 0;
+            var _stop = false;
+            setInterval(function () {
+                if (_stop) return false;
+                if (_table.find("ul").height() <= _table.height()) {
+                    return false;
+                }
+                _table.find("ul").animate({ "margin-top": '-=1' }, 0, function () {
+                    var s = Math.abs(parseInt(_table.find("ul").css("margin-top")));
+                    if (s >= 36) {
+                        _table.find("ul li").slice(0, 1).appendTo($(this));
+                        _table.find("ul").css("margin-top", 0);
+                    }
+                    //if (_top >= _table.find("li:first").height()) {
+                    //    _table.find("li:first").css("margin-top", "0").appendTo(_table.find("ul"));
+                    //    _top = 0;
+                    //}
+                })
+            }, 40);
+            _table.hover(function () {
+                _stop = true;
+            }, function () {
+                _stop = false;
+            })
+        }
+    }, 500)
+}
+</script>
+
+<div class="clear">
+</div>
+<br>
+<div class="">
+
+    </footer>
+    <div class="footer_bottom">
+	
+
+	<center>
+        <div class="autobox" style="height: 40px;margin-top: 5px;">
+			<span style="display: inline-block;color:#A6A9AB;">
+			<b>&nbsp;CopyRight © 2018&nbsp;<font  color="#ff5818">&nbsp; <?php echo C('web_title');?> &nbsp;</font><!-- <font  color="#0066ff"> <?php echo ($C['web_name']); ?> </font> -->All Rights Reserved</b>
+			
+			</span>
+			
+
+        </div>  </center>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+<div id="all_mask" class="all_mask" style="height: 0px; display: none;"></div>
+<div id="all_mask_loginbox" class="all_mask_loginbox" style="display: none;">
+    <div class="login_title pl20">
+        <span onclick="saoma()" style="text-align: center;margin-left: 15px;color: #1a81d6;cursor:pointer;">会员登录</span>
+		
+		
+		<?php if(($_SESSION['qq3479015851_already']) == "1"): ?><font color="#ff0000" size="1px;">您的账户在其它地方登录，请重新登录</font><?php endif; ?>
+	</div>
+    <form id="form-login" class="mask_wrap login-fb">
+        <div class="login_text zin90">
+            <div class="mask_wrap_title">账户：</div>
+            <input type="text" id="login_mobles" class="texts" style="display: none;">
+            <input type="text" id="login_moble" class="texts hg40 w250" placeholder="请输入手机号码"
+                   style="padding-left: 42px;" value=""/>
+            <link rel="stylesheet" href="/qq3479015851/css/intltelinput.css">
+            <script src="/qq3479015851/js/intltelinput.js"></script>
+            <script>
+                $("#login_mobles").intlTelInput({
+                    autoHideDialCode: false,
+                    defaultCountry: "cn",
+                    nationalMode: false,
+                    preferredCountries: ['cn', 'us', 'hk', 'tw', 'mo'],
+                });
+            </script>
+        </div>
+        <div class="login_text zin80">
+            <div class="mask_wrap_title">密码：</div>
+            <input id="login_password" class="texts hg40 w250" type="password" placeholder="请输入登录密码">
+        </div>
+        <div class="login_text zin80">
+            <div class="mask_wrap_title">验证码：</div>
+            <input type="text" id="login_verify" value="" class="texts w145 hg40" placeholder="请输入验证码"/>
+			<span style="vertical-align: -17px;line-height: 20px;">
+				<img id="login_verify_up" class="codeImg reloadverify hg40" src="<?php echo U('Verify/code');?>"
+                     title="换一张" onclick="this.src=this.src+'?t='+Math.random()" width="100" height="34">
+			</span>
+        </div>
+        <div class="login_button">
+            <input type="button" value="登录" onclick="footer_login();" class="btns2  hg40 w250">
+        </div>
+        <div class="login-footer wwxwwx" style="border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;">
+			<span style="color: #CCC; float: right; margin-right: 25px;">
+			<a style="font-size: 14px;" href="<?php echo U('Login/register');?>">免费注册</a>｜<a href="<?php echo U('Login/findpwd');?>" style="font-size: 14px;">忘记密码</a>
+			</span>
+        </div>
+    </form>
+    <div class="mask_wrap_close" onclick="wrapClose()"><i class="fa fa-times fz_20 move" aria-hidden="true"></i></div>
+</div>
+
+
+
+
+<style>
+.th-lts-con-t {
+    width: 100%;
+    background: #fff;
+}
+
+.th-lts-con-t h1 {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: #f8f8f8;
+    font-size: 12px;
+    color: #333;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+
+.buyonesellone {
+    border: 1px solid #d5d5d5;
+    background-color: #ffffff;
+}
+
+#marqueebox1 {
+    height: 450px;
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+	z-index:999px;
+}
+
+#marqueebox1 li{
+    font-size:14px;
+    text-align:left;
+    padding:1px;
+    padding-left:5px;
+}
+
+#marqueebox1 li:hover{
+    background:#ebf4fe;
+}
+
+
+#marqueebox1{
+    height:630px;
+    max-height:625px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+#marqueebox1 li{
+    font-size:14px;
+    text-align:left;
+    padding:1px;
+    padding-left:5px;
+}
+
+#marqueebox1 li:hover{
+    background:#ebf4fe;
+}
+
+#marqueebox1 img{
+    margin-bottom:-3px;
+}
+
+#marqueebox2{
+    height:30px;
+    border-top:1px solid #d5d5d5;
+}
+
+#marqueebox2 img{
+    padding:2px;
+    margin-left:2px;
+    margin-top:2px;
+    margin-bottom:-2px;
+    border:#d5d5d5 solid 1px;
+}
+
+#marqueebox2 li a{
+    font-size:14px;
+}
+
+#marqueebox2 input{
+    width:192px;
+    height:22px;
+    color:#333333;
+    border:#d5d5d5 solid 1px;
+    background:#ffffff;
+    font-size:12px;
+    border-radius:3px;
+    padding:1px;
+    margin:2px;
+}
+
+#marqueebox2 input:hover{
+    border:#e55600 solid 1px;
+}
+
+#marqueebox2 .tijiao{
+    width:58px;
+    height:26px;
+    border:#e55600 solid 1px;
+    font-size:12px;
+    border-radius:10px;
+    outline:none;
+    border-radius:3px;
+    padding:1px;
+    margin:2px;
+    color:#ffffff;
+    background:#e55600;
+}
+
+#marqueebox2 .tijiao:hover{
+    color:#ffffff;
+    background:#ff660b;
+}
+
+</style>
+
+
+<div style="width:0;height:0;clear:both;"></div>
+ <div class="right" style="position:fixed;right:0px;bottom:0px;z-index:999;display:none;opacity:100;" id="trade_moshi_liaotian_1">
+	<div class="coinBox buyonesellone">
+		<div class="coinBoxBody buybtcbody2">
+			<div class="th-lts-con-t"> <h1>聊天室 <span onclick="javacript:$('#trade_moshi_liaotian_1').hide();$('#kf1').show();$('#chat1').show();" style="float:right;cursor:pointer;">关闭</span></h1>
+			
+			</div>
+			
+			
+			<div id="marqueebox1" style="height:450px;max-height: 450px;" class="">
+				<ul id="chat_content">
+				</ul>
+			</div>
+			<div id="marqueebox2">
+				<ul class="clearfix">
+					<li id="face" class="left"><a href="javascript:void(0);" class="face faceBtn" id="face1">
+						<img src="/Public/Home/images/face.gif" width="20">
+					</a></li>
+					<li id="msg" class="left">
+					<input type="text" name="msg" class="text" id="chat_text"></li>
+					<li id="send" class="right"><input class="tijiao" type="button" value="发送"
+													   onclick="upChat()"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/Public/Home/js/jquery.qqFace.js"></script>
+
+<script type="text/javascript">
+    //@他
+    function atChat(_this) {
+        $("#chat_text").val('@' + $(_this).html() + ' :');
+    }
+    // 回车提交聊天
+    $("#chat_text").keyup(function (e) {
+        if (e.keyCode === 13) {
+            upChat();
+            return false;
+        }
+    });
+    // 提交聊天
+    function upChat() {
+        var content = $("#chat_text").val();
+        if (content == "" || content == null) {
+            layer.tips('请输入内容', '#chat_text', {tips: 3});
+            return false;
+        }
+        $.post("/Ajax/upChat", {content: content}, function (data) {
+            if (data.status == 1) {
+                $("#chat_text").val('');
+                getChat();
+            } else {
+                layer.tips(data.info, '#chat_text', {tips: 3});
+                return false;
+            }
+        }, 'json');
+    }
+    //表情盒子的ID//给那个控件赋值//表情存放的路径
+    $('#face1').qqFace({id: 'facebox1', assign: 'chat_text', path: '/Upload/face/'});
+
+
+    function getChat() {
+        //if (trade_moshi == 2) {
+            $.getJSON("/Ajax/getChat?t=" + Math.random(), function (data) {
+                if (data) {
+
+
+                    var list = '';
+                    for (i = 0; i < data.length; i++) {
+                        list += '<li><a href="javascript:void(0);" onclick="atChat(this)">' + data[i][1] + '</a>：' + data[i][2] + '</li>';
+					}
+                    list = list.replace(/\[\/#([0-9]*)\]/g, '<img src="/Upload/face/$1.gif"  width="18">');
+
+                    if ($("#chat_content").html() != list) {
+                        $("#chat_content").html(list);
+                        $("#marqueebox1").scrollTop(40000);
+                    }
+
+
+                }
+            });
+            setTimeout('getChat()', 5000);
+        //}
+    }
+
+	
+	getChat();
+
+</script>	
+
+
+<script>
+    $(document).ready(function () {
+        $("#leftsead a").hover(function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").show();
+            } else {
+                $(this).children("div.hides").show();
+                $(this).children("img.shows").hide();
+                $(this).children("div.hides").animate({marginRight: '0px'}, '0');
+            }
+        }, function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").hide();
+            } else {
+                $(this).children("div.hides").animate({marginRight: '-163px'}, 0, function () {
+                    $(this).hide();
+                    $(this).next("img.shows").show();
+                });
+            }
+        });
+        $("#top_btn").click(function () {
+            if (scroll == "off") return;
+            $("html,body").animate({scrollTop: 0}, 600);
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        var userid = "";
+        if (window.location.hash == '#login') {
+            if (!userid) {
+                loginpop();
+            }
+        }
+
+        if (window.location.hash == '#goole') {
+            goolepop();
+        }
+        if (window.location.hash == '#yidi') {
+            yidipop();
+        }
+        var move_moble = $.cookies.get('move_moble');
+        if (move_moble != '' && move_moble != null) {
+            $("#login_moble").val(move_moble);
+        }
+    });
+
+	
+    function loginpop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_loginbox').show();
+    }
+    function goolepop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_goolebox').show();
+    }
+    function yidipop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_yidibox').show();
+    }
+
+    function wrapClose() {
+        $('.all_mask').hide();
+        $('.all_mask_loginbox').hide();
+    }
+    function footer_login() {
+        var moble = $("#login_moble").val();
+        var mobles = $("#login_mobles").val();
+        var password = $("#login_password").val();
+        var verify = $("#login_verify").val();
+        if (moble == "" || moble == null) {
+            layer.tips('请输入手机号', '#login_moble', {tips: 2});
+            return false;
+        }
+        if (password == "" || password == null) {
+            layer.tips('请输入登录密码', '#login_password', {tips: 2});
+            return false;
+        }
+        if (verify == "" || verify == null) {
+            layer.tips('请输入验证码', '#login_verify', {tips: 2});
+            return false;
+        }
+        $.post("/login/submit.html", {
+            moble: moble,
+            mobles: mobles,
+            password: password,
+            verify: verify,
+            login_token: "",
+        }, function (data) {
+            if (data.status == 1) {
+                $.cookies.set('move_moble', moble);
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = "/";
+                }
+            } else {
+                $("#login_verify_up").click();
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+    function footer_goole() {
+        var password = $("#goole_password").val();
+        if (password == "" || password == null) {
+            layer.tips('请输入谷歌密码', '#goole_password', {tips: 2});
+            return false;
+        }
+        $.post("/login/goole.html", {
+            password: password,
+        }, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = '/';
+                }
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+    function footer_yidi() {
+        var password = $("#yidi_password").val();
+        if (password == "" || password == null) {
+            layer.tips('请输入短信验证码', '#yidi_password', {tips: 2});
+            return false;
+        }
+        $.post("/login/yidi.html", {
+            password: password,
+        }, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = '/';
+                }
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+</script>
+
+
+</body>
+
+<?php if(($_SESSION['qq3479015851_already']) == "1"): ?><script>
+		loginpop();
+	</script><?php endif; ?>
+
+
+<script>
+    $(document).ready(function () {
+        $.each($(".mv-hide"), function () {
+            eval($(this).html());
+        });
+    });
+</script>
+</html>

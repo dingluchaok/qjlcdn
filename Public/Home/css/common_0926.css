@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+*{box-sizing: border-box; }
+html, body {background:#fff; color:#333; width: 100%;margin:0px; font-size:12px;  padding:0px;font-family: Microsoft YaHei;}
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form{margin:0;} 
+a{color:#333}
+ol,ul{margin:0; padding:0;}
+table{ border-collapse: collapse; border-spacing: 0px;}
+a,a:hover,a:active{ text-decoration: none;}
+h1,h2,h3,h4,h5,h6,em,i,b,cite {font-weight: normal;font-style: normal;}
+li,ul,ol{list-style-type:none;}
+h1{margin:10px 0 0;}
+a{text-decoration: none;color:#333}
+input{border: 0;background-color: transparent;outline:none; font-family:'Microsoft YaHei';}
+select{border:1px solid #ddd;min-height:30px;font-family: Microsoft YaHei;}
+img{border: 0;}
+textarea{outline:none;border:1px solid #ccc;resize:none;padding:5px 10px;font-family: Microsoft YaHei;}
+table{border-collapse: collapse; width:100%;font-size:12px }
+table th{ font-weight:500}
+input[type=submit],input[type=button]{cursor:pointer}
+/*功能类*/
+.fl{float: left;}
+.fr{float: right;}
+/*限制文本,超出着变为省略号*/
+.text-ellipsis{overflow: hidden;white-space: nowrap;  /*超出不换行*/ text-overflow: ellipsis; width:300px;}
+/*清除浮动*/
+.cf:before,.cf:after {content:"";display:block;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+
+/*实用类*/
+.w1200{ width:1200px; margin:0px auto;}
+/*.fl{ float:left !important; }
+.fr{ float:right !important; }*/
+.textl{ text-align:left !important; }
+.textr{ text-align:right !important; }
+.tc{ text-align:center; }
+.over_hide{ overflow:hidden;}
+/*颜色*/
+.colfff{color: #fff!important;}
+.col333{color: #333!important;}
+.col666{color: #666!important;}
+.col999{color: #999!important;}
+/** iconfont CSS样式 **/
+
+
+/** iconfont CSSæ ·å¼ **/
+@font-face {font-family: 'iconfont';
+    src: url('../iconfont/iconfont.eot'); /* IE9*/  
+    src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../iconfont/iconfont.woff') format('woff'), /* chromeã€firefox */
+    url('../iconfont/iconfont.ttf') format('truetype'), /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+*/
+    url('../iconfont/iconfont.svg#uxiconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  /*-webkit-text-stroke-width: 0.2px;*/
+  -moz-osx-font-smoothing: grayscale;
+}
+/** iconfont CSSæ ·å¼ **/
+@font-face {font-family: 'iconfont1';
+    src: url('../iconfont1/iconfont.eot'); /* IE9*/  
+    src: url('../iconfont1/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../iconfont1/iconfont.woff') format('woff'), /* chromeã€firefox */
+    url('../iconfont1/iconfont.ttf') format('truetype'), /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+*/
+    url('../iconfont1/iconfont.svg#uxiconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont1{
+    font-family:'iconfont1' !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;    vertical-align: middle;}
+/** iconfont CSSæ ·å¼ end **/

@@ -1,0 +1,1420 @@
+<?php if (!defined('THINK_PATH')) exit();?>﻿
+<!doctype html>
+<html>
+<head>
+    <title><?php echo C('web_title');?></title>
+    <meta name="baidu-site-verification" content="fSe63OgmrU" />
+    <meta name="AizhanSEO" content="4442b2d3e2f5d49f1dddc2bc9507f215">
+    <meta name="keywords" content="比特币,比特币行情,以太币,以太币行情,以太币交易网,以太币兑换,ZB,莱特币,比特币交易网,莱特币交易网,比特币兑换,莱特币兑换,比特币手机客户端,莱特币手机客户端,比特币P2P借贷,莱特币P2P借贷,买比特币,卖比特币,比特币,莱特币,比特币手机客户端,手机APP,bitcoin,btc,litecoin,ltc,ethereum,eth,etc,以太币价格,以太币,以太坊,以太坊价格,以太币交易 ,以太坊交易" />
+    <meta name="description" content="专业可信赖的数字资产交易网，提供BTC比特币/LTC莱特币/ETH/ETC交易信息，多重技术安全防护创造金融级别比特币交易网，保障比特币交易安全。平台运营3年多零安全事故，比特币交易免手续费，快速充值提现，7*24小时客户服务支撑，用心服务每一刻。" />
+    <script src="/Public/Home/index/z/js/vue.min.js" charset="UTF-8"></script>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no" name="format-detection">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="author" content="ZB.COM">
+<meta name="copyright"  content="Copyright &copy;BCXSS.COM 版权所有">
+<meta name="revisit-after"  content="1 days">
+
+
+<link rel="stylesheet" href="/Public/Home/index/z/css/module.base.css">
+<link rel="stylesheet" href="/Public/Home/index/z/css/module.common.css">
+
+
+
+<script src="/Public/Home/index/z/js/module.base.js" charset="UTF-8"></script>
+<script src="/Public/Home/index/z/js/module.lang.js" charset="UTF-8"></script>
+<script src="/Public/Home/index/z/js/sea.js" charset="UTF-8"></script>
+<script src="/Public/Home/index/z/js/sea.config.js" charset="UTF-8"></script>
+
+<link href="/Public/Home/index/z/css/font-awesome.min.css" rel="stylesheet">
+<link href="/Public/Home/index/z/css/font_48446_kgibqtgug9o1or.css" rel="stylesheet">
+
+
+    <!-- Animate -->
+ 
+    <!-- Bootstrap  -->
+<link rel="stylesheet" href="/Public/Home/index/e/css/bootstrap.css">
+	
+<link rel="stylesheet" href="/Public/Home/index/e/css/newpublic.css">	
+<link href="css/coincommon_v2.css" rel="stylesheet" type="text/css" media="screen, projection"/>
+<link type="text/css" rel="stylesheet" href="css/reset.css"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="stylesheet" href="/qq3479015851/css/font-awesome.min.css">
+<link rel="stylesheet" href="/qq3479015851/css/style.css" id="theme"/>
+<link rel="stylesheet" href="/qq3479015851/css/common.css"/>
+<script type="text/javascript" src="/qq3479015851/js/jquery.min.js"></script>
+<script type="text/javascript" src="/qq3479015851/js/jquery.cookies.2.2.0.js"></script>
+<script type="text/javascript" src="/qq3479015851/js/layer.js"></script>
+<script type="text/javascript" src="/qq3479015851/js/posfixed.js"></script>
+<script type="text/javascript" src="/qq3479015851/js/dot.min.js"></script>
+<link rel="stylesheet" href="/qq3479015851/css/slider.css">
+<script type="text/javascript" src="/qq3479015851/js/slider.js"></script>	
+
+
+   <script>
+        //首次登录
+        var token = getQueryVariable("token");
+        if (token) {
+            localStorage.token = token;
+        }
+    </script>
+    <script src="/Public/Home/index/z/js/ifvisible.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="/Public/Home/index/z/css/home.css">
+ 
+</head>
+
+<body >
+<script type="text/javascript">
+    $(function(){
+        $.getJSON("/getPubTag?d="+new Date().getTime(),  function(json) {
+            $('input[name="pubTag"]').val(json.datas.pubTag);
+        });
+    });
+    // 10分钟不操作页面自动刷新一次，防止页面变卡
+/*     var interval = 60 * 10;
+    ifvisible.setIdleDuration(interval);
+    ifvisible.idle(function(){
+        window.location.reload();
+    }); */
+    setTimeout(function(){
+    	window.location.reload();
+    },1000*60*30)
+    
+</script>
+<div class="bk-body" >
+    <!-- Common TopMenu Begin -->
+<link href="/Public/Home/index/z/css/toastr.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/Public/Home/index/z/css/font_765706_zucv7wl2igd.css"/>
+<script src="/Public/Home/index/z/js/toastr.js"></script>
+<script src="/Public/Home/index/z/js/echo.min.js"></script>
+
+
+<style>
+    .h-introduce img{
+        width: 100px !important;
+    }
+    #zbCarousel{
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
+    }
+    #ctc_box{
+        display: none !important;
+    }
+.subbody .isSubUser { display:none; }
+.tab-group .tab-item{
+    width: 33.3333333333333333%;
+}
+.tab-group .tab-item a{
+    padding: 10px 20px;
+}
+#h_import{
+    right: 90px;
+}
+.message-box{
+    display: none;
+    position: relative;
+    margin: 0 20px;
+    float: right;
+}
+.message-box i{
+    font-size: 14px;
+    margin-right: 3px;
+    color: #E71F19;
+}
+.message-box a{
+    color: #d2dae4;
+}
+.message-box span{
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 39px;
+    min-width: 16px;
+    height: 16px;
+    padding: 2px 4px;
+    line-height: 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 9px;
+    background: #E71F19;
+    text-align: center;
+}
+.subbody .isSubUser { display:none; }
+#h_import{
+    right: 90px;
+}
+.message-box{
+    position: relative;
+    margin: 0 20px;
+    float: right;
+}
+.message-box i{
+    font-size: 14px;
+    margin-right: 3px;
+    color: #E71F19;
+}
+.message-box a{
+    color: #d2dae4;
+}
+.message-box span{
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 39px;
+    min-width: 16px;
+    height: 16px;
+    padding: 2px 4px;
+    line-height: 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 9px;
+    background: #E71F19;
+    text-align: center;
+}
+    .subbody .isSubUser { display:none; }
+    #h_import{
+        right: 105px;
+    }
+    .message-box{
+        position: relative;
+        padding: 0 20px 0 15px;
+        float: right;
+        margin-right: 10px;
+    }
+    .message-box:hover{
+        background: #fff;
+    }
+    .message-box:hover a{
+        color: #000;
+    }
+    .message-box i{
+        font-size: 14px;
+        margin-right: 3px;
+        color: #E71F19;
+    }
+    .message-box a{
+        color: #d2dae4;
+        text-decoration: none;
+    }
+    .message-box span{
+        display: none;
+        position: absolute;
+        top: 6px;
+        left: 58px;
+        min-width: 8px;
+        height: 8px;
+        padding: 2px 4px;
+        line-height: 12px;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 9px;
+        background: #E71F19;
+        text-align: center;
+    }
+    .message-box:hover .msg-list-box{
+        display: block;
+    }
+    .msg-list-box{
+        display: none;
+        position: absolute;
+        right: -10px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-top: 0;
+        width: 340px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+        background: #fff;
+        z-index: 9999;
+    }
+    .msg-list-box .tips-wrapper{
+        display: none;
+        padding: 50px 0;
+    }
+    .msg-list-box .tips-wrapper .tips-body{
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+    }
+    .msg-list-box .tips-wrapper .tips-body i{
+        color: #808080;
+        font-size: 42px;
+    }
+    .msg-list-box .tips-wrapper .tips-text{
+        margin: 0;
+    }
+    .msg-list-box .msg-hd{
+        border-bottom: 1px solid #EFEFEF;
+        line-height: 40px;
+    }
+    .msg-list-box .msg-hd .title{
+        padding: 0 20px;
+        position: relative;
+        color: #000;
+        font-size: 14px;
+        float: left;
+        cursor: pointer;
+        text-decoration: none;
+        width:50%;
+    }
+    .msg-list-box .msg-hd .title.selected{
+        font-weight: 600;
+    }
+    .msg-list-box .msg-hd .title.selected:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        border: 1px solid #E71F19;
+    }
+    .msg-list-box .msg-hd .read{
+        color: #BBBBBB;
+        float: right;
+    }
+    .msg-list-box .msg-md{
+        display: none;
+    }
+    .msg-list-box .msg-md.selected{
+        display: block;
+    }
+    .msg-notify{
+        text-align: left;
+        font-size: 12px;
+        min-height: 200px;
+    }
+    .msg-notify li{
+        display: block!important;
+        position: relative;
+        padding: 10px 20px 10px 30px;
+        border-bottom: 1px solid #EFEFEF;
+        cursor: auto!important;
+    }
+    .msg-notify li a{
+        padding: 0!important;
+        position: static!important;
+        background: transparent!important;
+        cursor: pointer!important;
+    }
+    .msg-notify li.msg-nobody{
+        line-height: 1.5;
+        text-align: center;
+        color: #6f6f6f;
+    }
+    .msg-notify li:last-child{
+        border-bottom: 0;
+    }
+    .msg-notify li:hover{
+        background: #F4F7FB;
+    }
+    .msg-notify.notices li.news .readed{
+        color: #FBB34A;
+        font-size: 18px;
+    }
+    .msg-notify li p{
+        margin: 0;
+        line-height: 1.5;
+    }
+    .msg-notify li .title{
+        color: #000;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+    .msg-notify li .times{
+        color: #BBBBBB;
+    }
+    .msg-notify li .readed{
+        position: absolute;
+        left: 7px;
+        color: #cacaca;
+        line-height: 1;
+    }
+    .msg-notify li.news .readed{
+        color: #FF0F00;
+    }
+    .msg-more{
+        border-top: 1px solid #EFEFEF;
+        margin: 0;
+        color: #000;
+        text-align: center;
+        line-height: 40px;
+    }
+    .msg-more a{
+        color: #000;
+    }
+    .tips-wrapper{
+        margin: 0 auto;
+        width: 180px;
+        padding: 150px 0;
+    }
+    .tips-wrapper .tips-body{
+        margin: 0 auto;
+        width: 180px;
+        height: 180px;
+        line-height: 180px;
+        border-radius: 50%;
+        background: #F4F4F4;
+        color: #DFDFDF;
+    }
+    .tips-wrapper .tips-body i{
+        font-size: 96px;
+    }
+    .tips-wrapper .tips-text{
+        font-size: 14px;
+        color: #000;
+        margin-top: 15px;
+    }
+</style>
+
+
+
+<script type="text/javascript" src="/Public/Home/index/z/js/note.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/Public/Home/index/z/js/sxb.js" charset="UTF-8"></script>
+
+
+
+<header class="navbar navbar-static-top bk-nav navbar-black">
+    <div class="bk-toolBar clearfix">
+
+        <div class="container">
+            <!-- <ul class="pull-left" id="topMenuNav">
+                <li><a href="http://token.voto"  ><i class="fa fa-cube fa-fw"></i>TOKEN生态<span class="badge"></span></a></li>
+                <li><a href="http://token.voto"  ><i class="fa fa-handshake-o"></i>TOKEN合伙人<span class="badge"></span></a></li>
+                <li><a href="http://token.voto"  ><i class="fa fa-podcast"></i>投票上币<span class="badge"></span></a></li>
+                <li><a href="http://token.voto"  ><i class="fa fa-diamond fa-fw"></i>持币分红<span class="badge"></span></a></li>
+                <li><a href="http://token.voto" target="_blank"  ><i class="fa fa-globe fa-fw"></i>TOKEN.VOTO<span class="badge"></span></a></li>
+                </ul> -->
+           
+            <a href="/" style="float: left;"><img width="80" src="/Public/Home/index/z/picture/logo2018.png" alt="ZB" /></a>
+			
+            <div class="message-box" id="messageBox">
+                <a href="/Article/index/id/19.html" target="_self"><i class="fa fa-bell"></i>官方公告x<span id="messageNum"></span></a>
+               
+            </div>
+			
+			<div class="top-right fr">
+			
+            <span class="login-box mr-15">
+                <?php if(($_SESSION['userId']) > "0"): ?><a href="Finance/index"><span id="btcname"> 您好：</span><?php echo (session('userName')); ?></a>
+	                <a rel="nofollow" href="<?php echo U('Login/loginout');?>"><span class="i18n" name="quit_I18n">退出</span> </a>
+                <?php else: ?>
+	            	 <a href="javascript:loginpop();" ><font  size="1.9px" class="btns4">登录</font></a>&nbsp  
+	           		 <a href="<?php echo U('Login/register');?>" ><font  size="1.9px" class="btns3" >注册</font></a><?php endif; ?>
+            </span>
+            </div>
+			
+			
+			
+        </div>
+
+
+        </div>
+
+  <BR/>  <BR/>   <BR/>   <BR/>   <BR/>   
+		   
+<div id="fh5co-header" class="index_top">
+    <div class="container">
+	 <BR/>   
+	  
+        <div style="display: none;" class="navbar-header">
+                <a class="navbar-brand bk-nav-logo" href="http://token.voto" title="TOKEN.VOTO"><img src="/Public/Home/index/z/picture/logo2018.png" alt="ZB" /></a>
+        </div>
+        <nav id="fh5co-main-nav" class="fl">
+            <ul>
+                <li class="active" id ="index_menu">
+                	<a class="one i18n-input i18n"  title="首页" href="index.html"> 首页</a>
+                </li>
+	
+				
+				<?php if(is_array($daohang)): $i = 0; $__LIST__ = $daohang;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li id="<?php echo ($vo['name']); ?>_box">
+						<a href="/<?php echo ($vo['url']); ?>"><?php echo ($vo['title']); ?></a>
+					</li><?php endforeach; endif; else: echo "" ;endif; ?>
+                <li class="" id ="index_menu">
+                	<a href="#" class="one i18n-input i18n"   style="color:#f00 !important;" title="" href="#"> </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+		   
+
+	
+</header>
+
+
+
+    <!-- Common TopMenu End -->
+    <!-- Body From mainPage Begin -->
+  
+    <input type="hidden" name="pubTag" value=""/>
+
+
+    <div style="display: none;" class="homesroll">
+        <div class="bd">
+            <ul>
+
+				
+				<li><a href="http://token.voto" ><img src="/Public/Home/index/z/picture/h-sban-brc.jpg"></a></li>
+				 
+                <li><a href="http://token.voto" ><img src="/Public/Home/index/z/picture/h-sban-xtz.jpg"></a></li>
+				<li><a href="http://token.voto" ><img src="/Public/Home/index/z/picture/h-sban-quest.jpg"></a></li>
+				<li><a href="http://token.voto" ><img src="/Public/Home/index/z/picture/h-sban-paxon.jpg"></a></li>
+				
+            </ul>
+        </div>   
+
+    </div>
+
+    <script type="text/javascript">
+        jQuery(".homesroll").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",interTime:"5000",autoPlay:true,vis:5,trigger:"click"});
+    </script>
+
+
+    <div id="home-app">
+
+        <div id="zbCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+
+            <h1 style="font-size: 50px;color: #fff;text-align: center;padding-top: 150px;margin-bottom: 50px;">CoinCool trading platform</h1>
+            <p style="font-size: 24px;color: #fff;text-align: center;margin-bottom: -50px;">For startups, For businesses & For you</p>
+            <div class="carousel-inner" style="height: 300px;">
+                <div class="item active">
+                    <div class="homebannerList tech">
+                        <div class="clienth_activity_banner">
+                            <div class="clienth_activity_banner_title">
+                                <div class="clienth_activity_banner_text">
+                                    <a href="#" target="_blank" ><img src="/Public/Home/index/z/picture/pi-1.png" style="width:200px; margin-top:10px; margin-right:0px;  margin-bottom:0px;" /></a>
+                                    <a href="#" target="_blank" ><img src="/Public/Home/index/z/picture/pi-2.png" style="width:200px; margin-top:10px; margin-right:0px;  margin-bottom:0px;" /></a>
+                                    <a href="#" target="_blank" ><img src="/Public/Home/index/z/picture/pi-3.png" style="width:200px; margin-top:10px; margin-right:0px;  margin-bottom:0px;" /></a>
+                                    <a href="#" target="_blank" ><img src="/Public/Home/index/z/picture/pi-4.png" style="width:200px; margin-top:10px; margin-right:0px;  margin-bottom:0px;" /></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+ 
+
+        </div>
+     </div>
+ </div>	
+ 
+ 
+  
+	<!--       交易区    -->
+	
+	 <div class="bg-white">
+        <div class="container">
+            <div class="row account fh5co-product mt-60 mb-70">
+                <div class="col-xs-12 rbox" style="width: 100%; padding:0">
+                    <div class="friend mt-10 mb-50">
+                        <div class="bg-white">
+                            <div id="tagContent" class="tagContent">
+
+
+       									<style type="text/css">
+       										.tradeBox{width: 1200px;margin: 0 auto;   background: #FFF;}
+       										.tradeBox .slideHd{width: 1200px;margin: 0 auto;background: #FFF;}
+       										.tradeBox .slideHd .active{height: 40px;line-height: 40px;}
+       										.tradeBox .slideHd ul{background: #FFF;}
+       									</style>
+										<div class="tradeBox hg40">
+											<div class="slideHd hg40">
+												<ul class="active hg40  trade_qu_list">
+													<?php if(is_array($mollymobi_jiaoyiqu)): $i = 0; $__LIST__ = $mollymobi_jiaoyiqu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><li  class="trade_moshi trade_qu_pai   
+														<?php if(($key) == "0"): ?>current<?php endif; ?>
+														" data="<?php echo ($key); ?>" onclick="trade_qu(this)">
+														<a> <?php echo ($v); ?> </a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+												</ul>
+											</div>
+										</div>
+										
+
+       									<style type="text/css">
+       										.tagContent .price_today{background: #F4F4F4;}
+       										.tagContent .price_today li{color: #777;}
+       									</style>
+										<div class="price_today">
+											<div class="autobox">
+												<ul class="price_today_ull">
+													<li data-sort="0" style="cursor: default;">交易市场</li>
+													<li class="click-sort" data-sort="1" data-flaglist="0" data-toggle="0">最新成交价 <i
+															class="cagret cagret-down"></i> <i class="cagret cagret-up"></i>
+													</li>
+													<li class="click-sort" data-sort="2" data-flaglist="0" data-toggle="0">买一价 <i
+															class="cagret cagret-down"></i> <i class="cagret cagret-up"></i>
+													</li>
+													<li class="click-sort" data-sort="3" data-flaglist="0" data-toggle="0">卖一价 <i
+															class="cagret cagret-down"></i> <i class="cagret cagret-up"></i>
+													</li>
+													<li class="click-sort" data-sort="6" data-flaglist="0" data-toggle="0">24H成交量 <i
+															class="cagret cagret-down"></i> <i class="cagret cagret-up"></i>
+													</li>
+													<li class="click-sort" data-sort="4" data-flaglist="0" data-toggle="0">24H成交额				
+													<i class="cagret cagret-down"></i> <i class="cagret cagret-up"></i>
+													</li>
+													<li class="click-sort" data-sort="7" data-flaglist="0" data-toggle="0">24H涨跌 <i
+															class="cagret cagret-down"></i> <i class="cagret cagret-up"></i>
+													</li>
+													<li  data-sort="0">价格趋势(3日)</li>
+													<li data-sort="0" style="width: 150px; text-align: center; text-indent: 0.5em;">操作</li>
+												</ul>
+											</div>
+										</div>
+										
+										<ul class="price_today_ul" id="price_today_ul" style="margin: 0px auto; width: 1200px; border: 1px solid #EEEeee; background: #FFF; box-shadow: 0px 0px 0px #E0E1E3;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   </div>
+ </div>
+	
+
+		
+		
+        <div class="h-introduce">
+            <div class="container">
+                <div class="list col-sm-4">
+                    <div class="pic-show"><img src="/Public/Home/index/z/picture/home-n-pic1.png"></div>
+                    <h4>币币交易</h4>
+                    <p>多币种支持，高流动性<br/>高性能撮合交易</p>
+                </div>
+                <div class="list col-sm-4">
+                    <div class="pic-show"><img src="/Public/Home/index/z/picture/home-n-pic2.png"></div>
+                    <h4>场外交易</h4>
+                    <p>支持多种法币交易<br/>平台担保、快速安全</p>
+                </div>
+                <div class="list col-sm-4">
+                    <div class="pic-show"><img src="/Public/Home/index/z/picture/home-n-pic3.png"></div>
+                    <h4>系统安全</h4>
+                    <p>多层、多集群系统架构<br/>安全稳定运营超过4年</p>
+                </div>
+                 
+            </div>
+        </div>
+
+
+
+ 
+    
+        <!-- Body From mainPage End -->
+		
+		
+  <footer class="bk-footer sm-text-left">
+    <div class="bk-footer-hd">
+      <div class="container">
+      
+        <div class="row">
+          <div class="col-xs-3" style="display: none;">
+            <div class="bk-footer-contact">
+              <h5 style="display: none;"><a href="#" target="_self"><img src="/Upload/public/<?php echo ($C['web_logo']); ?>" alt="" style="height:48px;width:auto;margin-bottom:20px;"/></a></h5>
+              <p class="sns">
+              	<a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Facebook" ><i class="fa fa-facebook"></i></a>
+                <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Twitter"><i class="fa fa-twitter"></i></a>
+                 <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="BeeCHAT"><i class="fa icon-f-BeeCHAT"></i></a>
+                  <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Telegram"><i class="fa icon-f-Telegram"></i></a>
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-xs-12">
+          	<div class="row">
+          		<div class="col-xs-3">
+		            <div class="bk-footer-contact">
+		              <h5>下载支持</h5>
+		              <p class="link"><a href="#" target="_blank">API文档</a></p>
+		              <p class="link"><a href="#" target="_blank">APP下载</a></p>
+		              <p class="link"><a href="#" target="_blank">其它下载</a></p>
+		            </div>
+		          </div>
+		          <div class="col-xs-3">
+		            <div class="bk-footer-contact">
+		              <h5>客户服务</h5>
+		              <p class="link"><a href="#" target="_blank">使用教程</a></p>
+		              <p class="link"><a href="#" target="_blank">常见问题</a></p>
+		              <p class="link"><a href="#" target="_blank">服务协议</a></p>
+		             
+		            </div>
+		          </div>
+		          
+		           <div class="col-xs-3">
+		            <div class="bk-footer-contact">
+		              <h5>投票上币</h5>
+		              	<p class="link"><a href="/Article/index/id/19.html" target="_blank">我要投票</a></p>
+		                
+		                	<p class="link isSubUser"><a href="/Article/index/id/19.html" target="_blank">上币申请</a></p>
+		                			                			               
+		                <p class="link isSubUser"><a href="#" target="_blank">节点列表</a></p>
+		            </div>
+		          </div>
+		          
+		           <div class="col-xs-3">
+		            <div class="bk-footer-contact">
+		              <h5>其它</h5>
+		              	<p class="link"><a href="/Article/index/id/19.html" target="_blank">官方公告</a></p>
+		              	<p class="link isSubUser"><a href="#" target="_blank">做市商计划</a></p>                       
+                        <p class="link" id="surveyshow"><a href="#" target="_blank">调查问卷</a></p>
+		            </div>
+		          </div>
+          	
+          	</div>
+          </div>
+          
+          <div class="col-xs-3" style="display: none;">
+            <div class="bk-footer-contact">
+              <h5>联系我们</h5>
+              
+               <p class="contlink">服务邮箱：<a href="mail:support@bcxss.com" target="_self">support@bcxss.com</a></p>             
+               <p class="contlink">业务邮箱：<a href="mail:admin@bcxss.com" target="_self">info@bcxss.com</a></p>
+               <p class="contlink">投诉建议：<a href="mail:admin@bcxss.com" target="_self">admin@bcxss.com</a></p>
+               
+					
+            </div>
+          </div>
+        </div>
+        
+        <div  class="row footlinks">
+        	<div  class="col-xs-12">
+                <b>合作伙伴</b>
+				       
+                    
+                        <a href="https://www.btc123.com/" target="_blank"><img src="/Public/Home/index/z/picture/btc123.png"></a>
+                    
+                        <a href="http://www.bitkan.com/" target="_blank"><img src="/Public/Home/index/z/picture/bitkan.png"></a>
+                    
+                        <a href="http://8btc.com/" target="_blank"><img src="/Public/Home/index/z/picture/8btc.png"></a>
+                    
+                        <a href="http://www.etc.tm/" target="_blank"><img src="/Public/Home/index/z/picture/etc.png"></a>
+                    
+                        <a style="display: none;" href="http://ethfans.org/" target="_blank"><img src="/Public/Home/index/z/picture/ethfans.png"></a>
+                    
+                        <a href="https://www.aicoin.com/" target="_blank"><img src="/Public/Home/index/z/picture/aicoin.png"></a>
+                    
+                        <a  href="https://www.botvs.com/" target="_blank"><img src="/Public/Home/index/z/picture/botvs.png"></a>
+                    
+                        <a style="display: none;" href="http://www.jinse.com/" target="_blank"><img src="/Public/Home/index/z/picture/jinse.png"></a>
+                    
+                        <a style="display: none;" href="https://www.coldlar.com" target="_blank"><img src="/Public/Home/index/z/picture/coldlar.png"></a>
+                    
+                        <a style="display: none;" href="http://chainfor.com/" target="_blank"><img src="/Public/Home/index/z/picture/chainfor.png"></a>
+                    
+                        <a style="display: none;" href="http://www.feixiaohao.com/" target="_blank"><img src="/Public/Home/index/z/picture/feixiaohao.png"></a>
+                    
+                        <a style="display: none;" href="https://www.kg.com" target="_blank"><img src="/Public/Home/index/z/picture/qianke.png"></a>
+                    
+                        <a style="display: none;" href="https://anybit.io/" target="_blank"><img src="/Public/Home/index/z/picture/anybitlogo.png"></a>
+                    
+                        <a style="display: none;" href="https://www.chainhoo.com" target="_blank"><img src="/Public/Home/index/z/picture/chainhoo.png"></a>
+                    
+                        <a style="display: none;" href="https://www.hyperpay.tech/?lang=zh-cn" target="_blank"><img src="/Public/Home/index/z/picture/hpy.png"></a>
+                    
+                        <a style="display: none;" href="https://www.coindy.com/" target="_blank"><img src="/Public/Home/index/z/picture/coindy.png"></a>
+						
+						
+						
+						
+						
+						
+                    
+                
+        	</div>
+        </div>
+        
+        <div class="row">
+            
+          <div class="col-xs-12" style="padding-bottom:20px;">
+            
+            
+            <div class="bk-footer-menu text-left">
+                <div class="bk-footer-contact">
+                <p style="position: absolute;top:0;color: #97999E;font-size: 12px;right: 225px;top:-70px;width: 270px;">币库网数字货币交易所成立于2009年，专注于公链数字货币的去中心化交易。</p>
+                <p class="sns" style="position: absolute;width: 200px;top: 0;right: 300px;">
+                    <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Facebook" ><i class="fa fa-facebook"></i></a>
+                  <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Twitter"><i class="fa fa-twitter"></i></a>
+                   <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="BeeCHAT"><i class="fa icon-f-BeeCHAT"></i></a>
+                    <a href="#" target="_blank" role="button" data-toggle="popover" data-placement="top" data-html="true" data-trigger="hover" data-content="Telegram"><i class="fa icon-f-Telegram"></i></a>
+                </p>
+                </div>
+
+            	<p class="footlang pull-right" style="margin-top:-10px; position:absolute; right:0; top:10px;display: none;">
+              	<a class="btncn" href="javascript:zb.setLan('cn');" title="中文"></a>
+              	<a class="btnen" href="javascript:zb.setLan('en');" title="English"></a>
+              	<a class="btnar" href="javascript:zb.setLan('ar');" title="العربية"></a>
+              	<a class="btnja" href="javascript:zb.setLan('ja');" title="日本語"></a>
+              	<a class="btnko" href="javascript:zb.setLan('ko');" title="한국어"></a>
+              	<a class="btnth" href="javascript:zb.setLan('th');" title="ภาษาไทย"></a>
+              </p>
+              
+              
+              <div class="copytitle">
+              	<span>CoinCool.CC & TECHNOLOGY </span>
+              </div>
+              
+              <div class="copyright">
+              	Copyright © <script>document.write(new Date().getFullYear());</script> - CoinCool All Rights Reserved
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+
+
+
+
+        <!-- Common FootMain End -->
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    <script type="text/javascript" src="/Public/Home/index/z/js/index.js"></script>
+    <script type="text/javascript" src="/Public/Home/index/z/js/baidupush.js"></script>
+
+ </div>
+
+
+
+
+<link rel="stylesheet" href="/Public/Home/index/e/css/style.css" id="theme"/>
+<link rel="stylesheet" href="/Public/Home/index/e/css/common.css"/>
+<script type="text/javascript" src="/mollymobi/js/jquery.cookies.2.2.0.js"></script>
+<script type="text/javascript" src="/mollymobi/js/layer.js"></script>
+
+
+<script src="/mollymobi/js/jquery.flot.js"></script>
+
+<script>
+	$('.price_today_ull > .click-sort').each(function () {
+		$(this).click(function () {
+			click_sortList(this);
+		})
+	})
+	function allcoin_callback(priceTmp) {
+		for (var i in priceTmp) {
+			var c = priceTmp[i][8];
+			if (typeof (trends[c]['data']) && typeof (trends[c]['data']) != 'null') {
+				if (typeof (trends[c]) != 'undefined' && typeof (trends[c]['data']) != 'undefined') {
+					$.plot($("#" + c + "_plot"), [{shadowSize: 0, data: trends[c]['data']}], {
+						grid: {borderWidth: 0},
+						xaxis: {mode: "time", ticks: false},
+						yaxis: {tickDecimals: 0, ticks: false},
+						colors: ['#05BDC7']
+					});
+				}
+			}
+		}
+	}
+	function click_sortList(sortdata) {
+		var a = $(sortdata).attr('data-toggle');
+		var b = $(sortdata).attr('data-sort');
+		$(".price_today_ull > li").find('.cagret-up').css('border-bottom-color', '#848484');
+		$(".price_today_ull > li").find('.cagret-down').css('border-top-color', '#848484');
+		$(".price_today_ull > li").attr('data-flaglist', 0).attr('data-toggle', 0);
+		$(".price_today_ull > li").css('color', '');
+		$(sortdata).css('color', '#1a81d6');
+		if (a == 0) {
+			priceTmp = priceTmp.sort(sortcoinList('dec', b));
+			$(sortdata).find('.cagret-down').css('border-top-color', '#1a81d6');
+			$(sortdata).find('.cagret-up').css('border-bottom-color', '#848484');
+			$(sortdata).attr('data-flaglist', 1).attr('data-toggle', 1)
+		}
+		else if (a == 1) {
+			$(sortdata).attr('data-toggle', 0).attr('data-flaglist', 2);
+			$(sortdata).find('.cagret-up').css('border-bottom-color', '#1a81d6');
+			$(sortdata).find('.cagret-down').css('border-top-color', '#848484');
+			priceTmp = priceTmp.sort(sortcoinList('asc', b));
+		}
+		renderPage(priceTmp);
+		change_line_bg('price_today_ul', 'li');
+		allcoin_callback(priceTmp);
+	}
+	function trends() {
+		$.getJSON('/ajax/index_b_trends?t=' + rd(), function (d) {
+			trends = d;
+			allcoin();
+		});
+	}
+	function allcoin(cb) {
+		var trade_qu_id = $('.trade_qu_list .current').attr('data');
+		$.get('/ajax/allcoin_a/id/' + trade_qu_id + '?t=' + rd(), cb ? cb : function (data) {
+			var d;
+			if (data.status == 1) {
+				d = data.url;
+			}
+			ALLCOIN  = d;
+			var t    = 0;
+			var img  = '';
+			priceTmp = [];
+			for (var x in d) {
+				if (typeof(trends[x]) != 'undefined' && parseFloat(trends[x]['yprice']) > 0) {
+					rise1 = (((parseFloat(d[x][4]) + parseFloat(d[x][5])) / 2 - parseFloat(trends[x]['yprice'])) * 100) / parseFloat(trends[x]['yprice']);
+					rise1 = rise1.toFixed(2);
+				} else {
+					rise1 = 0;
+				}
+				img = d[x].pop();
+				d[x].push(rise1);
+				d[x].push(x);
+				d[x].push(img);
+				priceTmp.push(d[x]);
+			}
+			$('.price_today_ull > .click-sort').each(function () {
+				var listId = $(this).attr('data-sort');
+				if ($(this).attr('data-flaglist') == 1 && $(this).attr('data-sort') !== 0) {
+					priceTmp = priceTmp.sort(sortcoinList('dec', listId))
+				} else if ($(this).attr('data-flaglist') == 2 && $(this).attr('data-sort') !== 0) {
+					priceTmp = priceTmp.sort(sortcoinList('asc', listId))
+				}
+			});
+			renderPage(priceTmp);
+			allcoin_callback(priceTmp);
+			change_line_bg('price_today_ul', 'li');
+			t = setTimeout('allcoin()', 5000);
+		}, 'json');
+	}
+	function rd() {
+		return Math.random()
+	}
+	
+	
+	
+	function renderPage(ary) {
+        var html = '';
+        var trade_qu_id = $('.trade_qu_list .current').attr('data');
+
+        if(trade_qu_id == '0'){
+            symbolPre = '$';
+            money = '¥';
+        }
+
+        if(trade_qu_id == '1'){
+            symbolPre = '€';
+        }
+
+        if(trade_qu_id == '2'){
+            symbolPre = '฿';
+        }
+
+        if(trade_qu_id == '3'){
+            symbolPre = '¥';
+        }
+
+
+        for (var i in ary) {
+            var coinfinance = 0;
+
+            var a=ary[i][3];
+
+            var b=6.87;
+
+            var ab=a*b;
+
+            var abstr=ab.toFixed(6);
+
+            if (typeof FINANCE == 'object') coinfinance = parseFloat(FINANCE.data[ary[i][8] + '_balance']);
+            html += '<li><dl class="autobox clear"><dt><a href="/trade/index/market/' + ary[i][8] + '/">' +
+                '<img style="display:none" src="/Upload/coin/' + ary[i][9] + '" style="vertical-align: middle;margin-right: 5px;width: 28px;margin-left: 2px;">' + ary[i][0] + '</a></dt><dd class="orange" style="width:180px;margin-left:-35px;">' + symbolPre + ary[i][1] +'<span style="color:#9999a5;font-family:Arial; ">'+''+''+'</span>' +'</dd><dd style="">' + symbolPre + ary[i][2] + '</dd><dd style="">' + symbolPre + ary[i][3] + '</dd><dd class="w142" style=" ">' + formatCount(ary[i][6]) + '</dd><dd class="w142" style="text-indent: 2.5rem;">' + symbolPre + formatCount(ary[i][4]) + '</dd><dd class="w142 ' + (ary[i][7] >= 0 ? 'buy' : 'sell') + '" style="">' + (parseFloat(ary[i][7]) < 0 ? '' : '+') + ((parseFloat(ary[i][7]) < 0.01 && parseFloat(ary[i][7]) > -0.01) ? "0.00" : (parseFloat(ary[i][7])).toFixed(2)) + '%</dd><dd id="' + ary[i][8] + '_plot"  style="width:150px;height:35px;"></dd><dd class="w102" style="width:150px;text-align: center;text-indent: 0.5em;"><input type="button" value=去交易 class="btns2" onclick="top.location=\'/trade/index/market/' + ary[i][8] + '/\'" /></dd></dl></li>'
+        }
+        $('#price_today_ul').html(html);
+    }
+
+
+
+
+	function formatCount(count) {
+		var countokuu = (count / 100000000).toFixed(3)
+		var countwan  = (count / 10000).toFixed(3)
+		if (count > 100000000)
+			return countokuu.substring(0, countokuu.lastIndexOf('.') + 3) + '亿'
+		if (count > 10000)
+			return countwan.substring(0, countwan.lastIndexOf('.') + 3) + '万'
+		else
+			return count
+	}
+	function change_line_bg(id, tag, nobg) {
+		var oCoin_list = $('#' + id);
+		var oC_li      = oCoin_list.find(tag);
+		var oInp       = oCoin_list.find('input');
+		var oldCol     = null;
+		var newCol     = null;
+		if (!nobg) {
+			for (var i = 0; i < oC_li.length; i++) {
+				oC_li.eq(i).css('background-color', i % 2 ? '#f8f8f8' : '#fff');
+			}
+		}
+		oCoin_list.find(tag).hover(function () {
+			oldCol = $(this).css('backgroundColor');
+			$(this).css('background-color', '#eaedf4');
+		}, function () {
+			$(this).css('background-color', oldCol);
+		})
+	}
+	function sortcoinList(order, sortBy) {
+		var ordAlpah = (order == 'asc') ? '>' : '<';
+		var sortFun  = new Function('a', 'b', 'return parseFloat(a[' + sortBy + '])' + ordAlpah + 'parseFloat(b[' + sortBy + '])? 1:-1');
+		return sortFun;
+	}
+	function trade_qu(o){
+		$('.trade_qu_pai').removeClass('current');
+		$(o).addClass('current');
+		allcoin();
+	}
+	trends();
+</script>
+
+<!--
+
+<script>
+	$('.price_today_ull > .click-sort').each(function () {
+		$(this).click(function () {
+			click_sortList(this);
+		})
+	})
+	function allcoin_callback(priceTmp) {
+		for (var i in priceTmp) {
+			var c = priceTmp[i][8];
+			if (typeof (trends[c]['data']) && typeof (trends[c]['data']) != 'null') {
+				if (typeof (trends[c]) != 'undefined' && typeof (trends[c]['data']) != 'undefined') {
+					$.plot($("#" + c + "_plot"), [{shadowSize: 0, data: trends[c]['data']}], {
+						grid: {borderWidth: 0},
+						xaxis: {mode: "time", ticks: false},
+						yaxis: {tickDecimals: 0, ticks: false},
+						colors: ['#7D94D9']
+					});
+				}
+			}
+		}
+	}
+	function click_sortList(sortdata) {
+		var a = $(sortdata).attr('data-toggle');
+		var b = $(sortdata).attr('data-sort');
+		$(".price_today_ull > li").find('.cagret-up').css('border-bottom-color', '#848484');
+		$(".price_today_ull > li").find('.cagret-down').css('border-top-color', '#848484');
+		$(".price_today_ull > li").attr('data-flaglist', 0).attr('data-toggle', 0);
+		$(".price_today_ull > li").css('color', '');
+		$(sortdata).css('color', '#1a81d6');
+		if (a == 0) {
+			priceTmp = priceTmp.sort(sortcoinList('dec', b));
+			$(sortdata).find('.cagret-down').css('border-top-color', '#1a81d6');
+			$(sortdata).find('.cagret-up').css('border-bottom-color', '#848484');
+			$(sortdata).attr('data-flaglist', 1).attr('data-toggle', 1)
+		}
+		else if (a == 1) {
+			$(sortdata).attr('data-toggle', 0).attr('data-flaglist', 2);
+			;
+			$(sortdata).find('.cagret-up').css('border-bottom-color', '#1a81d6');
+			$(sortdata).find('.cagret-down').css('border-top-color', '#848484');
+			priceTmp = priceTmp.sort(sortcoinList('asc', b));
+		}
+		renderPage(priceTmp);
+		change_line_bg('price_today_ul', 'li');
+		allcoin_callback(priceTmp);
+	}
+	function trends() {
+		$.getJSON('/ajax/index_b_trends?t=' + rd(), function (d) {
+			trends = d;
+			allcoin();
+		});
+	}
+	function allcoin(cb) {
+		var trade_qu_id = $('.trade_qu_list .current').attr('data');
+		$.get('/ajax/allcoin_a/id/' + trade_qu_id + '?t=' + rd(), cb ? cb : function (data) {
+			var d;
+			if (data.status == 1) {
+				d = data.url;
+			}
+			ALLCOIN  = d;
+			var t    = 0;
+			var img  = '';
+			priceTmp = [];
+			for (var x in d) {
+				if (typeof(trends[x]) != 'undefined' && parseFloat(trends[x]['yprice']) > 0) {
+					rise1 = (((parseFloat(d[x][4]) + parseFloat(d[x][5])) / 2 - parseFloat(trends[x]['yprice'])) * 100) / parseFloat(trends[x]['yprice']);
+					rise1 = rise1.toFixed(2);
+				} else {
+					rise1 = 0;
+				}
+				img = d[x].pop();
+				d[x].push(rise1);
+				d[x].push(x);
+				d[x].push(img);
+				priceTmp.push(d[x]);
+			}
+			$('.price_today_ull > .click-sort').each(function () {
+				var listId = $(this).attr('data-sort');
+				if ($(this).attr('data-flaglist') == 1 && $(this).attr('data-sort') !== 0) {
+					priceTmp = priceTmp.sort(sortcoinList('dec', listId))
+				} else if ($(this).attr('data-flaglist') == 2 && $(this).attr('data-sort') !== 0) {
+					priceTmp = priceTmp.sort(sortcoinList('asc', listId))
+				}
+			});
+			renderPage(priceTmp);
+			allcoin_callback(priceTmp);
+			change_line_bg('price_today_ul', 'li');
+			t = setTimeout('allcoin()', 5000);
+		}, 'json');
+	}
+	function rd() {
+		return Math.random()
+	}
+	function renderPage(ary) {
+		var html = '';
+		var trade_qu_id = $('.trade_qu_list .current').attr('data');
+		
+		if(trade_qu_id == '0'){
+			symbolPre = '$';		
+		}
+		
+				if(trade_qu_id == '1'){
+			symbolPre = '€';		
+		}
+		
+				if(trade_qu_id == '2'){
+			symbolPre = '¥';	
+		}
+		
+				if(trade_qu_id == '3'){
+			symbolPre = '₤';		
+		}
+		
+		
+		for (var i in ary) {
+			var coinfinance = 0;
+			
+	if (typeof FINANCE == 'object') coinfinance = parseFloat(FINANCE.data[ary[i][8] + '_balance']);
+			html += '<li><dl class="autobox clear"><dt><a href="/trade/index/market/' + ary[i][8] + '/">' +
+					'<img src="/Upload/coin/' + ary[i][9] + '" style="vertical-align: middle;margin-right: 5px;width: 19px;margin-left: 2px;">' + ary[i][0] + '</a></dt><dd class="orange" style="text-indent: 1.6em;">' + symbolPre + ary[i][1] + '</dd><dd   style="text-indent: 1.6rem;">' + symbolPre + ary[i][2] + '</dd><dd style="text-indent: 1.6rem;">' + symbolPre + ary[i][3] + '</dd><dd class="w142" style=" text-indent: 1.6rem;">' + formatCount(ary[i][6]) + '</dd><dd class="w142" style="    text-indent: 2.5rem;">' + symbolPre + formatCount(ary[i][4]) + '</dd><dd class="w142 ' + (ary[i][7] >= 0 ? 'buy' : 'sell') + '" style="    text-indent: 2.0rem;">' + (parseFloat(ary[i][7]) < 0 ? '' : '+') + ((parseFloat(ary[i][7]) < 0.01 && parseFloat(ary[i][7]) > -0.01) ? "0.00" : (parseFloat(ary[i][7])).toFixed(2)) + '%</dd><dd id="' + ary[i][8] + '_plot"  style="width:150px;height:35px;"></dd><dd class="w102" style="width:150px;text-align: center;text-indent: 0.5em;"><input type="button" value=去交易 class="btns2" onclick="top.location=\'/trade/index/market/' + ary[i][8] + '/\'" /></dd></dl></li>'
+		}
+		$('#price_today_ul').html(html);
+	}
+	
+	
+	
+	function formatCount(count) {
+		var countokuu = (count / 100000000).toFixed(3)
+		var countwan  = (count / 10000).toFixed(3)
+		if (count > 100000000)
+			return countokuu.substring(0, countokuu.lastIndexOf('.') + 3) + '亿'
+		if (count > 10000)
+			return countwan.substring(0, countwan.lastIndexOf('.') + 3) + '万'
+		else
+			return count
+	}
+	function change_line_bg(id, tag, nobg) {
+		var oCoin_list = $('#' + id);
+		var oC_li      = oCoin_list.find(tag);
+		var oInp       = oCoin_list.find('input');
+		var oldCol     = null;
+		var newCol     = null;
+		if (!nobg) {
+			for (var i = 0; i < oC_li.length; i++) {
+				oC_li.eq(i).css('background-color', i % 2 ? '#f8f8f8' : '#fff');
+			}
+		}
+		oCoin_list.find(tag).hover(function () {
+			oldCol = $(this).css('backgroundColor');
+			$(this).css('background-color', '#eaedf4');
+		}, function () {
+			$(this).css('background-color', oldCol);
+		})
+	}
+	function sortcoinList(order, sortBy) {
+		var ordAlpah = (order == 'asc') ? '>' : '<';
+		var sortFun  = new Function('a', 'b', 'return parseFloat(a[' + sortBy + '])' + ordAlpah + 'parseFloat(b[' + sortBy + '])? 1:-1');
+		return sortFun;
+	}
+	function trade_qu(o){
+		$('.trade_qu_pai').removeClass('current');
+		$(o).addClass('current');
+		allcoin();
+	}
+	trends();
+</script>
+
+
+-->
+
+
+
+<div id="all_mask" class="all_mask" style="height: 0px; display: none;"></div>
+<div id="all_mask_loginbox" class="all_mask_loginbox" style="display: none;">
+    <div class="login_title pl20">
+        <span onclick="saoma()" style="text-align: center;margin-left: 15px;color: #1a81d6;cursor:pointer;">会员登录</span>			
+		<?php if(($_SESSION['mollymobi_already']) == "1"): ?><font color="#ff0000" size="1px;">您的账户在其它地方登录，请重新登录</font><?php endif; ?>
+	</div>
+    <form id="form-login" class="mask_wrap login-fb">
+        <div class="login_text zin90">
+            <div class="mask_wrap_title">账户：</div>
+            <input type="text" id="login_mobles" class="texts" style="display: none;">
+            <input type="text" id="login_moble" class="texts hg40 w250" placeholder="请输入手机号码"
+                   style="padding-left: 42px;" value=""/>
+            <link rel="stylesheet" href="/mollymobi/css/intltelinput.css">
+            <script src="/mollymobi/js/intltelinput.js"></script>
+            <script>
+                $("#login_mobles").intlTelInput({
+                    autoHideDialCode: false,
+                    defaultCountry: "cn",
+                    nationalMode: false,
+                    preferredCountries: ['cn', 'us', 'hk', 'tw', 'mo'],
+                });
+            </script>
+        </div>
+        <div class="login_text zin80">
+            <div class="mask_wrap_title">密码：</div>
+            <input id="login_password" class="texts hg40 w250" type="password" placeholder="请输入登录密码">
+        </div>
+        <div class="login_text zin80">
+            <div class="mask_wrap_title">验证码：</div>
+            <input type="text" id="login_verify" value="" class="texts w145 hg40" placeholder="请输入验证码"/>
+			<span style="vertical-align: -17px;line-height: 20px;">
+				<img id="login_verify_up" class="codeImg reloadverify hg40" src="<?php echo U('Verify/code');?>"
+                     title="换一张" onclick="this.src=this.src+'?t='+Math.random()" width="100" height="34">
+			</span>
+        </div>
+        <div class="login_button">
+            <input type="button" value="登录" onclick="footer_login();" class="btns2  hg40 w250">
+        </div>
+        <div class="login-footer wwxwwx" style="border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;">
+			<span style="color: #CCC; float: right; margin-right: 25px;">
+			<a style="font-size: 14px;" href="<?php echo U('Login/register');?>">免费注册</a>｜<a href="<?php echo U('Login/findpwd');?>" style="font-size: 14px;">忘记密码</a>
+			</span>
+        </div>
+    </form>
+    <div class="mask_wrap_close" onclick="wrapClose()"><i class="fa fa-times fz_20 move" aria-hidden="true"></i></div>
+</div>
+
+<!--
+<div style="width:0;height:0;clear:both;"></div>
+ <div class="right" style="position:fixed;right:0px;bottom:0px;z-index:999;display:none;opacity:100;" id="trade_moshi_liaotian_1">
+	<div class="coinBox buyonesellone">
+		<div class="coinBoxBody buybtcbody2">
+			<div class="th-lts-con-t"> <h1>聊天室 <span onclick="javacript:$('#trade_moshi_liaotian_1').hide();$('#kf1').show();$('#chat1').show();" style="float:right;cursor:pointer;">关闭</span></h1>
+			
+			</div>
+			
+			
+			<div id="marqueebox1" style="height:450px;max-height: 450px;" class="">
+				<ul id="chat_content">
+				</ul>
+			</div>
+			<div id="marqueebox2">
+				<ul class="clearfix">
+					<li id="face" class="left"><a href="javascript:void(0);" class="face faceBtn" id="face1">
+						<img src="/Public/Home/images/face.gif" width="20">
+					</a></li>
+					<li id="msg" class="left">
+					<input type="text" name="msg" class="text" id="chat_text"></li>
+					<li id="send" class="right"><input class="tijiao" type="button" value="发送"
+													   onclick="upChat()"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+<script type="text/javascript" src="/Public/Home/js/jquery.qqFace.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#leftsead a").hover(function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").show();
+            } else {
+                $(this).children("div.hides").show();
+                $(this).children("img.shows").hide();
+                $(this).children("div.hides").animate({marginRight: '0px'}, '0');
+            }
+        }, function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").hide();
+            } else {
+                $(this).children("div.hides").animate({marginRight: '-163px'}, 0, function () {
+                    $(this).hide();
+                    $(this).next("img.shows").show();
+                });
+            }
+        });
+        $("#top_btn").click(function () {
+            if (scroll == "off") return;
+            $("html,body").animate({scrollTop: 0}, 600);
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        var userid = "";
+        if (window.location.hash == '#login') {
+            if (!userid) {
+                loginpop();
+            }
+        }
+
+        if (window.location.hash == '#goole') {
+            goolepop();
+        }
+        if (window.location.hash == '#yidi') {
+            yidipop();
+        }
+        var move_moble = $.cookies.get('move_moble');
+        if (move_moble != '' && move_moble != null) {
+            $("#login_moble").val(move_moble);
+        }
+    });
+
+	
+    function loginpop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_loginbox').show();
+    }
+    function goolepop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_goolebox').show();
+    }
+    function yidipop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_yidibox').show();
+    }
+
+    function wrapClose() {
+        $('.all_mask').hide();
+        $('.all_mask_loginbox').hide();
+    }
+    function footer_login() {
+        var moble = $("#login_moble").val();
+        var mobles = $("#login_mobles").val();
+        var password = $("#login_password").val();
+        var verify = $("#login_verify").val();
+        if (moble == "" || moble == null) {
+            layer.tips('请输入手机号', '#login_moble', {tips: 2});
+            return false;
+        }
+        if (password == "" || password == null) {
+            layer.tips('请输入登录密码', '#login_password', {tips: 2});
+            return false;
+        }
+        if (verify == "" || verify == null) {
+            layer.tips('请输入验证码', '#login_verify', {tips: 2});
+            return false;
+        }
+        $.post("/login/submit.html", {
+            moble: moble,
+            mobles: mobles,
+            password: password,
+            verify: verify,
+            login_token: "",
+        }, function (data) {
+            if (data.status == 1) {
+                $.cookies.set('move_moble', moble);
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = "/";
+                }
+            } else {
+                $("#login_verify_up").click();
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+    function footer_goole() {
+        var password = $("#goole_password").val();
+        if (password == "" || password == null) {
+            layer.tips('请输入谷歌密码', '#goole_password', {tips: 2});
+            return false;
+        }
+        $.post("/login/goole.html", {
+            password: password,
+        }, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = '/';
+                }
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+    function footer_yidi() {
+        var password = $("#yidi_password").val();
+        if (password == "" || password == null) {
+            layer.tips('请输入短信验证码', '#yidi_password', {tips: 2});
+            return false;
+        }
+        $.post("/login/yidi.html", {
+            password: password,
+        }, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = '/';
+                }
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+</script>
+
+
+</body>
+</html>

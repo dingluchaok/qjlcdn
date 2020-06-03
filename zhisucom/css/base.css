@@ -1,0 +1,116 @@
+﻿*{ margin:0;padding: 0;}
+ul,ol,li{ list-style: none;}
+a{ text-decoration: none; color: #fff;}
+input,textarea,button{ border: none;outline: none;}
+img{ border: none;}
+.clear{ zoom:1}
+.clear:after{ content: ''; clear: both; display: block;}
+html{
+	font-family: "microsoft yahei",simsun;
+	color: #fff;
+}
+.red{ color: #e02b3b!important;}
+.gray{ color: #aaadbf;}
+.green{ color: #4eaf06;}
+.lightred{ color: #ee3b3b;}
+
+.main-style {
+	width: 1400px;
+	margin: 0 auto;
+}
+ .header {	background: #000A1E;
+   background: #eee;
+   border-bottom:none;
+ 
+ }
+
+.header-title {
+	height: 40px;
+    background: #eee;
+}
+
+.header-nav {
+	height: 35px;
+}
+
+.header-nav .logo ,.header-nav .nav {
+	float: left;
+	line-height: 34px;
+	height: 34px;
+}
+
+.header-nav .logo {
+	max-width: 205px;
+	height: 35px;
+}
+
+.header-nav .info {
+	float: right;
+}
+
+.header-nav .nav ul li {
+	float: left;
+	padding: 0 24px;
+	background: url(../images/xiexian.png) no-repeat  center left;
+}
+
+.header-nav .nav ul li a {
+	display: block;
+}
+
+.header-nav .logo {
+	margin-right: 200px;
+	width:140px;
+}
+
+.header-nav .info .login {
+	margin: 0 8px;
+}
+
+.header-nav .info button {
+	font-size: 16px;
+	color: #fff;
+	line-height: 33px;
+	height: 33px;
+	padding: 0 22px;
+	background: #3887EE;
+	margin-left: 47px;
+}
+.footer {
+	background: #0b1435;
+	padding-top: 56px;
+	color: #787a86
+}
+
+.footer .logo {
+	float: left;
+}
+
+.footer .footer-nav {
+	float: right;
+    color: #787a86;
+    font-size:14px;
+}
+
+.footer .footer-nav .title {
+	float: left;
+	margin-left: 100px;
+}
+
+.footer .footer-nav .title strong {
+	margin-bottom: 20px;
+	display: block;
+}
+
+.footer .footer-nav .title ul li {
+	line-height: 30px;
+}
+
+.footer .footer-bottom {
+	text-align: center;
+	color: #4d5062;
+	margin-top: 60px;
+	padding-top: 60px;
+	line-height: 30px;
+	border-top: solid #1f1f25 1px;
+}

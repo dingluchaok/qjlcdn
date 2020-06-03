@@ -1,0 +1,565 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="/movesay/css/cstyle.css"/>
+<style>
+.usernewout .usncont{background: #fff;margin-top: 30px;}
+.usernewout .usncont .usnc_right{width:1120px;float: left;margin-left:40px;border: none;}
+.ad_left{width: 1120px;margin-top: 0;}
+.ad_left .user_info{width: 1120px;border-bottom: 1px solid #d6dbdd;margin-bottom: 20px;}
+.usernewout .usncont .usnc_right h1{border-left: none;font-size: 30px;background: #fff;padding:0;line-height: 40px;text-indent: 0;}
+.input1_new{cursor:pointer;display:inline-block;outline: none;border:0;width:100px;text-align: center;line-height: 32px;font-size:14px;background: #108ee9;color:#fff;border-radius: 4px;margin-right:20px;}
+.input2_new{cursor:pointer;display:inline-block;font-size:14px;outline: none;border:0;width:100px;text-align: center;line-height: 32px;background:gray;color:#fff;border-radius: 4px;margin-right:20px;}
+.table_new{width:100%;}
+.table_new tr th{background: #f7f7f7;font-size: 14px;color: rgba(0, 0, 0, 0.9);text-align: left;font-weight: 500;height:40px;}
+.table_new tr td {padding: 16px 0;border-bottom: 1px solid #d6dbdd;font-size: 14px;color: rgba(0, 0, 0, 0.7);}
+.table_new tr:hover{background: #ecf6fd;}
+.inputfile{width:40px;height:40px;}
+.editad{display: block;width:770px;height:50px;background: #108ee9;color:#fff;font-size: 18px;text-align: center;line-height: 50px;border-radius: 4px;font-weight: normal;}
+.bsbut{display: block;font-weight: normal;width:770px;height:50px;background: #108ee9;color:#fff;font-size: 18px;text-align: center;line-height: 50px;border-radius: 4px;}
+.btn-check{font-size: 14px;color:#108ee9;}
+.regandbuy{display: block;font-weight: normal;width:770px;height:50px;background: #108ee9;color:#fff;font-size: 18px;text-align: center;line-height: 50px;border-radius: 4px;}
+.chkemail{color:rgba(0,0,0,0.7);display: inline-block;width:100px;text-align: center;font-size: 14px;vertical-align: middle;}
+.chkemail img{margin-right:5px;width:18px;vertical-align: middle;}
+a.bsbut:hover{color:#fff;}
+</style>
+<div class="usernewout">
+	<div class="usncont">
+		<div class="usnc_right">
+			<!-- 上班区域-->
+			<div class="usnc_order">
+			 	<!-- 左边区域-->
+				<div class="ad_left">
+					<div>
+						<div class="user_info">
+							<a href="javascript:void(0)">
+								 <img class="tou" src="<empty name='adverinfo.headimg'>__PUBLIC__/Home/images/hportrait/head_portrait60.png<else/>{$adverinfo.headimg}</empty>"/>
+							</a>
+							<div class="aduser_names">
+								<span>{$adverinfo['username']}</span>
+								<span><a href="javascript:;" onclick="chatwindow();"><img src="__PUBLIC__/Home/images/hportrait/chat.png" style="width: 20px;"/></a></span>
+								<div style="float: right;">
+								<input <eq name="iftrust" value="0">class="input1_new"<else/>class="input2_new"</eq> id="trust" type="button" value=<eq name="iftrust" value="0">"信任此用户"<else/>"取消信任"</eq>>
+								<input  style="margin-right: 0;" <eq name="ifban" value="0" >class="input1_new"<else/>class="input2_new"</eq> id="ban" type="button" value=<eq name="ifban" value="0">"屏蔽此用户"<else/>"取消屏蔽"</eq>>
+								</div>
+							</div>
+							<div class="poster">
+								<!--<span class="infos" style="padding-left: 0;">
+									<div style="font-size: 16px;font-weight: bold;text-align: center;">{$adverinfo['transact']}</div>
+									<div>交易次数</div>
+								</span >-->
+								<span class="infos">
+									<div style="font-size: 16px;font-weight: bold;text-align: center;">{$trust}</div>
+									<div>信任人数</div>
+								</span>
+								<span class="infos">
+									<div style="font-size: 16px;font-weight: bold;text-align: center;">{$adverinfo['goodcomm']}%</div>
+									<div>好评度</div>
+								</span>
+								<!--<span class="infos">
+									<div style="font-size: 16px;font-weight: bold;text-align: center;">{$adverinfo['history']} BTC</div>
+									<div style="text-align: center;">历史成交</div>
+								</span>-->
+								<span class="infos">
+									<div style="font-size: 16px;font-weight: bold;text-align: center;"><eq name="adverinfo.transact" value="0">0<else/>{$adverinfo['sftime_sum']/$adverinfo['transact']|round=###,2}</eq> min</div>
+									<div style="text-align: center;">平均放行时间</div>
+								</span>
+								<div style="float: right;margin-top:15px;">
+									<span class="chkemail">
+										<empty name="adverinfo['email']">
+											<img src="__PUBLIC__/Home/images/hportrait/fail.png" />邮箱未验证
+										<else />
+											<img src="__PUBLIC__/Home/images/hportrait/success.png" />邮箱已验证
+										</empty>
+									</span>
+
+									<span class="chkemail">
+										<empty name="adverinfo['ga']">
+											<img src="__PUBLIC__/Home/images/hportrait/fail.png"/>谷歌未验证
+										<else />
+											<img src="__PUBLIC__/Home/images/hportrait/success.png"/>谷歌已认证
+										</empty>
+									</span>
+
+									<span class="chkemail">
+										<eq name="adverinfo['idcardauth']" value="0">
+											<img src="__PUBLIC__/Home/images/hportrait/fail.png"/>身份未验证
+										<else />
+											<img src="__PUBLIC__/Home/images/hportrait/success.png" />身份已验证
+										</eq>
+									</span>
+
+									<span class="chkemail">
+										<empty name="adverinfo['moble']">
+											<img src="__PUBLIC__/Home/images/hportrait/fail.png"/>手机未验证
+										<else />
+											<img src="__PUBLIC__/Home/images/hportrait/success.png"/>手机已验证
+										</empty>
+									</span>
+								</div>
+							</div>
+							<div style="margin-bottom:10px;color:rgba(0,0,0,0.7);font-size: 16px;"><notempty name="adverinfo.jianjie"><span style="color:#fd634f;margin-right: 4px;">*</span>个人简介: <span style="font-size: 14px;">{$adverinfo['jianjie']}</span></notempty>
+							</div>
+						</div>
+					 </div>
+				 	<table class="danz">
+				 		<tr>
+				 			<th>报价:</td>
+				 			<td></td>
+				 			<td class="price">{$adv['price']} {$currency}/{$coin['name']|strtoupper}</td>
+				 		</tr>
+				 		<tr>
+				 			<th>交易限额:</td>
+				 			<td></td>
+				 			<td>{$adv['min_limit']|round=###,2}-{$adv['max_limit']|round=###,2} {$currency}</td>
+				 		</tr>
+				 		<tr>
+				 			<th>剩余数量:</td>
+				 			<td></td>
+				 			<td>{$adv['remain_num']}</td>
+				 		</tr>
+				 		<tr>
+				 			<th>付款方式:</td>
+				 			<td></td>
+				 			<td>{$paymethod['name']}</td>
+				 		</tr>
+				 		<tr>
+				 			<th>付款期限:</td>
+				 			<td></td>
+				 			<td>{$ltime} 分钟</td>
+				 		</tr>
+
+				 	</table>
+				 	<div class="form-cont">
+				 	    <!-- 购买 -->
+				 	    <eq name="type" value="1">
+							<div class="form-title">
+								<span class="form-name">你想购买多少？</span>
+								<span class="form-name"></span>
+							</div>
+
+							<div class="input-cont input2 mr-12">
+								<input type="number" placeholder="输入您想购买的金额" class="input" name="amount" id="amount1" >
+								<div class="input-after">{$currency}</div>
+							</div>
+
+							<span class="icon-equal"></span>
+
+							<div class="input-cont input2">
+								<input type="number" placeholder="输入您想购买的数量" class="input" name="qty" id="qty1">
+								<div class="input-after">{$coin['name']|strtoupper}</div>
+							</div>
+
+      					<!-- 出售 -->
+						<else/>
+							<div class="form-title">
+								<span class="form-name">你想出售多少？ </span>
+								<span class="form-name"></span>
+							</div>
+
+							<div class="input-cont input2 mr-12">
+								<input type="number" placeholder="输入您想出售的金额" class="input" name="amount" id="amount{$type}">
+								<div class="input-after">{$currency}</div>
+							</div>
+
+							<span class="icon-equal"></span>
+
+							<div class="input-cont input2">
+								<input type="number" placeholder="输入您想出售的数量" class="input" name="qty" id="qty{$type}" >
+								<div class="input-after">{$coin['name']|strtoupper}</div>
+							</div>
+						</eq>
+						<input type="hidden" id="baojia" value="{$adv['price']}" />
+						<!-- 是否登陆了 -->
+						<if condition="$Think.session.userId eq $adv['userid']">
+							<a href="javascript:;" onclick="bianji()" class="editad">编辑</a>
+						<elseif condition="($Think.session.userId gt 0)" />
+							<!-- 判断是否实名认证 -->
+							<eq name="trade_permit['status']" value="1">
+            					<a href="javascript:;" onclick="trade()" class="btn submit disable bsbut">
+            						<eq name="type" value="1">
+										立即购买
+            						<else/>
+										立即出售
+            						</eq>
+            					</a>
+            				<else/>
+								<eq name="trade_permit['msg']" value="请先实名认证才能交易">
+									<a class="btn btn-check" href="{:U('User/nameauth')}">进行实名认证</a>
+									<span class="trade_decs">该广告主需要您进行实名认证之后才能进行交易</span>
+								</eq>
+								<eq name="trade_permit['msg']" value="该用户限制了只和自己信任的用户交易">
+									<span class="trade_decs">该广告主限制了只和自己信任的用户交易</span>
+								</eq>
+            				</eq>
+            			<else />
+							<a href="{:U('Login/register')}" class="btn submit disable regandbuy">免费注册，立即购买</a>
+            			</if>
+						<!--<div class="ad_right" style="float:left;width:100%;margin-bottom: 35px;">
+      						<div class="form-title pt-30" style="margin-bottom: 20px;padding-bottom: 10px;border-bottom:1px solid #d6dbdd;">
+       							<span class="form-name" style="color:rgba(0,0,0,0.7);">交易条款</span>
+      						</div>
+      						<!-- <hr style="margin-top: 10px;margin-bottom: 20px;"> --
+							<p class="p mb-20">
+								{$adv['message']}
+							</p>
+    					</div>--
+						<div>
+							<h4 style="color: rgba(0,0,0,0.7);font-weight: 700;font-size: 20px;line-height: 22px;margin-top:40px;margin-bottom: 10px;">{$adverinfo['enname']}正在进行中的广告</h4>
+							<table class="table_new">
+								<tr>
+									<th width="150px" style="text-indent: 15px;">付款方式</th>
+									<th width="200px">交易限额</th>
+									<th width="200px">价格</th>
+									<th width="115px">操作</th>
+								</tr>
+								<volist name="selllist" id="vo">
+									<tr>
+										<td style="text-indent: 15px;">{$vo.pay_method}</td>
+										<td>{$vo['min_limit']|num}-{$vo['max_limit']|num} {$vo['currency_type']}</td>
+										<td>{$vo['price']} {$vo['currency_type']}/{$vo['coin']|strtoupper}</td>
+										<td><a href="{:U('Newad/advdetail',array('type'=>1,'id'=>$vo['id']))}"style="color:#108ee9;display: inline-block;width:72px;height:26px;border:1px solid #108ee9;line-height: 26px;text-align: center;border-radius: 4px;">购买</a></td>
+									</tr>
+								</volist>
+								<volist name="buylist" id="vo">
+									<tr>
+										<td style="text-indent: 15px;">{$vo.pay_method}</td>
+										<td>{$vo['min_limit']|num}-{$vo['max_limit']|num} {$vo['currency_type']}</td>
+										<td>{$vo['price']} {$vo['currency_type']}/{$vo['coin']|strtoupper}</td>
+										<td><a href="{:U('Newad/advdetail',array('type'=>0,'id'=>$vo['id']))}"style="color:#108ee9;display: inline-block;width:72px;height:26px;border:1px solid #108ee9;line-height: 26px;text-align: center;border-radius: 4px;">出售</a></td>
+									</tr>
+								</volist>
+							</table>
+						</div>-->
+      					<div class="form-title pt-30" style="margin-bottom: 20px;padding-bottom: 10px;border-bottom:1px solid #d6dbdd;">
+							<span class="form-name" style="color:rgba(0,0,0,0.7);">交易须知</span>
+      					</div>
+      					<div class="line mt-20 mb-20"></div>
+      					<p class="p">1.交易前请详细了解对方的交易信息。<br>2.请通过平台进行沟通约定，并保存好相关聊天记录。<br>3.如遇到交易纠纷，可通过申诉来解决问题。<br>4.在您发起交易请求后，币被锁定在托管中，受到CoinWord保护。如果您是买家，发起交易请求后，请在付款周期内付款并把交易标记为付款已完成。卖家在收到付款后将会放行处于托管中的币。<br>5.交易前请阅读《CoinWord服务条款》以及常见问题、交易指南等帮助文档。<br>6.请注意欺诈风险，交易前请检查该用户收到的评价和相关信用信息，并对新近创建的账户多加留意。<br>7.托管服务保护网上交易的买卖双方。在发生争议的情况下，我们将评估所提供的所有信息，并将托管的币放行给其合法所有者。<br></p>
+    				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="chatwindow" style="display:none;">
+	<div class="orderinfo">
+		<ul>
+			<li>{$adv['username']}</li>
+			<li>报价：{$adv['price']|round=###,2} CNY/{$coin['name']|strtoupper}</li>
+			<li>交易限额：{$adv['min_limit']}-{$adv['max_limit']} CNY</li>
+		</ul>
+		<div class="hidechat" onclick="hidechat();">
+			<p class="whiteline"></p>
+		</div>
+	</div>
+	<input type="hidden" id="chatnum" value="{$chatnum}" />
+	<div class="chatcontent" id="chatcontent">
+		<volist name="chatlist" id="vo">
+			<if condition="$vo['touid'] eq userid()">
+				<notempty name="$vo['addon']">
+					<div class="touser">
+						<div class="left" style="width:auto;"><img src="{$vo['fromuser_img']}" style="width:35px;border-radius:50%;"/></div>
+						<div class="right" style="float:left;width:auto;max-width:80%;">{$vo['content']}</div>
+						<div style="clear:both;"></div>
+					</div>
+				<else/>
+					<div class="touser">
+						<div class="left" style="width:auto;"><img src="{$vo['fromuser_img']}" style="width:35px;border-radius:50%;"/></div>
+						<div class="right" style="float:left;width:auto;max-width:80%;">{$vo['content']}<img src="{$vo['addon']}" /></div>
+						<div style="clear:both;"></div>
+					</div>
+				</notempty>
+			<else/>
+				<notempty name="$vo['addon']">
+					<div class="fromuser">
+						<div class="left" style="width:auto;"><img src="{$vo['fromuser_img']}" style="width:35px;border-radius:50%;"/></div>
+						<div class="right" style="float:left;width:auto;max-width:80%;">{$vo['content']}</div>
+						<div style="clear:both;"></div>
+					</div>
+				<else/>
+					<div class="fromuser">
+						<div class="left" style="width:auto;"><img src="{$vo['fromuser_img']}" style="width:35px;border-radius:50%;"/></div>
+						<div class="right" style="float:left;width:auto;max-width:80%;">{$vo['content']}<img src="{$vo['addon']}" /></div>
+						<div style="clear:both;"></div>
+					</div>
+				</notempty>
+			</if>
+		</volist>
+	</div>
+	<div class="chatform">
+		<div class="attachment">
+			<div class="inputfile">
+				<iframe style="width:40px;height:40px;border:none;overflow:hidden;" src="/Newad/upload.html?touid={$adv['userid']}&advid={$adv['id']}&advtype={$type}"></iframe>
+			</div>
+		</div>
+		<div class="saysomething">
+			<input type="text" id="saycontent" placeholder="说点什么吧..." />
+		</div>
+		<div class="subbuttom" id="subbuttom">提交</div>
+	</div>
+</div>
+<script type="text/javascript">
+    var truban = "{$truban_token}";
+	var id = "{$adverinfo.id}";
+    function closetanchu(){
+        layer.closeAll('loading');
+    }
+	$('#trust,#ban').click(function(){
+        layer.load(0, {shade: [0.5,'#8F8F8F']});
+        var act = $(this).val();
+        $.post("{:U('Newad/truban')}",{id:id, token:truban, act:act},function(data){
+            truban = data.url;
+            setTimeout("closetanchu()",4000);
+            if(data.status==1){
+                //layer.msg(data.info,{icon : 1 });
+                history.go(0);
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+	});
+
+function getnum(num,ss)
+{
+	if(num.indexOf(".") != "-1"){
+		var barr = num.split(".");
+		var org = barr[1].substr(0,ss);
+		xin = parseFloat(barr[0]+"."+org);
+		return xin;
+	}
+}
+
+var type={$type};
+var price={$price};
+var token='{$myxd_token}';
+//console.log('#amount'+type);
+$('#amount'+type).css("ime-mode","disabled").bind('keyup change',function(){
+	var amount = $('#amount'+type).val();
+	if(amount.indexOf(".") != "-1"){
+		var barr = amount.split(".");
+		var xiaoshu = barr[1].length;
+		if(xiaoshu>2){
+			var org = barr[1].substr(0,xiaoshu-1);
+			var xin = parseFloat(barr[0]+"."+org);
+			$("#amount"+type).val(xin);
+		}
+	}
+
+	//转换成比特币 需要保留八位小数
+	btcnum=($('#amount'+type).val()/price).toFixed(10);
+	btcnum=getnum(btcnum,8);
+	$('#qty'+type).val(btcnum);
+});
+
+$('#qty'+type).css("ime-mode","disabled").bind('keyup change',function(){
+	var amount = $('#qty'+type).val();
+	if(amount.indexOf(".") != "-1"){
+		var barr = amount.split(".");
+		var xiaoshu = barr[1].length;
+		if(xiaoshu>8){
+			var org = barr[1].substr(0,xiaoshu-1);
+			var xin = parseFloat(barr[0]+"."+org);
+			$("#qty"+type).val(xin);
+		}
+	}
+
+	//转换成比特币 需要保留八位小数
+	btcnum=($('#qty'+type).val()*price).toFixed(4);
+	btcnum=getnum(btcnum,2);
+	$('#amount'+type).val(btcnum);
+});
+
+function bianji(){
+	tid={$adv['id']};
+	if(type==2){
+		type=0;
+	}
+	location.href='/Newad/ediad/id/'+tid+'/type/'+type;
+}
+
+function trade(){
+	//广告的id
+	var tid={$adv['id']};
+	//我的账户比特币数量
+	var btc={$coin_number|default=0};
+	//广告主设定的最小和最大交易额
+	var mint={$adv['min_limit']};
+	var maxt={$adv['max_limit']};
+	//我填的价格和数量
+	var tprice=$('#amount'+type).val();
+	var tnum=$('#qty'+type).val();
+	var baojia = $("#baojia").val();
+	if(type==0){
+		if(tnum==''){
+			layer.tips('请输入要出售的数量', '#qty'+type, {tips: 3});
+			return false;
+		}
+		if(tprice==''){
+			layer.tips('请输入要出售的金额', '#amount'+type, {tips: 3});
+			return false;
+		}
+		if(tnum>btc){
+			layer.alert('您的账户余额不足，请先充值，再出售');
+			return false;
+		}
+	}
+	if(type==1){
+		if(tnum==''){
+			layer.tips('请输入要购买的数量', '#qty'+type, {tips: 3});
+			return false;
+		}
+		if(tprice==''){
+			layer.tips('请输入要购买的金额', '#amount'+type, {tips: 3});
+			return false;
+		}
+	}
+	if(tprice<=0){
+		layer.alert('金额必须大于0');
+		return false;
+	}
+	if(tprice<mint){
+		layer.alert('金额小于最小限额');
+		return false;
+	}
+	if(tprice>maxt){
+		layer.alert('金额大于最大限额');
+		return false;
+	}
+
+	$.post("{:U('Order/trade_ajax')}", {
+		type: type,
+		num: tnum,
+		tid: tid,
+		tamount:tprice,
+		token:token,
+		baojia:baojia
+	}, function (data) {
+		layer.closeAll('loading');
+		if (data.status == 1 && data.info == '下单成功！') {
+			layer.alert(data.info, function(index){
+				window.location.href='/Order/orderinfo/type/'+(2-type)+'/id/'+data.url;
+			});
+		}else if(data.status == 1 && data.info == '卖家账户余额少于最小限额，已下架该订单！'){
+			layer.alert(data.info, function(index){
+				window.location.href='/Trade/index/type/1';
+			});
+		}else {
+			token = data.url;
+			if(data.info=='卖家账户余额不足，需要卖家充值后才能下单'){
+
+				 layer.alert(data.info, {
+
+    			 closeBtn: 1    // 是否显示关闭按钮
+    			 ,anim: 1 //动画类型
+    			 ,btn: ['生成临时单','取消'] //按钮
+
+    			 ,yes:function(){
+    			    $.post("{:U('Order/tmpbill_ajax')}", {
+						type: type,
+						tid: tid,
+
+					},function (data) {
+						if (data.status == 1) {
+							layer.alert(data.info,function(index){
+								window.location.href='/Order/orderlist/status/3';
+							})
+
+						}else{
+							layer.alert(data.info);
+						}
+					}, "json");
+
+    			 }
+    			 ,btn2:function(){
+    			     layer.closeAll();
+    			 }});
+
+			}else{
+				layer.alert(data.info);
+			}
+
+		}
+	}, "json");
+}
+
+var userid="{$Think.session.userId}";
+var chattoken = "{$chat_token}";
+$("#subbuttom").click(function(){
+	var content = $("#saycontent").val();
+	if(content==""||content==null){
+		layer.alert("发送内容不能为空！");
+	}
+	var touid = "{$adv['userid']}";
+	var advid = "{$adv['id']}";
+	var advtype = "{$type}";
+	$.post("{:U('Newad/upChat')}", {content: content, chatpic: "", touid: touid, advid: advid, advtype: advtype, token: chattoken}, function (data) {
+		chattoken=data.url;
+		if (data.status == 1) {
+			$("#saycontent").val('');
+			chattoken=data.url;
+			//alert('in');
+			getChat2();
+		} else {
+			layer.msg(data.info, {icon: 2});
+			chattoken=data.url;
+		}
+	}, "json");
+});
+var t;
+function getChat2(){
+	//alert(0);
+	if($(".chatwindow").css('display')=='none'){
+		return;
+	}
+	//alert(1);
+	var chatnum = $("#chatnum").val();
+	chatnum = parseInt(chatnum);
+	$.getJSON("/Ajax/showChat?advid={$adv['id']}&advtype={$type}&chatnum="+chatnum+"&t="+Math.random(),function(data){
+		if(data){
+			var chatcontent="";
+			for(var i=0;i<data.length;i++){
+				if(data[i].touid==userid){
+					if(data[i].addon){
+						chatcontent += '<div class="touser"><div class="left" style="width:auto;">'+data[i].content+'<img src="'+data[i].addon+'" style="width:35px;border-radius:50%;"/></div><div class="right"><img src="'+data[i].fromuser_img+'" style="width:35px;border-radius:50%;"></div><div style="clear:both;"></div></div>';
+					}else{
+						chatcontent += '<div class="touser"><div class="left" style="width:auto;">'+data[i].content+'</div><div class="right"><img src="'+data[i].fromuser_img+'" style="width:35px;border-radius:50%;"></div><div style="clear:both;"></div></div>';
+					}
+					chatnum++;
+				}else{
+					if(data[i].addon){
+						chatcontent += '<div class="fromuser"><div class="left" style="width:80%;background:#ccc;">'+data[i].content+'<img src="'+data[i].addon+'" style="max-width:80%;"/></div><div class="right" style="width:auto;background:#eee;"><img src="'+data[i].fromuser_img+'" style="width:35px;border-radius:50%;"></div><div style="clear:both;"></div></div>';
+					}else{
+						chatcontent += '<div class="fromuser"><div class="left" style="width:auto;background:#ccc">'+data[i].content+'</div><div class="right" style="width:auto;background:#eee;"><img src="'+data[i].fromuser_img+'" style="width:35px;border-radius:50%;"></div><div style="clear:both;"></div></div>';
+					}
+					chatnum++;
+				}
+				chatcontent += "<div class='clear'></div>";
+			}
+			$("#chatnum").val(chatnum);
+			$("#chatcontent").append(chatcontent);
+			$("#chatcontent").scrollTop("999999999");
+		}
+	});
+	t = setTimeout('getChat2()',2000);
+}
+
+if(userid>0){
+	getChat2();
+}
+$("#chatcontent").scroll(function(){
+	clearTimeout(t);
+	var $this =$(this),
+	viewH =$(this).height(),//可见高度
+	contentH =$(this).get(0).scrollHeight,//内容高度
+	scrollTop =$(this).scrollTop();//滚动高度
+	if(scrollTop/(contentH -viewH)>=0.95){ //到达底部100px时,加载新内容
+		t = setTimeout('getChat2()',2000);
+	}
+});
+function chatwindow(){
+	$(".chatwindow").show();
+}
+function hidechat(){
+	$(".chatwindow").hide();
+}
+</script>
+<include file="Public:footer" />

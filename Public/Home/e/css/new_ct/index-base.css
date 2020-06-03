@@ -1,0 +1,61 @@
+﻿.transaction-menu-list{
+    background-color: #2d3443;
+}
+.transaction-menu-list li{
+    border-bottom:1px solid #343c4c;
+
+
+}
+.transaction-menu-list li:hover{
+    background-color: #343c4c;
+}
+.transaction-menu-list li .me-txt{
+    color: #fff;
+    padding: 20px 60px;
+    position: relative;
+}
+.transaction-menu-list li .me-txt:hover, .transaction-menu-list li.active .me-txt{
+    background-color: #343c4c;
+    border-left: 1px solid #6bbbf7;
+    box-sizing: border-box;
+
+}
+.icon{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    zoom: 1;
+    position: absolute;
+    top:22px;
+    left: 20px;
+}
+
+.perIcon{
+    background: url("https://hbex.io/css/images/essentialinfo.png") no-repeat;
+    color: red;
+}
+
+.accBalanceIcon{
+    background: url("https://hbex.io/css/images/accbalanceicon.png") no-repeat;
+
+}
+.deposit{
+    background: url("https://hbex.io/css/images/deposit.png") no-repeat;
+
+    /*top:82px;*/
+}
+.withdraw{
+    background: url("https://hbex.io/css/images/withdraw.png") no-repeat;
+
+    /*top:142px;*/
+}
+.financeRecord{
+    background: url("https://hbex.io/css/images/financerecord.png") no-repeat;
+
+    /*top:202px;*/
+}
+.walletManageCrypto{
+    background: url("https://hbex.io/css/images/walletmanagecrypto.png")no-repeat;
+
+    /*top:262px;*/
+}

@@ -1,0 +1,220 @@
+﻿@media (min-width: 1366px){
+    .footer-box {
+        width: 90.8%!important;
+    }
+    .footerLeft {
+        width: 56.16% !important;
+    }
+    /*.footer-menu-box .footer-menu{*/
+        /*padding: 0 1.633%!important;*/
+    /*}*/
+    .footer-icp{
+        width: 97.96%!important;
+    }
+}
+
+.footer-wrap {
+    background-color:#292f3d;
+    padding: 0;
+    color: #a0adc1;
+    min-width: 1420px;
+}
+
+
+.footer-menu-box .footer-menu {
+    border-right: 1px solid #344451;
+    margin-right: 0;
+}
+.footer-menu-box {
+    padding:20px 0;
+    border-bottom:1px solid #3e485e;
+}
+/*.footer-menu-box a:first-child {*/
+    /*padding-left: 0!important;*/
+/*}*/
+
+.footer-menu-box a:last-child {
+    border-right: none;
+}
+
+.footer-icp {
+    width: 1200px;
+    border-top: none;
+    margin-top: 110px;
+    position: relative;
+    padding-top: 0;
+    height: 150px;
+}
+
+.footer-logo{
+    position: absolute;
+    bottom: 0;
+    right: 75px;
+    background: url("https://hbex.io/css/images/footer-logo.png") no-repeat;
+    width: 147px;
+    height: 40px;
+}
+.footer-icp p{
+    padding-bottom: 15px;
+}
+
+
+#weixin1{
+    position: relative;
+}
+#weixin2{
+    position: relative;
+}
+.weixinPho1{
+    position: absolute;
+    left: -29px;
+    top: 16px;
+    display: none;
+}
+.weixinPho1 img{
+    width: 100px;
+    height:100px;
+}
+.weixinPho2{
+    position: absolute;
+    left:-19px;
+    top: 16px;
+    display: none;
+}
+#weixin1:hover .weixinPho1 {
+    display: block;
+}
+#weixin2:hover .weixinPho2 {
+    display: block;
+}
+.weixinPho2 img{
+    width: 100px;
+    height:100px;
+}
+/*footer left*/
+.footerLeft {
+    width: 671px;
+    border-right: 1px solid #3e485e;
+    overflow: hidden;
+    min-height: 200px;
+    /*box-sizing: border-box;*/
+}
+.footerLeft dl {
+    float: left;
+    width: 25%;
+}
+.footerLeft dt {
+    color: #a6b7d2;
+    font-weight: 700;
+}
+.footerLeft dd a{
+    color: #727f94;
+    display: block;
+    margin: 20px 0;
+    line-height: 1;
+}
+.footerLeft dd:hover a{
+    color: #9eafc9;
+}
+/*footer Right*/
+.footerRight {
+    margin-left: 20px;
+}
+.footerRight div,.footerRight li {
+    line-height:1;
+    color:#8293ae;
+}
+.footerRight ul {
+    /*overflow: hidden;*/
+    position: relative;
+    width: 100%;
+}
+/*.footerRight>.footerIcon {*/
+    /**/
+/*}*/
+.footerRight>.footerSmallIcon li {
+    float: left;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    background-color: #343c4c;
+    margin-left: 0;
+    position: relative;
+    margin-right: 32px;
+}
+.footerRight>.footerSmallIcon li:hover {
+    background-color: #4a566f;
+}
+.footerRight .RightDetail:before {
+    content: '';
+    position: absolute;
+    background:  url("../../images/new_ct/email.png") no-repeat;
+    width:22px;
+    height:22px;
+    left: 5px;
+    top: -5px;
+}
+
+.footerRight .RightDetail1:before {
+    content: '';
+    position: absolute;
+    background-size: 100%;
+    width:22px;
+    height:22px;
+    left: 5px;
+    top: -5px;
+}
+.footerRight li {
+    float: left;
+    margin-left:33px;
+    margin-bottom: 20px;
+}
+.ipone {
+    margin: 15px 0 20px 35px;
+    position: relative;
+}
+.ipone:before {
+    content: '';
+    position: absolute;
+    background:  url("../../images/new_ct/ipone.png") no-repeat;
+    width:22px;
+    height:22px;
+    left: -30px;
+    top: -5px;
+}
+.footerIcon img{
+    width: 140px;
+}
+
+.footerSmallIcon li img {
+    width: 80%;
+    display: block;
+    margin: 10%;
+}
+.UpperMoney {
+    margin: 0 0 20px 35px;
+}
+.footerDate {
+    height: 66px;
+    color: #727f94
+}
+.footerDate p {
+    margin-top: 20px;
+    float: left;
+}
+.footerDate .turnover {
+    margin-left: 200px;
+}
+.footerDate .localTime {
+    float: right;
+    margin-right: 24px;
+}
+.wechat {
+    cursor: pointer;
+}
+.wechatImg {
+    width:100px;
+    position: absolute;
+    top: -104px;
+    left: 27px;
+}

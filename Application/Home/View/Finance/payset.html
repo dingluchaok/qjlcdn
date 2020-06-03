@@ -1,0 +1,497 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="/movesay/css/payset.css"/>		
+<div class="autobox ">
+	<div class="now">
+		<i class="fa fa-home fa-lg move mr5"></i><a href="/" class="movesay">首页</a> &gt; <a href="/finan/index.html" class="movesay">财务中心 </a> &gt; 支付设置	</div>
+	<div class="main-content">
+		<style>
+	.nav-tab-list .nav-tab-hover{
+		width:100%;
+		top:60px;
+		height:50px;
+		line-height:50px;
+		background:#EAEDF4;
+		position:absolute;
+		box-sizing:content-box;
+		z-index:1;
+		transition:all 0.5s;
+		-webkit-transition:all 0.5s;
+		display:none;
+	}
+	.rt2 {
+		display:inline-block;
+    margin-right: 40px;
+    margin-top: 20px;
+    width: 142px;
+    height: 33px;
+    line-height: 35px;
+    border: 1px solid #3bc1db;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #00c1de;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+	}
+	a{color:#0bc1e6}
+</style>
+<script type="text/javascript">
+	$(function () {
+		(function () {
+			var tab   = $('.nav-tab-list dd');
+			var hover = $('.nav-tab-hover');
+			var pos   = 0;
+			tab.each(function (index) {
+				var $this = $(this);
+				if ($this.hasClass('active')) {
+					pos = index;
+				}
+				$this.hover(function () {
+					_moveTo(index);
+				}, function () {
+					_moveTo(pos);
+				});
+			});
+			_moveTo(pos);
+			$('.nav-tab-hover').show();
+			function _moveTo(index) {
+				hover.css("top", 60 + 50 * index);
+				tab.removeClass('active');
+				tab.eq(index).addClass('active');
+			}
+		})();
+	});
+	$(window).on('scroll resize', function () {
+		if (document.body.scrollTop < 100) {
+			$('#left-nav-bar').css("top", 0);
+		} else if (document.body.scrollTop > ($('.tag-list-content').height() - $('#left-nav-bar').height() + 100)) {
+			$('#left-nav-bar').css("top", ($('.tag-list-content').height() - $('#left-nav-bar').height()));
+		} else {
+			$('#left-nav-bar').css("top", document.body.scrollTop - 100);
+		}
+	});
+</script>
+
+
+<include file="Finance:left" />
+		<div class="tag-list-content assets_content bg_w" id="bind_pay">
+			<div class="safe_center clear">
+				<h1>
+					<span>
+						支付设置					</span>
+				</h1>
+			</div>
+			<ul class="pay_list">
+				<li class="bank active2">
+                            <i class="float_tips"></i>
+                            <span class="pay_ico pay_ico_1"></span>
+                            <span>銀行卡帳號</span>
+                            <span class="divider"></span>
+                            <span class="pay_info"><empty name="user.c_bank_card">未<else/>已</empty>綁定銀行卡</span>
+                            <a href="javascript:;" class="rt" data-id="bank" data-state="2"><empty name="user.c_bank_card">立即綁定<else/>修改</empty></a>
+                 </li>
+                 <!-- 银行卡开始 -->
+                 <li class="tmpl-box" style="" id="bank">
+                        <div class="item_wrap">
+                            <ul class="pay_info_list">
+                                <li>
+                                    <span>姓名</span><input class="txt" id="name" type="text" value="{$user.truename}" readOnly>
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>手機號碼</span><input type="text" id="phone" class="number" value="{$user.moble}" readOnly maxlength="11">
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li class="layui-form">
+                                    <div class="clearfix">
+                                        <span class="lf">開戶銀行</span>
+                                        <div class="layui-form-item lf">
+                                            <select id="bank_list" name="bank_list" lay-verify="required" lay-filter="bank_list">
+                                                <option value="工商银行" <eq name="user.c_bank" value="工商银行">selected="selected"</eq>>工商银行</option>
+                                                <option value="建设银行" <eq name="user.c_bank" value="建设银行">selected="selected"</eq>>建设银行</option>
+                                                <option value="交通银行" <eq name="user.c_bank" value="交通银行">selected="selected"</eq>>交通银行</option>
+                                                <option value="中国银行" <eq name="user.c_bank" value="中国银行">selected="selected"</eq>>中国银行</option>
+                                                <option value="招商银行" <eq name="user.c_bank" value="招商银行">selected="selected"</eq>>招商银行</option>
+                                                <option value="广发银行" <eq name="user.c_bank" value="广发银行">selected="selected"</eq>>广发银行</option>
+                                                <option value="中信银行" <eq name="user.c_bank" value="中信银行">selected="selected"</eq>>中信银行</option>
+                                                <option value="民生银行" <eq name="user.c_bank" value="民生银行">selected="selected"</eq>>民生银行</option>
+                                                <option value="平安银行" <eq name="user.c_bank" value="平安银行">selected="selected"</eq>>平安银行</option>
+                                                <option value="光大银行" <eq name="user.c_bank" value="光大银行">selected="selected"</eq>>光大银行</option>
+                                                <option value="兴业银行" <eq name="user.c_bank" value="兴业银行">selected="selected"</eq>>兴业银行</option>
+                                                <option value="浦发银行" <eq name="user.c_bank" value="浦发银行">selected="selected"</eq>>浦发银行</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <i class="triangle"></i> -->
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>開戶支行</span><input class="txt" id="addr" type="text" value="{$user.c_bank_detail}">
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>銀行卡號</span><input id="bank_num" class="number bank_num" type="text" value="{$user.c_bank_card}">
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>確認卡號</span><input id="bank_id_again" type="text" class="number bank_num" value="{$user.c_bank_card}">
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>短信验证码</span><input style="width:263px;" id="code" type="text" class="number code" value="">
+                                    <em id="reg_moble">
+                                    	<a href="javascript:;" class="rt2" onclick="new_sends()">发送验证码</a>
+                                	</em>
+                                </li>
+                            </ul>
+                            <a class="btn bank" href="javascript:;" onclick="bindcard()">確認綁定</a>
+                        </div>
+                    </li>
+                    <!-- 银行卡结束 -->
+                    <li class="wechat">
+                            <span class="pay_ico pay_ico_3"></span>
+                            <span>微信支付</span>
+                            <span class="divider"></span>
+                            <span class="pay_info"><empty name="user.c_wechat_account">未綁定微信<else/>已绑定微信</empty></span>
+                            <a href="javascript:;" class="rt" data-id="wechat" data-state="2"><empty name="user.c_wechat_account">立即綁定<else/>修改</empty></a>
+                    </li>
+                    <!-- 微信开始 -->
+                    <li class="tmpl-box" style="" id="wechat">
+                        <div class="item_wrap">
+                            <ul class="pay_info_list">
+                                <li>
+                                    <span>姓名</span><input class="txt" id="name2" type="text" value="{$user.truename}" readOnly>
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>微信帳號</span><input id="wechat_account" type="text" class="number" value="{$user.c_wechat_account}">
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li class="up_pic">
+                                	<empty name="user.c_wechat_img">
+                                    <div class="bg_pic"></div>
+                                    <div class="text">上傳微信收款二維碼（png、jpg）</div>
+                                    <else/>
+                                    <img src="{$user.c_wechat_img}" style="width:206px;height:206px"/>
+                                    </empty>
+                                    <form class="myForm" name="upfile" action="" method="post" enctype="multipart/form-data">
+                                        <input class="file" type="file" accept="image/jpg, image/png" name="mypic" id="inputfile">
+                                    </form>
+                                    <input type="hidden" id="wechatimg" <notempty name="user.c_wechat_img">value="{$user.c_wechat_img}"</notempty>/>
+                                </li>
+                                <li>
+                                    <span>短信验证码</span><input style="width:263px;" id="code_wechat" type="text" class="number code" value="">
+                                    <em id="reg_moble_wechat">
+                                    	<a href="javascript:;" class="rt2" onclick="new_sends_wechat()">发送验证码</a>
+                                	</em>
+                                </li>
+                            </ul>
+                            <a style="" class="btn wechat" href="javascript:;" onclick="bindwechat()">確認綁定</a>
+                        </div>
+                    </li>
+                    <!-- 微信结束 -->
+                    <li class="alipay">
+                            <span class="pay_ico pay_ico_2"></span>
+                            <span>支付寶</span>
+                            <span class="divider"></span>
+                            <span class="pay_info"><empty name="user.c_alipay_account">未<else/>已</empty>綁定支付宝</span>
+                            <a href="javascript:;" class="rt" data-id="alipay" data-state="2"><empty name="user.c_alipay_account">立即綁定<else/>修改</empty></a>
+                    </li>
+                    <!-- 支付宝开始 -->
+                    <li class="tmpl-box" style="" id="alipay">
+                        <div class="item_wrap">
+                            <ul class="pay_info_list">
+                                <li>
+                                    <span>姓名</span><input class="txt" id="name3" type="text" value="{$user.truename}" readOnly>
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li>
+                                    <span>支付寶帳號</span><input id="alipay_account" type="text" class="number" value="{$user.c_alipay_account}">
+                                    <p>此項不能為空</p>
+                                </li>
+                                <li class="up_pic">
+                                	<empty name="user.c_alipay_account">
+                                    <div class="bg_pic"></div>
+                                    <div class="text">上傳支付寶收款二維碼（png、jpg）</div>
+                                    <else/>
+                                    <img src="{$user.c_alipay_img}" style="width:206px;height:206px"/>
+                                    
+                                    </empty>
+                                    <form class="myForm" name="upfile" action="" method="post" enctype="multipart/form-data">
+                                        <input class="file" type="file" id="inputfile2" accept="image/jpg, image/png" name="mypic">
+                                    </form>
+                                    <input type="hidden" id="alipayimg" <notempty name="user.c_alipay_account">value="{$user.c_alipay_img}"</notempty>/>
+                                </li>
+                                <li>
+                                    <span>短信验证码</span><input style="width:263px;" id="code_alipay" type="text" class="number code" value="">
+                                    <em id="reg_moble_alipay">
+                                    	<a href="javascript:;" class="rt2" onclick="new_sends_alipay()">发送验证码</a>
+                                	</em>
+                                </li>
+                            </ul>
+                            <a class="btn alipay" style="" href="javascript:;" onclick="bindalipay()">確認綁定</a>
+                        </div>
+                    </li>
+                    <!-- 支付宝结束 -->
+			</ul>
+		</div>
+	</div>
+</div>	   
+<script>
+	var hints = "0";
+	if(hints == 1){
+		$('#hints').show();
+	}
+	$('#finance_box').addClass('active');
+	$('.finan_payset').addClass('active');
+	$(function(){
+		$('.rt').click(function(){
+			var id = $(this).attr('data-id');
+			$('.tmpl-box').hide();
+			$('#'+id).css('display', 'list-item');
+			return;
+			if($('#'+id).is(':visible')){
+				
+				$('#'+id).hide();
+			}else{
+				$('#'+id).show();
+			}
+		})
+		$("#inputfile").change(function () {
+            //创建FormData对象
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile')[0].files, function (i, file) {
+                data.append('upload_file' + i, file);
+            });
+
+
+            //发送数据
+            $.ajax({
+                url: '/ajax/wechatimage',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,		//不可缺参数
+                processData: false,		//不可缺参数
+                success: function (data) {
+                    if (data) {
+                    	if(data=='img'){
+                    		alert('您已上传，请勿重复上床');return false;
+                    	}
+						if(data=="error"){
+							alert("请选择正确的文件类型和大小！");
+							return false;
+						}
+						var src = '{$Think.const.PC_URL}'+'/Upload/wechat/' + data;
+						$('#wechatimg').val(src);
+						$('#wechat .bg_pic, #wechat .text').hide();
+						$('#wechat .up_pic img').hide();
+						$('<img />', {
+							src : '/Upload/wechat/' + data,
+							height : "206px",
+							width  : "206px",
+						  }).appendTo($('#wechat .up_pic'));					
+                    }
+                },
+                error: function () {
+                    alert('上传出错');
+                    //$(".loading").hide();	//加载失败移除加载图片
+                }
+            });
+
+        });
+		$("#inputfile2").change(function () {
+            //创建FormData对象
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile2')[0].files, function (i, file) {
+                data.append('upload_file' + i, file);
+            });
+
+
+            //发送数据
+            $.ajax({
+                url: '/ajax/alipayimage',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,		//不可缺参数
+                processData: false,		//不可缺参数
+                success: function (data) {
+                    if (data) {
+                    	if(data=='img'){
+                    		alert('您已上传，请勿重复上床');return false;
+                    	}
+						if(data=="error"){
+							alert("请选择正确的文件类型和大小！");
+							return false;
+						}
+						var src = '{$Think.const.PC_URL}'+'/Upload/alipay/' + data;
+						$('#alipayimg').val(src);
+						$('#alipay .bg_pic, #alipay .text').hide();
+						$('#alipay .up_pic img').hide();
+						$('<img />', {
+							src : '/Upload/alipay/' + data,
+							height : "206px",
+							width  : "206px",
+						  }).appendTo($('#alipay .up_pic'));					
+                    }
+                },
+                error: function () {
+                    alert('上传出错');
+                    //$(".loading").hide();	//加载失败移除加载图片
+                }
+            });
+
+        });
+	})
+	function new_sends() {
+	$.post("/login/realcard.html", {
+	}, function (data) {
+		if (data.status == 1) {
+			layer.msg(data.info, {icon: 1});
+			var obj      = $('#reg_moble');
+			var wait     = 60;
+			var interval = setInterval(function () {
+				obj.html( "<a>" + wait + "秒可再次发送" + "</a>");
+				wait--;
+				if (wait < 0) {
+					clearInterval(interval);
+					obj.html('<a onclick="new_sends()" class="rt2">点击重新发送</a>');
+				}
+				;
+			}, 1000);
+		} else {
+			layer.msg(data.info, {icon: 2});
+			if (data.url) {
+				window.location = data.url;
+			}
+		}
+	}, "json");
+}
+	function new_sends_wechat() {
+		$.post("/login/realcard.html", {
+		}, function (data) {
+			if (data.status == 1) {
+				layer.msg(data.info, {icon: 1});
+				var obj      = $('#reg_moble_wechat');
+				var wait     = 60;
+				var interval = setInterval(function () {
+					obj.html( "<a>" + wait + "秒可再次发送" + "</a>");
+					wait--;
+					if (wait < 0) {
+						clearInterval(interval);
+						obj.html('<a onclick="new_sends_wechat()" class="rt2">点击重新发送</a>');
+					}
+					;
+				}, 1000);
+			} else {
+				layer.msg(data.info, {icon: 2});
+				if (data.url) {
+					window.location = data.url;
+				}
+			}
+		}, "json");
+	}
+	function new_sends_alipay() {
+		$.post("/login/realcard.html", {
+		}, function (data) {
+			if (data.status == 1) {
+				layer.msg(data.info, {icon: 1});
+				var obj      = $('#reg_moble_alipay');
+				var wait     = 60;
+				var interval = setInterval(function () {
+					obj.html( "<a>" + wait + "秒可再次发送" + "</a>");
+					wait--;
+					if (wait < 0) {
+						clearInterval(interval);
+						obj.html('<a onclick="new_sends_alipay()" class="rt2">点击重新发送</a>');
+					}
+					;
+				}, 1000);
+			} else {
+				layer.msg(data.info, {icon: 2});
+				if (data.url) {
+					window.location = data.url;
+				}
+			}
+		}, "json");
+	}
+	function bindcard() {
+		//var phone = $('#phone').val();
+		var bank = $('#bank_list option:selected').val();
+		var bank_detail = $('#addr').val();
+		var bank_card = $('#bank_num').val();
+		var bank_id_again = $('#bank_id_again').val();
+		var code = $('#code').val();
+		if( !bank || !bank_detail || !bank_card || !code){
+			layer.msg('存在空字段，请补全');return false;
+		}
+		if(bank_card != bank_id_again){
+			layer.msg('确认银行卡号错误');return false;
+		}
+		$.post('/Finance/payset', {code: code, c_bank: bank, c_bank_detail: bank_detail, c_bank_card: bank_card, c_bank_card_again: bank_id_again}, function(data){
+			if(data.status == 1){
+				layer.msg(data.info);
+				if(data.url) {
+					window.location.href=data.url;
+				}
+			}else{
+				layer.msg(data.info);
+			}
+		})
+	}
+	function bindwechat() {
+		var wechat_account = $('#wechat_account').val();
+		if(!wechat_account) {
+			layer.msg('请填写微信账号');return false;
+		}
+		var wechatimg = $('#wechatimg').val();
+		if(!wechatimg) {
+			layer.msg('请上传微信收款二维码');return false;
+		}
+		var code_wechat = $('#code_wechat').val();
+		if(!code_wechat) {
+			layer.msg('请填写短信验证');return false;
+		}
+		$.post('/Finance/bindwechat', {c_wechat_account: wechat_account, c_wechat_img: wechatimg, code: code_wechat}, function(data){
+			if(data.status == 1){
+				layer.msg(data.info);
+				if(data.url) {
+					window.location.href=data.url;
+				}
+			}else{
+				layer.msg(data.info);
+			}
+		})
+	}
+	function bindalipay() {
+		var alipay_account = $('#alipay_account').val();
+		if(!alipay_account) {
+			layer.msg('请填写支付宝账号');return false;
+		}
+		var alipayimg = $('#alipayimg').val();
+		if(!alipayimg) {
+			layer.msg('请上传支付宝收款二维码');return false;
+		}
+		var code_alipay = $('#code_alipay').val();
+		if(!code_alipay) {
+			layer.msg('请填写短信验证');return false;
+		}
+		$.post('/Finance/bindalipay', {c_alipay_account: alipay_account, c_alipay_img: alipayimg, code: code_alipay}, function(data){
+			if(data.status == 1){
+				layer.msg(data.info);
+				if(data.url) {
+					window.location.href=data.url;
+				}
+			}else{
+				layer.msg(data.info);
+			}
+		})
+	}
+</script>	
+	
+<include file="Public:footer" />

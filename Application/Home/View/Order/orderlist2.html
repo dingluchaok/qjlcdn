@@ -1,0 +1,272 @@
+<include file="Public:header" />
+		
+<div class="autobox ">
+	<div class="now">
+		<i class="fa fa-home fa-lg move mr5"></i><a href="/" class="movesay">首页</a> &gt; <a href="/finan/index.html" class="movesay">财务中心 </a> &gt; 我的订单	</div>
+	<div class="main-content">
+		<style>
+	.nav-tab-list .nav-tab-hover{
+		width:100%;
+		top:60px;
+		height:50px;
+		line-height:50px;
+		background:#EAEDF4;
+		position:absolute;
+		box-sizing:content-box;
+		z-index:1;
+		transition:all 0.5s;
+		-webkit-transition:all 0.5s;
+		display:none;
+	}
+a{color:#707070}
+.qxjy,.bjyfk,.fx{
+	border: 0;
+    padding: 5px;
+    color: #fff;
+    background: #4f94e7;
+}
+.qxjy{background:#9eb0c4}
+</style>
+<script type="text/javascript">
+	$(function () {
+		(function () {
+			var tab   = $('.nav-tab-list dd');
+			var hover = $('.nav-tab-hover');
+			var pos   = 0;
+			tab.each(function (index) {
+				var $this = $(this);
+				if ($this.hasClass('active')) {
+					pos = index;
+				}
+				$this.hover(function () {
+					_moveTo(index);
+				}, function () {
+					_moveTo(pos);
+				});
+			});
+			_moveTo(pos);
+			$('.nav-tab-hover').show();
+			function _moveTo(index) {
+				hover.css("top", 60 + 50 * index);
+				tab.removeClass('active');
+				tab.eq(index).addClass('active');
+			}
+		})();
+	});
+	$(window).on('scroll resize', function () {
+		if (document.body.scrollTop < 100) {
+			$('#left-nav-bar').css("top", 0);
+		} else if (document.body.scrollTop > ($('.tag-list-content').height() - $('#left-nav-bar').height() + 100)) {
+			$('#left-nav-bar').css("top", ($('.tag-list-content').height() - $('#left-nav-bar').height()));
+		} else {
+			$('#left-nav-bar').css("top", document.body.scrollTop - 100);
+		}
+	});
+</script>
+
+
+<include file="Finance:left" />
+
+
+
+		<div class="tag-list-content">
+			<div class="assets_content bg_w">
+				<div class="safe_center clear ">
+					<h1>
+						<a href="/Order/orderlist2?type=0" style="font-size:14px;<eq name='Think.get.type' value='0'>color:#4f94e7;font-weight:bold;</eq>">我的购买订单<eq name="notice" value="1"><em id="middlenotice" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:red;position:relative;bottom:8px;"></em></eq></a>
+						<a href="/Order/orderlist2?type=1" style="font-size:14px;<eq name='Think.get.type' value='1'>color:#4f94e7;font-weight:bold;</eq>">我的出售订单<eq name="notice2" value="1"><em id="middlenotice2" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:red;position:relative;bottom:8px;"></em></eq></a>
+					</h1>
+				</div>
+				<div class="mytable-body ">
+					<div class="f_body  step2">
+						<table class="f_table" id="investLog_content">
+							<thead>
+							<tr>
+								<th>订单编号</th>
+								<th>交易伙伴</th>
+								<th>交易金额</th>
+								<th>交易数量</th>
+								<th>交易币种</th>
+								<th>创建时间</th>
+								<th>交易状态</th>
+								<th>交易操作</th>
+							</tr>
+							</thead>
+							<tbody>
+														
+								 <volist name="list" id="vo">
+								 <tr>
+								  <td>
+								  	<a href="/Order/orderinfo?type={$vo.type}&id={$vo.id}" style="color:#108ee9;">
+									{$vo['order_no']}
+									</a>
+								  </td>
+								  <!--<td>
+								  	<img style="height:35px;vertical-align: middle;margin-right:10px;width:35px;border-radius: 50%;" src="<empty name='vo.hinfo.headimg'>__PUBLIC__/Home/images/hportrait/head_portrait60.png<else/>{$vo.hinfo.headimg}</empty>">-->
+								<td>
+								<img style="height:35px;vertical-align: middle;margin-right:10px;width:35px;border-radius: 50%;" src="<empty name='vo.hinfo.headimg'>__PUBLIC__/Home/images/hportrait/head_portrait60.png<else/>{$vo.hinfo.headimg}</empty>">
+								{$vo['hinfo']['username']}</td>
+								  <td>{$vo['deal_amount']}</td>
+								  <td>{$vo['deal_num']}</td>
+								  <td>{$vo.deal_coin_name|strtoupper}</td>
+								  <td>{$vo['ctime']|date="Y-m-d H:i:s",###}</td>
+								  <td>{$vo['zt'][0]}</td>
+								  <td>
+                            <if condition="$vo['zt'][1] eq 1">
+								<button onclick="biaoji({$vo.type},{$vo.id})" class="bjyfk">标记已付款 </button>
+								<button onclick="cancle({$vo.type},{$vo.id})" class="qxjy">取消交易</button>
+								<em id="middlenotice2" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:red;position:relative;bottom:8px;"></em>
+                            <elseif condition="$vo['zt'][1] eq 2" />
+								<button onclick="sfbtc({$vo.type},{$vo.id})" class="fx">标记已收款 </button>
+								<em id="middlenotice2" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:red;position:relative;bottom:8px;"></em>
+                            </if>
+							<if condition="($vo['status'] eq 3)">
+								<if condition="($Think.session.userId eq $vo['sell_id'] )">
+									<if condition="empty($vo['sell_pj'])">
+										<a href="/Order/orderinfo?type={$vo.type}&id={$vo.id}" class="qpj">去评价</a>
+									</if>
+								<elseif condition="($Think.session.userId eq $vo['buy_id'] )" />
+									<if condition="empty($vo['buy_pj'])">
+										<a href="/Order/orderinfo?type={$vo.type}&id={$vo.id}" class="qpj">去评价</a>
+									</if>
+								</if>
+							</if>
+                            </td>
+								 </tr>
+								 </volist>					
+								
+							</tbody>
+						</table>
+						<div class="pages">{$page}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<script>
+	$(function() {
+		layer.config({
+            extend: 'extend/layer.ext.js'
+        });
+	})
+	var hints = "0";
+	if(hints == 1){
+		$('#hints').show();
+	}
+	$('#finance_box').addClass('active');
+	$('.finan_order').addClass('active');
+	xdctoken='{$myxdc_token}';
+	bjtoken='{$mybj_token}';
+	sfbtoken='{$mysfb_token}';
+	function cancle(type,id){
+		layer.prompt({title: '输入交易密码，并确认', formType: 1}, function(pass, index){
+			  layer.close(index);
+			  $.post("{:U('Order/ordercancle_ajax')}", {
+		            type: type,
+		            id: id,
+		            token:xdctoken,
+					paypassword: pass,
+		        	}, function (data) {
+					     layer.closeAll('loading');
+		            	if (data.status == 1) {
+
+		            	layer.alert(data.info, function(index){
+		                  	self.location.reload();
+		              	});
+
+		            	} else {
+		            	xdctoken = data.url;
+		                layer.msg(data.info, {icon: 2});
+
+		            	}
+		       	 }, "json");
+			});
+		/* $.post("{:U('Order/ordercancle_ajax')}", {
+		type: type,
+		id: id,
+		token:xdctoken,
+
+		}, function (data) {
+			 layer.closeAll('loading');
+			if (data.status == 1) {
+
+			layer.alert(data.info, function(index){
+				self.location.reload();
+			});
+
+			} else {
+			token = data.url;
+			layer.msg(data.info, {icon: 2});
+
+			}
+		}, "json"); */
+	}
+	function biaoji(type,id){
+	 	$.post("{:U('Order/uptrade_ajax')}", {
+	            type: type,
+	            id: id,
+	            token:bjtoken,
+
+	        	}, function (data) {
+				     layer.closeAll('loading');
+	            	if (data.status == 1) {
+
+	            	layer.alert(data.info, function(index){
+	                  	self.location.reload();
+	              	});
+
+	            	} else {
+	            	token = data.url;
+	                layer.msg(data.info, {icon: 2});
+
+	            	}
+	       	 }, "json");
+	 }
+	function sfbtc(type,id){
+	 	layer.config({
+	            extend: 'extend/layer.ext.js'
+	        });
+	 	layer.ready(function () {
+	 	layer.prompt({
+	                title: '输入交易密码，并确认',
+	                formType: 1
+	            }, function (val) {
+	                if (val) {
+	                    //需要执行的方法
+	                    //
+	 					$.post("{:U('Order/sfbtc_ajax')}", {
+	            		type: type,
+	            		id: id,
+	            		token:sfbtoken,
+	            		 paypassword: val
+
+	        			}, function (data) {
+				     		layer.closeAll('loading');
+	            			if (data.status == 1) {
+	            				layer.alert(data.info, function(index){
+	                  				self.location.reload();
+	              				});
+
+	            			} else {
+	            				token = data.url;
+	                			layer.msg(data.info, {icon: 2});
+
+	            			}
+	       	 			}, "json");
+
+	 	 			}
+	                ;
+	            });
+	 	});
+
+	 }
+</script>	
+	
+<include file="Public:footer" />

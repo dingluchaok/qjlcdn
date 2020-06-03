@@ -1,0 +1,42 @@
+﻿/*大于1366px的媒体查询*/
+@media screen and (min-width: 1366px){
+    .notice {
+        width: 87.85%;
+    }
+    .notice-icon{
+        left: 10%;
+        margin-right: 0.8%;
+    }
+    .slideInfo {
+        width: 76.6%;
+        margin-left: 13.3%;
+    }
+    .notice>.More{
+        right: 4.2%;
+    }
+    .bazaar-wrap-box .wrap{
+        width: 87.85%;
+        min-width: 87.85%;
+    }
+    .optionalLIst .optionalLIsts li{
+        width: 10%;
+    }
+    .optionalLIst .optionalLIsts .search{
+        width: 19.2%;
+        margin-right: 1.7%;
+        /*padding-left: 4.2%;*/
+    }
+    .Partner p{
+        width: 22%;
+    }
+    .Partner .wrap{
+        width: 87.85%;
+        min-width: 87.85%;
+    }
+    .symbolListIcon{
+        left: 13.59%;
+    }
+    /*.footer-box{*/
+        /*width: 81.6%;*/
+    /*}*/
+}

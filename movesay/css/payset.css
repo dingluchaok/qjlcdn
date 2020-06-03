@@ -1,0 +1,207 @@
+@CHARSET "UTF-8";
+.pay_list {
+    padding-top: 18px;
+    line-height: 1;
+    color: #999;
+    font-size: 14px;
+}
+.pay_list li {
+    line-height: 76px;
+}
+ul.pay_list li {
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+ul.pay_list li.bank {
+    position: relative;
+}
+ul.pay_list li.active2 {
+    -webkit-box-shadow: 0 3px 3px rgba(185,185,185,.1);
+    -moz-box-shadow: 0 3px 3px rgba(185,185,185,.1);
+    box-shadow: 0 3px 3px rgba(185,185,185,.1);
+}
+.pay_list .pay_ico {
+    margin-left: 56px;
+    margin-right: 7px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/bind_pay.png) -2px -25px no-repeat;
+    vertical-align: middle;
+}
+#bind_pay .tmpl-box .pay_box span:nth-of-type(2), ul.pay_list li span:nth-of-type(2) {
+    color: #333;
+    width: 108px;
+    display: inline-block;
+}
+.lf {
+    float: left;
+}
+
+ul.pay_list .divider {
+    margin-right: 24px;
+    display: inline-block;
+    height: 16px;
+    width: 1px;
+    vertical-align: middle;
+    background: -webkit-linear-gradient(to top,#f7f7f7,#ddd 50%,#f7f7f7);
+    background: -moz-linear-gradient(to top,#f7f7f7,#ddd 50%,#f7f7f7);
+    background: -o-linear-gradient(to top,#f7f7f7,#ddd 50%,#f7f7f7);
+    background: linear-gradient(to top,#f7f7f7,#ddd 50%,#f7f7f7);
+}
+#bind_pay .pay_info, #bind_pay .tmpl-box .hook_pay_bank {
+    max-width: 530px;
+}
+#bind_pay .tmpl-box .pay_box a.rt, #bind_pay li a.rt {
+    margin-right: 40px;
+    margin-top: 20px;
+    width: 142px;
+    height: 33px;
+    line-height: 35px;
+    border: 1px solid #3bc1db;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #00c1de;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+#bind_pay .tmpl-box .pay_box a.no_bg_btn, #bind_pay li a.no_bg_btn, #bind_pay li a.no_bg_btn_click {
+    background-color: #fff;
+    color: #3bc1db;
+}
+#bind_pay ul.pay_list li.tmpl-box {
+    display: none;
+    padding-top: 35px;
+    margin-top: -20px;
+    border-top: none;
+    line-height: 1;
+}
+#bind_pay .tmpl-box .pay_info_list {
+    padding-top: 0;
+}
+#bind_pay .tmpl-box .pay_info_list li {
+    margin-bottom: 0;
+    border: none;
+    line-height: 1;
+    font-size: 14px;
+    color: #333;
+}
+#bind_pay .tmpl-box .pay_info_list span {
+    margin-right: 14px;
+    display: inline-block;
+    width: 279px;
+    text-align: right;
+    line-height: 40px;
+}
+#bind_pay .tmpl-box .pay_info_list input, #bind_pay .tmpl-box .pay_info_list select {
+    padding: 0 10px;
+    width: 410px;
+    height: 38px;
+    line-height: 38px;
+    color: #666;
+    border: 1px solid #ddd;
+}
+#bind_pay .tmpl-box .pay_info_list p {
+    opacity: 0;
+    margin-left: 293px;
+    line-height: 22px;
+    color: #f23333;
+    font-size: 12px;
+}
+#bind_pay .tmpl-box .pay_info_list .layui-form-item {
+    clear: none;
+    margin-bottom: 0;
+}
+#bind_pay .tmpl-box .pay_info_list input, #bind_pay .tmpl-box .pay_info_list select {
+    padding: 0 10px;
+    width: 410px;
+    height: 38px;
+    line-height: 38px;
+    color: #666;
+    border: 1px solid #ddd;
+}
+#bind_pay .tmpl-box .pay_info_list select {
+    margin-left: -3px;
+    width: 432px;
+    height: 40px;
+    line-height: 40px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+#bind_pay .tmpl-box .btn {
+    margin: 8px 0 38px 293px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    background-color: #0bc1e6;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 430px;
+    display: block;
+}
+#bind_pay .pay_ico_3 {
+    background-position-x: -44px;
+}
+#bind_pay .tmpl-box .pay_info_list li {
+    margin-bottom: 0;
+    border: none;
+    line-height: 1;
+    font-size: 14px;
+    color: #333;
+}
+#bind_pay .tmpl-box .pay_info_list li.up_pic {
+    position: relative;
+    padding: 0 112px;
+    margin-left: 293px;
+    margin-bottom: 30px;
+    width: 410px;
+    height: 206px;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+#bind_pay .tmpl-box .pay_info_list li.up_pic .bg_pic {
+    margin: 63px auto 25px;
+    width: 50px;
+    height: 38px;
+    background: url(../images/bind_pay.png) -104px -52px no-repeat;
+}
+#bind_pay .tmpl-box .pay_info_list li.up_pic .text {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    word-break: break-all;
+    width: 428px;
+    margin-left: -112px;
+}
+#bind_pay .tmpl-box .pay_info_list input, #bind_pay .tmpl-box .pay_info_list select {
+    padding: 0 10px;
+    width: 410px;
+    height: 38px;
+    line-height: 38px;
+    color: #666;
+    border: 1px solid #ddd;
+}
+#bind_pay .tmpl-box .pay_info_list li.up_pic input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+#bind_pay .tmpl-box .pay_info_list li.pic_err_tips {
+    margin-top: -30px;
+}
+#bind_pay .pay_ico_2 {
+    background-position-x: -23px;
+}
+.rt {
+    float: right;
+}

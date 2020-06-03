@@ -1,0 +1,359 @@
+<include file="Public:header" />
+<link rel="stylesheet" href="/movesay/css/cstyle.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/common_0926.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/index_0926.css"/>
+<style>
+.change_tab{height: 40px;line-height: 40px;text-align: center;}
+.change_tab a{display: inline-block;width:130px;color:#666;font-weight: bold;font-size: 14px;}
+.change_tab a:hover{color:#108ee9;border-bottom: 3px solid #108ee9;}
+.change_tab .on_new{color:#108ee9;border-bottom: 3px solid #108ee9;}
+.select_div{margin:0 auto;height: 85px;text-align:center;background: #fff;border-radius: 4px;margin-top:3px;}
+.select_div form{margin:0 auto;height:35px;overflow:hidden;margin-top:25px;}
+.select_div select{width: 165px;height: 35px;float:left;border:1px solid #d6dbdd;border-radius: 4px;color:#252525;text-indent: 5px;margin-right: 5px;font-size: 13px;}
+.search_input{height:35px;float:left;}
+.search_trade{float:left;background: #108ee9;color:#fff;width: 100px;height: 35px;outline: none;border:1px solid #108ee9;border-radius: 4px;margin-left: 20px;font-size: 13px;}
+.table_trade{width: 1200px;margin-top:30px;background: #fff;padding-bottom: 20px;border-radius: 4px 4px 0 0;min-height: 750px;}
+.table_trade table tr th{background: #f7f7f7;font-size: 14px;color:rgba(0, 0, 0, 0.9);text-align: left;font-weight: 500;height:53px;}
+.table_trade table tr td{padding:16px 0;border-bottom: 1px solid #d6dbdd;font-size: 14px;color: rgba(0, 0, 0, 0.7);}
+.table_trade table tr:hover{background: #ecf6fd;}
+.bsedit{color:#108ee9;display: inline-block;width:72px;height:30px;border:1px solid #108ee9;line-height:30px;text-align: center;border-radius: 4px;}
+
+</style>
+<!-- 改版开始 -->
+<div class="wapper">
+        <div class="ptp-PageHome">
+            <!--公告-->
+            <div class="pageHomeMain1">
+                
+
+<!--首页内容-->
+<style>
+    .pageHomeMain1 {
+        padding: 0px;
+    }
+</style>
+<div class="pageHomeMain">
+    <div class="w1200">
+        <!--导航-->
+        <!--内容中心-->
+        <div class="ptp-contentCore cf">
+            <div class="fl contentCore_fl">
+
+                <div style="position:relative;">
+                    
+                    <div class="headTabs pageHomeHeadTabs">
+                    	<volist name="coin" id="vo">
+                    	<a href="/Ctrade/index.html?type={$Think.get.type}&obj=1&coin={$vo.id}&loca=&curr=&paym=&uname=" <eq name="Think.get.coin" value="$vo.id">class="curr"</eq>><img src="/Upload/coin/{$vo.img}"><em>{$vo.name|strtoupper}</em></a>
+                    	</volist>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="select_div">
+                <form action="/Ctrade/index.html" method="get">
+                    <input type="hidden" name="type" value="1">
+                    <div class="search_input" id="adbox">
+                        <select name="coin">
+                            <option value="" <empty name="Think.get.coin">selected</empty>>币种</option>
+                            <volist name="coin" id="vo">
+                                <option value="{$vo.id}" <eq name="Think.get.coin" value="$vo.id">selected</eq>>{$vo.name|strtoupper} {$vo.title}</option>
+                            </volist>                        </select>
+                        <select name="curr">
+                            <option value="" <empty name="Think.get.curr">selected</empty>>货币</option>
+                            <volist name="currency" id="vo">
+                                <option value="{$vo.id}" <eq name="Think.get.curr" value="$vo.id">selected</eq>>{$vo.short_name} {$vo.name}</option>
+                            </volist>                        </select>
+                        <select name="paym">
+                            <option value="" <empty name="Think.get.paym">selected</empty>>支付方式</option>
+                            <volist name="pay_method" id="vo">
+                                <option value="{$vo.id}" <eq name="Think.get.paym" value="$vo.id">selected</eq>>{$vo.name}</option>
+                            </volist>                        </select>
+                    </div>
+                    <input type="submit" value="搜索" class="search_trade">
+                    <input type="button" value="出售" class="search_trade" onclick="window.location.href='/Newad/index.html'">
+                </form>
+            </div>
+                    <div class="buySell">
+                        <table class="buySell_table">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="10%">
+                                <col width="25%">
+                                <col width="10%">
+                                <col width="10%">
+                            </colgroup>
+                            <tbody><tr>
+                                <th>用户名</th>
+                                <th>币种</th>
+                                <th>信用</th>
+                                <th>支付方式</th>
+                                <th>交易限额</th>
+                                <th>价格</th>
+                                <th>操作</th>
+                            </tr>
+                        </tbody></table>
+                        
+                        <div class="item buyItem data_Hide">
+                        	<table>
+                        		<colgroup>
+                        			<col width="20%">
+                        			<col width="10%">
+                        			<col width="10%">
+                        			<col width="15%">
+                        			<col width="25%">
+                        			<col width="10%">
+                        			<col width="10%">
+                        		</colgroup>
+                        		<tbody>
+                        			<volist name="list2" id="vo">
+                        			<tr class="trItem">
+                        				<td>
+                        					<div class="headImg" style="max-width:190px;">
+                        						<a href="javascript:void(0);" onclick="" style="">
+                        							<img src="{$vo.headpic}" class="img">
+                        							<span style="">{$vo.enname}</span>
+                        							<img src="__IMG__/merchant.png" style="margin:0;"/>
+                        						</a>
+                        					</div>
+                        				</td>   
+                        				<td>{$vo.coin|strtoupper}</td>  
+                        				<td>好评度 {$vo.goodcomm}%</td> 
+                        				<td> 
+                        					<img src="__PUBLIC__/Home/images/{$vo.pay_method}" class="imgshow_icon">
+                        				</td> 
+                        				<td class="part-buy"> 
+                        					<!-- <p><em>1666.8</em><em>CNY</em>/<em>ETH</em></p> --> 
+                        					<span><em>{$vo['min_limit']|num}</em> - <em>{$vo['max_limit']|num}</em>{$vo['currency_type']}</span>
+                        				</td> 
+                        				<td> {$vo['price']} {$vo['currency_type']}</td> 
+                        				<td> 
+                        					<a href="{:U('Newad/advdetail',array('type'=>$type,'id'=>$vo['id']))}" class="bsedit"><eq name="type" value="0">出售<else/>购买</eq></a> 
+                        				</td>
+                        			</tr>
+                        			</volist>
+                        			<volist name="list" id="vo">
+                        			<tr class="trItem">
+                        				<td>
+                        					<div class="headImg">
+                        						<a href="javascript:void(0);" onclick="PenCenter('5744')">
+                        							<img src="{$vo.headpic}" class="img">
+                        							<span>{$vo.enname}</span>
+                        						</a>
+                        					</div>
+                        				</td>   
+                        				<td>{$vo.coin|strtoupper}</td>  
+                        				<td>好评度 {$vo.goodcomm}%</td> 
+                        				<td> 
+                        					<img src="__PUBLIC__/Home/images/{$vo.pay_method}" class="imgshow_icon">
+                        				</td> 
+                        				<td class="part-buy"> 
+                        					<!-- <p><em>1666.8</em><em>CNY</em>/<em>ETH</em></p> --> 
+                        					<span><em>{$vo['min_limit']|num}</em> - <em>{$vo['max_limit']|num}</em>{$vo['currency_type']}</span>
+                        				</td> 
+                        				<td> {$vo['price']} {$vo['currency_type']}</td> 
+                        				<td> 
+                        					<a href="{:U('Newad/advdetail',array('type'=>$type,'id'=>$vo['id']))}" class="bsedit"><eq name="type" value="0">出售<else/>购买</eq></a> 
+                        				</td>
+                        			</tr>
+                        			</volist> 
+                        		</tbody>
+                        	</table>
+                        	<div class="pages">{$page}</div>
+                        </div>
+                        
+                    <div class="buySellLoading" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; min-height: 500px; background-color: rgb(255, 255, 255); z-index: 300; display: none;"><img src="/img/Gear.gif" style="position:absolute;top:150px;left:0;right:0;margin:0 auto;width:100px"></div></div>
+
+                </div>
+            </div>
+            <div class="fr">
+                <div class="frItem">
+                    <div class="head">
+                        <img src="__PUBLIC__/Home/images/mxjyy.png">明星交易员
+                    </div>
+                    <div class="starNews">
+                    	<ul>
+                    		<volist name="users" id="vo">
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">{$i}</em>
+                    				<span class="fl"><i>{$vo.username}</i></span> 
+                    				<img src="__PUBLIC__/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="javascript:void(0)">
+                    				<dl>
+                    					<dt>
+                    						<img src="{$vo.img}">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>{$vo.trade_amount}</i></p>
+                    						<p>累计交易量：<i>{$vo.trade_money}</i> </p>
+                    						<p>被<i>{$vo.trust}</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		</volist>
+                    		<!-- <li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">2</em>
+                    				<span class="fl"><i>诚信卖币</i></span> 
+                    				<img src="__PUBLIC__/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=5744">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/0778fbef39d54c64ba4a9ef1884f99c6.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>79</i></p>
+                    						<p>累计交易量：<i>1803.683644</i> </p>
+                    						<p>被<i>9</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">3</em>
+                    				<span class="fl"><i>LEZAN</i></span> 
+                    				<img src="__PUBLIC__/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=5693">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/60c839c873954bed8689e520a7744835.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>60</i></p>
+                    						<p>累计交易量：<i>523.972408</i> </p>
+                    						<p>被<i>7</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">4</em>
+                    				<span class="fl"><i>币圈管家</i></span> 
+                    				<img src="__PUBLIC__/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=48">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/31228f59958d4bfd8afea80f65de52e4.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>45</i></p>
+                    						<p>累计交易量：<i>2602.866686</i> </p>
+                    						<p>被<i>2</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li>
+                    		<li>
+                    			<a href="javascript:void(0)" class="firstA">
+                    				<em class="fl">5</em>
+                    				<span class="fl"><i>诸葛币行</i></span> 
+                    				<img src="__PUBLIC__/Home/images/xl.png" class="fr showState">
+                    			</a>
+                    			<a href="/AboutMembers/Index?UserID=5702">
+                    				<dl>
+                    					<dt>
+                    						<img src="https://img.bishang.pro:85/img/6/7354535936a74ae0a3dd5de8d6b059c9.png">
+                    					</dt>
+                    					<dd>
+                    						<p>累计交易次数：<i>40</i></p>
+                    						<p>累计交易量：<i>151.540074</i> </p>
+                    						<p>被<i>2</i>人信任</p>
+                    					</dd> 
+                    				</dl>
+                    			</a>
+                    		</li> -->
+                    	</ul>
+                    </div>
+                </div>
+                <div class="frItem">
+                    <div class="head">
+                        <img src="__PUBLIC__/Home/images/newsjy.png">最新交易
+                    </div>
+                    <div class="newDeal">
+                    	<ul style="margin-top: -8px;">
+                    		<volist name="newtrade" id="vo">
+                    		<li>
+                    			<span class="col333"><em>{$vo.username}</em></span>
+                    			<span class="colf76b6b"><em>线上卖</em></span>
+                    			<span class="col999"><em>{$vo.time}</em>前</span>
+                    		</li>
+                    		</volist>
+                    		
+                    	</ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+    </div>
+<!-- 改版结束 -->
+
+<script>
+$(function() {
+	//明星人员信息展示
+    $(".ptp-contentCore .starNews").on("click", ".firstA", function () {
+        var _this = $(this);
+        if (_this.parent().find("dl").is(":hidden")) {
+            _this.find(".showState").attr("src", "__PUBLIC__/Home/images/sl.png");
+            _this.parents("li").siblings().find(".showState").attr("src", "__PUBLIC__/Home/images/xl.png");
+        } else {
+            _this.find(".showState").attr("src", "__PUBLIC__/Home/images/xl.png");
+        }
+        _this.parent().find("dl").slideToggle().parents("li").siblings().find("dl").slideUp();
+    });
+    slideGD();
+})
+//侧边栏滚动
+function slideGD() {
+    var index = 10;
+    var dd = setInterval(function () {
+
+        var _table = $(".ptp-contentCore .newDeal");
+        if (!index) { clearInterval(dd); }
+        index--;
+        if (_table.find("ul li").length >= 10) {
+            clearInterval(dd);
+            _table.find("ul").append(_table.find("ul").html());
+            var _top = 0;
+            var _stop = false;
+            setInterval(function () {
+                if (_stop) return false;
+                if (_table.find("ul").height() <= _table.height()) {
+                    return false;
+                }
+                _table.find("ul").animate({ "margin-top": '-=1' }, 0, function () {
+                    var s = Math.abs(parseInt(_table.find("ul").css("margin-top")));
+                    if (s >= 36) {
+                        _table.find("ul li").slice(0, 1).appendTo($(this));
+                        _table.find("ul").css("margin-top", 0);
+                    }
+                    //if (_top >= _table.find("li:first").height()) {
+                    //    _table.find("li:first").css("margin-top", "0").appendTo(_table.find("ul"));
+                    //    _top = 0;
+                    //}
+                })
+            }, 40);
+            _table.hover(function () {
+                _stop = true;
+            }, function () {
+                _stop = false;
+            })
+        }
+    }, 500)
+}
+</script>
+<include file="Public:footer_3" />

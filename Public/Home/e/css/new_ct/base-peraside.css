@@ -1,0 +1,123 @@
+﻿body {
+    background-color: #333c4b;
+}
+
+.personal-wrap {
+    margin-top: 17px;
+    background-color: #2d3443;
+    box-shadow: 2px 2px 2px 2px #2b3340;
+    padding-top: 0;
+    margin-bottom: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+div.trade_center{
+    background-color: rgba(0,0,0,0);
+}
+
+/*左边栏*/
+.aside {
+    width: 260px;
+    padding-right: 0;
+    background-color: #2d3443;
+}
+.asdie-menu-list {
+padding-bottom:0 ;
+}
+
+.asdie-menu-list dt {
+    background: none;
+
+}
+.asdie-menu-list dt a, .asdie-menu-list dt{
+    padding: 10px 10px 10px 20px;
+}
+.asdie-menu-list dd {
+}
+.asdie-menu-list dd a{
+    position: relative;
+    padding: 20px 20px 20px 60px;
+}
+.asdie-menu-list dd a:hover, .asdie-menu-list dd.active a{
+    background-color: #343c4c;
+}
+.asdie-menu-list dd a{
+    background-color: #2d3443;
+    color: #fff;
+    border-bottom: 1px solid #49505e;
+}
+
+.asdie-menu-list #dd_user_center>a>i{
+    /*top:10px;*/
+}
+
+/*主体*/
+.main {
+    width: 940px;
+    background-color: #292f3d;
+    color: #fff;
+}
+/*body{*/
+    /*background-color: #333c4b;*/
+/*}*/
+
+/*icon*/
+.essentialInfo {
+    background: url("https://hbex.io/css/images/essentialinfo.png") no-repeat;
+    color: red;
+}
+
+.secClassification {
+    background: url("https://hbex.io/css/images/secclassification.png") no-repeat;
+}
+
+.revisePhoneNum {
+    background: url("https://hbex.io/css/images/revisephonenum.png") no-repeat;
+}
+
+.bindingEmail {
+    background: url("https://hbex.io/css/images/bindingemail.png") no-repeat;
+}
+.modifyEmail {
+    background: url("https://hbex.io/css/images/modifyemail.png") no-repeat;
+}
+
+.reviseLoginPassword {
+    background: url("https://hbex.io/css/images/reviseloginpassword.png") no-repeat;
+}
+
+.reviseMoneyPassword {
+    background: url("https://hbex.io/css/images/revisemoneypassword.png") no-repeat;
+}
+
+.Transaction {
+    background: url("https://hbex.io/css/images/transaction.png") no-repeat;
+}
+.bindingPhone{
+    background: url("https://hbex.io/css/images/bindphone.png") no-repeat;
+}
+.idCord{
+    background: url("https://hbex.io/css/images/idcord.png") no-repeat;
+}
+.moneyBind{
+    background: url("https://hbex.io/css/images/moneybind.png") no-repeat;
+}
+.defeated-tips-info {
+    font-size: 18px;
+    color: #ed547f;
+    position: relative;
+    margin-right: 20px;
+}
+.defeated-tips-info:after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -48px;
+    width: 28px;
+    height: 28px;
+    background:  url("https://hbex.io/css/images/defeated-tips-info.png") no-repeat;
+}
+
+#api .idCord{
+    background: url(https://hbex.io/css/images/apikey_mng.png) no-repeat;
+}

@@ -1,0 +1,1780 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />-->
+<meta name="viewport" content="user-scalable=yes" />
+<title>{:C('web_title')}</title>
+<meta name="Keywords" content="通证交易平台、数字市场、数字币、区块链、虚拟货币交易">
+<meta name="Description" content="">
+<meta name="author" content="zhisucom">
+<meta name="coprright" content="zhisucom">
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/index/w/css/font-awesome.min.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/index/w/css/style.css" id="theme"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/index/w/css/common.css"/>
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/jquery.cookies.2.2.0.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/posfixed.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/dot.min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Home/index/w/css/slider.css">
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/slider.js"></script>
+</head>
+<body lang="zh-CN">
+    <style type="text/css" media="all">
+        .vip-level{width:26px;}
+        .vip-level img{display:inline-block;width:100%;font-size: 1.33333333em;line-height: .75em;vertical-align: -15%;}
+        .language-change:before{
+          cursor:pointer;
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: -2px;
+            display: inline-block;
+            color: #f00;
+            width: 6px;
+            height: 6px;
+            border:#666 solid;
+            border-width: 1px 1px 0 0;
+            transform: rotate(135deg);
+            margin-bottom: 10px;
+        }
+        .user-status .language-change{
+            width:100px;
+            /*text-align:center;*/
+            /*height:20px;*/
+            position:relative;
+            padding-bottom:10px;
+        }
+        .other-language{
+            display:none;
+            position:absolute;
+            top:27px;
+          left:1px;
+            /*margin-top:7px;*/
+            background:#fff;
+            box-shadow: 0 0 6px #eee;
+        }
+        .other-language li{
+            float:none;
+            width:100px;
+            height:36px;
+          text-align:left;
+          cursor:pointer;
+          
+        }
+        
+        .other-language li:hover{
+            background:#f8f8f8;
+        }
+        .other-language li:hover a{
+            color:#333;
+        }
+        .other-language li a{
+            display:block;
+            width:100%;
+            /*text-align:center;*/
+           	color:#666;
+          float:none;
+        }
+        .have-language{
+            margin-bottom:7px;
+          text-align:left;
+        }
+        .have-language a{
+            /*display:block;*/
+            /*width:100%;*/
+            text-align:center;
+            text-decoration: none;
+            color:#666;
+          float:none;
+        }
+        .have-language a:hover{
+            text-decoration: none;
+        }
+        #zh_click_t{color:#666;} 
+        .language-change:hover .other-language{
+            display:block;
+        }
+        .other-language li a{
+            /*display:block;*/
+            height:36px;
+           /* width:100%;*/
+            line-height:36px;
+            text-decoration: none;
+        }
+      .language-change img{
+        vertical-align: middle;
+      		width:28px;
+        	margin-right:10px;
+        margin-left:8px;
+      }
+      #kf1{
+      display:none;
+    }
+   
+      /* 以下是修改的样式*/
+      .mywallet_list{background: #0a153a;box-shadow:none;border: 1px solid #505251;    border-top: 2px #505251 solid;}
+      .mywallet_list h4{ color:#f00;}
+      .mywallet_btn_box a{color: #f7fbfa;background: #65b2e8; }
+      .move{ color:#666 !important;}
+        #trade-nav-tabs .current{ background:#4799ff;}
+      .deal_list{    border: none;  }
+      /*.move {color: #edf1f5 !important; }*/
+      
+      .mywallet_btn_box a{
+   		 color: rgba(255,255,255,0.7);
+   		 border: 1px solid rgba(255,255,255,0.4);
+    	 background: transparent;
+         margin-top:15px;
+         margin-bottom:20px;
+      }
+      .mywallet_btn_box a:hover{
+        background: #4799ff;
+      }
+      .mywallet_btn_box{
+        border-top:1px dashed #555;
+      }
+      .mywallet_list ul{
+        padding-right:40px;
+      }
+      .freeze_list li a span,.balance_list  li a span{
+        color:#fff!important;
+      }
+      .mywallet_list h4{
+        color:rgba(255,255,255,0.7);
+      }
+          
+      .common-nav a:hover{
+        color:#4799ff!important;
+      }
+    
+  
+     /*   .deal_list dd{     border-bottom: 1px solid #443d3d;}*/
+    </style>
+<!--[if lt IE 10]>
+<div id="kie-bar" class="kie-bar ">
+    您现在使用的浏览器版本过低，可能会导致浏览效果和信息的缺失。 建议立即升级到
+    <a href="http://rj.baidu.com/soft/detail/14917.html" target="_blank" title="免费升级至IE8浏览器">IE 10+</a> 或
+    <a href="http://rj.baidu.com/soft/detail/14744.html" target="_blank" title="免费升级至360安全浏览器">谷歌浏览器</a> 或
+    <a href="http://rj.baidu.com/soft/detail/17451.html" target="_blank" title="免费升级至360安全浏览器">360安全浏览器</a> ，安全更放心！
+</div><![endif]-->
+<div id="zhisucom_header" style="z-index: 999;min-width: 1200px;width:100%;" ;>
+    <div class="header" >
+        <div class="header-content">
+            <ul class="trade-status">
+
+                <li style="padding: 0px 10px 0px 0px;">
+                    <i class="fa fa-home fa-lg left move mr5"></i> 
+                    <span class="zhu-top-welcome">
+                  
+                  	 您好，欢迎来到新世界数字资产交易平台                                         
+                  	</span>
+                </li>
+            </ul>
+            <ul class="user-status">
+                
+                
+                                
+                <li>
+                    <i class="fa fa-user left move fz_16"></i> <a href="/Login/register.html" class="ma-l move zhu-register"> </a>
+                </li>
+
+                <li>
+                    <a href="javascript:loginpop();" class="darker zhu-login">登录</a>
+                </li>
+                <li>
+                    <a style="font-weight: bold;margin-top: 1px;color:#333;">|</a>
+                </li>
+                <li>
+                    <a href="/Login/register.html" class="darker">注册</a>
+                </li>                   <li class="language-change " >
+    <div class="have-language jianti">切换语言</div>
+    <ul class="other-language" >
+        <li style="width:150px"> <a href="/User/lang.html?lang=1"><img src="__PUBLIC__/Home/index/w/picture/jianti.jpg"/>简体中文</a>
+        </li>
+        <li class="yingwen" style="width:150px"><a href="/User/lang.html?lang=3"><img src="__PUBLIC__/Home/index/w/picture/yingwen.jpg"/>English</a></li>
+      	<!--<li class="yingwen" style="width:150px"><a href="/User/lang/lang/1" ><img src="__PUBLIC__/Home/index/w/picture/hgy.png"/>한국어</a></li>
+        <li class="yingwen" style="width:150px"><a href="/User/lang/lang/1" ><img src="__PUBLIC__/Home/index/w/picture/dbai.png"/> دبي</a></li>
+        <li class="yingwen" style="width:150px"><a href="/User/lang/lang/1" ><img src="__PUBLIC__/Home/index/w/picture/nni.png"/>Indonesia</a></li>-->
+    </ul>
+ 
+</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="common-nav">
+    <div class="nav-bar">
+        <div style="display: none;" class="logo" style="margin-top: 12px;">
+            <a href="/" class="xiaozhu-logo"> 
+                <img src="__PUBLIC__/Home/index/z/picture/logo2018.png" alt=""style="width:178px"/>
+            </a>         
+        </div>
+        <style> #liss li a { text-decoration: none !important; } </style>
+        <div class="nav-content">
+            <ul id="liss" class="common-nav-list">
+                <li id="index_box">
+                    <a href="/" class="zhu-header-list">首页</a>
+                </li>
+                <li id="trade_box">
+                    <a href="#" id="trade_top" class="darker zhu-header-list">现货交易                        <i class="fa fa-angle-down"></i> 
+                    </a>
+                    
+                    
+                    
+                    
+                   <script id="trade_list_tpl" type="text/x-dot-template">
+                        <ul id="trade-nav-tabs">
+                            {{ for(var k in it) { }}
+                            <li class="zhu-trade trade-tab {{? k == 0}}{{?}}">
+                                {{=it[k]['title']}}
+                            </li>
+                            {{ } }}
+                        </ul>
+                        <div id="trade-nav-body">
+                            {{ for(var k in it) { }} {{? k == 0}}
+                            <dl style="display: none">
+                                {{??}}
+                                <dl style="display: none">
+                                    {{?}} {{ for(var kk in it[k]['data']) { }}
+                                    <dd>
+                                        <a href="/trade/index/market/{{=kk}}"><img src="__PUBLIC__/Home/index/w/picture/e7eb886945ff4282bcc27d0e2e5191d6.gif'data'][kk]['img']}}" style="width: 18px;vertical-align: -4px;margin-right: 5px;"><span class="zhu-top-bi" style='color:#666'>{{=it[k]['data'][kk]['title']}}</span></a>
+                                    </dd>
+                                    {{ } }}
+                                </dl>
+                                {{ } }}
+                            </dl>
+                        </div>
+                        <i class="fa fa-caret-up move" style="position: absolute;top: -19px;left: 18px;font-size: 28px;color:#333A44!important;"></i>
+                        <div class="nocontent"></div>
+                    </script>
+
+                    <div id="trade_list" class="deal_list " style="left:1px; top: 80px;display:none;">
+                    </div>
+                    </li>
+                    
+                    
+                    <!--
+                    <li id="新币vote_box">
+                            <a href="/Vote/index" class="zhu-header-list">新币投票</a>
+                        </li><li id="c2c_box">
+                            <a href="/c2c/index" class="zhu-header-list">C2C交易</a>
+                        </li><li id="voting_box">
+                            <a href="/voting/index" class="zhu-header-list">投票活动</a>
+                        </li><li id="finance_box">
+                            <a href="/Finance/index" class="zhu-header-list">资产管理</a>
+                        </li><li id="user_box">
+                            <a href="/User/index" class="zhu-header-list">安全设置</a>
+                        </li><li id="article_box">
+                            <a href="/Article/index" class="zhu-header-list">系统公告</a>
+                        </li>   系统公告-->
+
+					<li id="新币vote_box">
+                            <a href="/Vote/index" class="zhu-header-list"></a>
+                        </li><li id="c2c_box">
+                            <a href="/c2c/index" class="zhu-header-list">C2C交易</a>
+                        </li><li id="voting_box">
+                            <a href="/voting/index" class="zhu-header-list">投票活动</a>
+                        </li><li id="finance_box">
+                            <a href="/Finance/index" class="zhu-header-list">资产管理</a>
+                        </li><li id="user_box">
+                            <a href="/User/index" class="zhu-header-list">安全设置</a>
+                        </li><li id="article_box">
+                            <a href="/Article/index" class="zhu-header-list">系统公告</a>
+                        </li>                    
+					<!--<li id="c2c_box">
+                            <a href="/c2c/index" class="zhu-header-list">C2C交易</a>
+                        </li>
+						<li id="otc_box">
+                            <a href="/otc/index/type/2/market/btc_mngt.html" class="zhu-header-list">OTC交易</a>
+                        </li>
+						<li id="finance_box">
+                            <a href="/Finance/index" class="zhu-header-list"></a>
+                        </li>
+						<li id="user_box">
+                            <a href="/User/index" class="zhu-header-list"></a>
+                        </li>
+						<li id="article_box">
+                            <a href="/Article/index" class="zhu-header-list">系统公告</a>
+                        </li>		
+                     -->
+                </ul>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#trade_top').hover(function () {
+        $('#trade_list').show();
+    }, function () {
+        $('#trade_list').hide();
+    });
+    $('#trade_tops').hover(function () {
+        $('#trade_lists').show();
+    }, function () {
+        $('#trade_lists').hide();
+    });
+    $('#trade_list').hover(function () {
+        $('#trade_list').show();
+    }, function () {
+        $('#trade_list').hide();
+    });
+    $('#trade_lists').hover(function () {
+        $('#trade_lists').show();
+    }, function () {
+        $('#trade_lists').hide();
+    });
+    $.post("/ajax/top_coin_menu.html?t=" + Math.random(), function (data) {
+        if (data) {
+            var interText = doT.template($("#trade_list_tpl").text());
+            var interTexts = doT.template($("#trade_list_tpls").text());
+            $("#trade_list").html(interText(data));
+            $("#trade_lists").html(interTexts(data));
+            var $li = $('#trade-nav-tabs > li');
+            var $lis = $('#trade-nav-tabss > li');
+            var $ul = $('#trade-nav-body > dl');
+            var $uls = $('#trade-nav-bodys > dl');
+            $li.mouseover(function () {
+                var $this = $(this);
+                var $t = $this.index();
+                $li.removeClass();
+                $this.addClass('current');
+                $ul.css('display', 'none');
+                $ul.eq($t).css('display', 'block');
+            })
+            $lis.mouseover(function () {
+                var $this = $(this);
+                var $t = $this.index();
+                $lis.removeClass();
+                $this.addClass('current');
+                $uls.css('display', 'none');
+                $uls.eq($t).css('display', 'block');
+            })
+        }
+    }, "json");
+    $('#game_top').hover(function () {
+        $('#game_list').show();
+    }, function () {
+        $('#game_list').hide();
+    });
+    $('#game_list').hover(function () {
+        $('#game_list').show();
+    }, function () {
+        $('#game_list').hide();
+    });
+    $('#user_top').hover(function () {
+        $('#mywallet_list').show();
+    }, function () {
+        $('#mywallet_list').hide();
+    });
+    $('#mywallet_list').hover(function () {
+        $('#mywallet_list').show();
+    }, function () {
+        $('#mywallet_list').hide();
+    });
+
+    /*$(document).ready(function () {
+        $("#zhisucom_header").posfixed({});
+    });*/
+  //点击退出提示
+  $('.zhu-back').on('click',function(e){
+  	e.preventDefault();
+  	var n = confirm("确定要退出登录吗");
+  	if(n){
+  		window.location.href="/Login/loginout.html";
+  	}
+  })
+</script>
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/index/w/css/layui.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/index/w/css/swiper-4.3.3.min.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/index/w/css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/index/w/css/index-style.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/index/w/css/bannerchajian.css" />
+</head>
+  <style>
+    .title{ color: #787a86;}
+    .containt .xinwen .notice{ margin-top:7px;}
+    .containt .xinwen .notice li p{ height:84px;line-height: 18px; font-size: 14px; }
+    .containt .xinwen .notice li p:hover{ color: #cdced2;}
+    .banner2  .swiper-slide img{ width:100%; height: 595px;}
+    .lightred:hover a{color:#fff!important; }
+     #index_box a{
+    color:#4799ff!important;
+  }
+    .red{  color: #bf2835!important;}
+    
+.deal i {	border: solid #bf2835 2px;}
+
+.deal i:hover {	background: #bf2835;}
+    .deal th{    color: #bdbfc7; }
+    .deal tbody tr:hover{background: #203375;-webkit-box-shadow: 0px 5px 7px rgba(8, 18, 53, 0.6);box-shadow: 0px 5px 7px rgba(8, 18, 53, 0.6); }
+    .containt .xinwen .notice li p {    height: 70px;    line-height: 24px;}
+    .banner-right{     margin: -291px 100px 0 0;}
+    .banner-right img{     max-width: 485px;}
+    .toggle{ background: #4799ff;}
+    /*banner插件样式修改*/
+    .large-header{ position:absolute; top:0;left:0;height: 593px;}
+    .deal td:first-child {
+	    width: 320px;	    
+	    text-align: left;}
+	#space{height: 974px !important;}
+	.deal_list{width:500px;}
+	.deal_list dl{ width:500px;}
+	@media only screen  and (max-width: 768px) {
+		.header{ min-width: 1400px;}
+		.header-content{width: 1400px;}
+		.banner, .banner2{ width: 1400px;}
+		.containt{ width: 1400px;}
+		.common-nav{min-width: 1400px;}
+		.boxs{ min-width: 1400px;width:1400px;}
+		.all_mask{ width: 1400px;}
+		.all_mask_loginbox{left:190%;}
+	
+	}
+	.deal td:first-child{ width: 405px;}
+	.containt .pingtai ul li{ width: 304px; height: 342px;}
+	.main-style{ max-width:1400px!important;  margin:0 auto;}
+	.xinwen ul{ height: 417px;}
+  </style>
+<body>
+		<div class="banner "  >			
+          <div class="container demo-1">
+              <div class="content">
+                  <div id="large-header" class="large-header">
+                      <canvas id="demo-canvas"></canvas>
+                  </div>
+              </div>
+		  </div>
+			<div class="main-style"  >
+				<div class="banner-left">
+					<h1>数字资产<span>量化交易平台</span></h1>
+                    <p class="english">Digital asset quantitative trading platform</p>
+					<p class="item">
+						汇聚优质区块链项目					</p>
+				</div>
+				<div class="banner-right">
+					<img src="__PUBLIC__/Home/index/w/picture/qiu1.png"/>
+				</div>	
+			</div>
+			<div class="toggle">
+				切换			</div>
+		</div>
+	    <div class="banner2" >
+	    	<div class="swiper-container" >
+			    <div class="swiper-wrapper">
+			    	<div class="swiper-slide" ><a href="" target="_blank"><img src="__PUBLIC__/Home/index/w/picture/5bc19b412caed.jpg"></a></div><div class="swiper-slide" ><a href="" target="_blank"><img src="__PUBLIC__/Home/index/w/picture/5ba1fed5b0687.jpg"></a></div>			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			    
+			    <!-- 如果需要导航按钮 -->
+			    <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div>
+			</div>
+			<div class="toggle">
+				切换			</div>
+	    </div>
+		
+	<!--</div>-->
+	<div class="containt">
+		<div class="data-top">
+			<div class="layui-tab main-style " >
+			  <ul class="layui-tab-title" style="height:auto;">
+			  	<li class="layui-this on">MNGT交易区</li>
+			    <li >USDT交易区</li>
+			    <li>BTC交易区</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show" >
+			    	<table border="0" class="deal gray" style="text-align: center; " cellpadding="0" cellspacing="0" >
+			    		<thead>
+			    			<tr >
+				    			<th >交易对</th>
+				    			<th >价格</th>
+				    			<th >最高价</th>
+				    			<th>最低价</th>
+				    			
+				    			<th>24小时成交量(万)</th>
+								<th>24小时涨跌</th>
+				    			<th>价格趋势</th>
+				    			<th></th>
+				    		</tr>
+			    		</thead>
+			    		<tbody>
+			    			<tr >
+			    				<td>
+			    					<a href="/trade/index/market/btc_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/59457b5d1d3e6.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>BTC</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">23213.0000</span>
+			    				</td>
+			    				<td>
+			    					23213.0000			    				</td>
+			    				<td>
+			    					23213.0000			    				</td>
+			    				<td>
+			    					<span class="red">0.000000</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/btc_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/eth_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/594140f8a7d49.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>ETH</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">604.0000</span>
+			    				</td>
+			    				<td>
+			    					604.0000			    				</td>
+			    				<td>
+			    					604.0000			    				</td>
+			    				<td>
+			    					<span class="red">0.000000</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/eth_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/ltc_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/594133583d04d.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>LTC</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">162.0000</span>
+			    				</td>
+			    				<td>
+			    					162.0000			    				</td>
+			    				<td>
+			    					162.0000			    				</td>
+			    				<td>
+			    					<span class="red">0.000000</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/ltc_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/usdt_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/5ada97d7d9701.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>USDT</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">6.8000</span>
+			    				</td>
+			    				<td>
+			    					6.8000			    				</td>
+			    				<td>
+			    					6.8000			    				</td>
+			    				<td>
+			    					<span class="red">0.000000</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/usdt_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/nw_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/5bc69a325af47.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>NW</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">0.5000</span>
+			    				</td>
+			    				<td>
+			    					0.5000			    				</td>
+			    				<td>
+			    					0.5000			    				</td>
+			    				<td>
+			    					<span class="red">0.000000</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/nw_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/jsc_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/5ba0ca48ebf8e.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>JSC</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">4.8000</span>
+			    				</td>
+			    				<td>
+			    					13.0000			    				</td>
+			    				<td>
+			    					1.0000			    				</td>
+			    				<td>
+			    					<span class="red">0.322824</span>
+			    				</td>
+			    				<td>
+			    														<span style="color:#3dc18d">-4%</span>			    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/jsc_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/jdc_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/jdc.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>JDC</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">7.5000</span>
+			    				</td>
+			    				<td>
+			    					8.0000			    				</td>
+			    				<td>
+			    					6.0000			    				</td>
+			    				<td>
+			    					<span class="red">0.073400</span>
+			    				</td>
+			    				<td>
+			    														<span style="color:#3dc18d">-6.25%</span>			    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/jdc_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/bft_mngt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/5c0b63a604f98.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>BFT</b><font color='#bbb'>/ MNGT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">0.1340</span>
+			    				</td>
+			    				<td>
+			    					0.1360			    				</td>
+			    				<td>
+			    					0.1170			    				</td>
+			    				<td>
+			    					<span class="red">45.981700</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">2.29%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/bft_mngt/" style=" color:#bf2835">
+			    					去交易</a></i>
+			    				</td>
+			    			</tr>			    			
+			    			
+			    		</tbody>
+			    		
+			    	</table>
+			    </div>
+			    <div class="layui-tab-item">
+
+					<table border="0" class="deal gray" style="text-align: center; " cellpadding="0" cellspacing="0" >
+			    		<thead>
+			    			<tr >
+				    			<th >交易对</th>
+				    			<th >价格</th>
+				    			<th >最高价</th>
+				    			<th>最低价</th>
+				    			<th>24小时涨跌</th>
+				    			<th>24小时成交量</th>
+				    			<th>价格趋势</th>
+				    			<th></th>
+				    		</tr>
+			    		</thead>
+			    		<tbody>
+			    			<tr >
+			    				<td>
+			    					<a href="/trade/index/market/btc_usdt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/59457b5d1d3e6.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>BTC</b><font color='#bbb'>/ USDT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">3378.0000</span>
+			    				</td>
+			    				<td>
+			    					3378.0000			    				</td>
+			    				<td>
+			    					3378.0000			    				</td>
+			    				<td>
+			    					<span class="red">0.00</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/btc_usdt/" style=" color:#bf2835">去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/eth_usdt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/594140f8a7d49.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>ETH</b><font color='#bbb'>/ USDT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">87.8900</span>
+			    				</td>
+			    				<td>
+			    					87.8900			    				</td>
+			    				<td>
+			    					87.8900			    				</td>
+			    				<td>
+			    					<span class="red">0.00</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/eth_usdt/" style=" color:#bf2835">去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/ltc_usdt/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/594133583d04d.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>LTC</b><font color='#bbb'>/ USDT</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">23.7000</span>
+			    				</td>
+			    				<td>
+			    					23.7000			    				</td>
+			    				<td>
+			    					23.7000			    				</td>
+			    				<td>
+			    					<span class="red">0.00</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/ltc_usdt/" style=" color:#bf2835">去交易</a></i>
+			    				</td>
+			    			</tr>			    			
+			    			
+			    		</tbody>
+			    		
+			    	</table>
+				</div>
+			    <div class="layui-tab-item">
+					
+					<table border="0" class="deal gray" style="text-align: center; " cellpadding="0" cellspacing="0" >
+			    		<thead>
+			    			<tr >
+				    			<th >交易对</th>
+				    			<th >价格</th>
+				    			<th >最高价</th>
+				    			<th>最低价</th>
+				    			<th>24小时涨跌</th>
+				    			<th>24小时成交量</th>
+				    			<th>价格趋势</th>
+				    			<th></th>
+				    		</tr>
+			    		</thead>
+			    		<tbody>
+			    			<tr >
+			    				<td>
+			    					<a href="/trade/index/market/eth_btc/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/594140f8a7d49.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>ETH</b><font color='#bbb'>/ BTC</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">0.0260</span>
+			    				</td>
+			    				<td>
+			    					0.0260			    				</td>
+			    				<td>
+			    					0.0260			    				</td>
+			    				<td>
+			    					<span class="red">0.00</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/eth_btc/" style=" color:#bf2835">去交易</a></i>
+			    				</td>
+			    			</tr><tr >
+			    				<td>
+			    					<a href="/trade/index/market/ltc_btc/">
+			    					<img src="__PUBLIC__/Home/index/w/picture/594133583d04d.png" class="bz-logo">
+			    					<span style="color: #fff;"><b>LTC</b><font color='#bbb'>/ BTC</font></span>
+			    					</a>
+			    				</td>
+			    				<td>
+			    					<span class="red">0.0070</span>
+			    				</td>
+			    				<td>
+			    					0.0070			    				</td>
+			    				<td>
+			    					0.0070			    				</td>
+			    				<td>
+			    					<span class="red">0.00</span>
+			    				</td>
+			    				<td>
+			    					<span class="red">0%</span>
+												    				</td>
+			    				<td>
+			    					<img src="__PUBLIC__/Home/index/w/picture/k.png"/ class="bz-qs">
+			    				</td>
+			    				<td>
+			    					<i class="lightred"><a href="/trade/index/market/ltc_btc/" style=" color:#bf2835">去交易</a></i>
+			    				</td>
+			    			</tr>			    			
+			    			
+			    		</tbody>
+			    		
+			    	</table>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<div class="pingtai main-style clear">
+	    	<h3>金融级别安全交易平台</h3>
+			<p class="jj">金融产品运营风控经验团队、技术安全防护、数字资产90%存储多重签名冷钱包</p>
+		    <ul>
+		    	<li>
+		    		<div class="box">
+		    			<div class="biankuang biankuang_1"></div>
+						<div class="biankuang biankuang_2"></div>
+						<div class="biankuang biankuang_3"></div>
+						<div class="biankuang biankuang_4"></div>
+		    			<img src="__PUBLIC__/Home/index/w/picture/dingji.png" alt="" />
+			    		<h4>顶级</h4>
+			    		<p>重金千万注册顶级域名</p>
+			    		<p>是您选择的信心保证</p>
+		    		</div>
+		    	</li>
+		    	<li> 
+		    		<div class="box">
+		    			<div class="biankuang biankuang_1"></div>
+						<div class="biankuang biankuang_2"></div>
+						<div class="biankuang biankuang_3"></div>
+						<div class="biankuang biankuang_4"></div>
+		    			<img src="__PUBLIC__/Home/index/w/picture/anquan.png"/>
+			    		<h4>安全</h4>
+			    		<p>一流团队打造专业安全</p>
+			    		<p>多种防御让您资产无忧</p>
+		    		</div>
+		    	</li>
+		    	<li>
+		    		<div class="box">
+		    			<div class="biankuang biankuang_1"></div>
+						<div class="biankuang biankuang_2"></div>
+						<div class="biankuang biankuang_3"></div>
+						<div class="biankuang biankuang_4"></div>
+		    			<img src="__PUBLIC__/Home/index/w/picture/kuaijie.png"/>
+			    		<h4>快捷</h4>
+			    		<p>资产流转快捷</p>
+			    		<p>交易畅通无阻</p>
+		    		</div>
+		    	</li>
+		    	<li>
+		    		<div class="box">
+		    			<div class="biankuang biankuang_1"></div>
+						<div class="biankuang biankuang_2"></div>
+						<div class="biankuang biankuang_3"></div>
+						<div class="biankuang biankuang_4"></div>
+		    			<img src="__PUBLIC__/Home/index/w/picture/server.png"/>
+			    		<h4>服务</h4>
+			    		<p>全天候客服在线服务</p>
+			    		<p>保证您的优质使用</p>
+		    		</div>
+				</li>
+		</div>
+		<!--公告 新闻版块-->
+		<div class="xinwen main-style clear">
+			<div class="notice">
+				<h4>
+					<p>官方公告</p>
+					<span>RESS RELEASE</span>
+				</h4>
+				<ul>
+					<li style="overflow: hidden;">
+						<div class="notice-date">2018-12-17</div>
+						<a href="/Article/detail/id/211.html" class="title">关于JDC（金达通证）开启交易的公告</a>
+						<!-- <p></p> -->
+					</li><li style="overflow: hidden;">
+						<div class="notice-date">2018-12-17</div>
+						<a href="/Article/detail/id/210.html" class="title">关于JSC（金石通证）开启交易的公告</a>
+						<!-- <p></p> -->
+					</li>				</ul>
+				<a href="/Article/index/id/19" target="_self"><p class="xinwen-more">MORE</p></a>
+			</div>
+			
+			<div class="news">
+				<h4>
+					<p>行业新闻</p>
+					<span>MEDIA</span>
+				</h4>
+				<ul>
+					<li>
+						<div class="news-date">
+							<span ><strong>31</strong></span>
+							2018-10							<a href="/Article/detail/id/204.html">
+							区块链，一项新“潮流”正朝我们走来</a>
+						</div>
+					    <div class="news-img">
+					    	<!-- <img src="__PUBLIC__/Home/index/w/picture/new1.png"/> -->
+					    						    	<img src="__PUBLIC__/Home/index/w/picture/new1.png"/>
+					    	<img src="__PUBLIC__/Home/index/w/picture/graymore.png" class="news-img-more"/>					    </div>
+						
+					</li><li>
+						<div class="news-date">
+							<span ><strong>30</strong></span>
+							2018-10							<a href="/Article/detail/id/202.html">
+							欧洲议会通过探索监管区块链的决议，重点关注信任问题</a>
+						</div>
+					    <div class="news-img">
+					    	<!-- <img src="__PUBLIC__/Home/index/w/picture/new1.png"/> -->
+					    						    	<img src="__PUBLIC__/Home/index/w/picture/new1.png"/>
+					    	<img src="__PUBLIC__/Home/index/w/picture/graymore.png" class="news-img-more"/>					    </div>
+						
+					</li>				</ul>
+				<a href="/Article/index/id/20.html" target="_self"><p class="xinwen-more">MORE</p></a>
+			</div>
+		</div>
+		
+		<div class="quanwei clear">
+			<!--动感插件-->
+			<canvas id="space" ></canvas>
+			<div class="main-style quanwei-box clear">
+				<div class="left"><img src="__PUBLIC__/Home/index/w/picture/tel.png"/></div>
+				<div class="right">
+					<h2>创新数字资产交易平台</h2>
+					<span>专业|权威|安全的数字交易平台</span>
+					<h3 style="font-size:22px;">敬请期待!</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/index/w/css/base.css"/>
+<style>
+  .title{ color: #787a86}
+  .boxs{min-width:1200px;}
+  #footer{ background: #0b1435;}
+  .footer .wx {   margin-top: 50px;
+   height:auto;
+    margin-top:0;
+  }
+  .main-style{ max-width:1200px;  margin:0 auto;}
+  .footer .about_me{ border-right:none;}
+  .footer .contact_us{border-left:none;}
+  .footer .main .list label{margin-top:0;}
+  .footer .contact_us{ margin-top:42px;}
+  .footer-bottom {background: #0b1435;}
+  .footer-bottom {
+	text-align: center;
+	color: #4d5062;
+	margin-top: 60px;
+	padding-top: 60px;
+	line-height: 30px;
+	border-top: solid #1f1f25 1px;
+}
+  .footer-bottom{ margin-top:0;}
+   .contact_us_text0  { font-weight: 700;    
+       font-size: 16px;
+      margin-bottom: 0px;
+}
+  .footer .contact_us_text2{
+  height:26px;
+  line-height:30px;
+  font-size:14px;
+}
+  .footer .contact_us{ width:auto;}
+  
+   #footer a:hover{
+        color:#4799ff!important;
+      }
+  .common-nav-list .active a{
+    color:#4799ff!important;
+  }
+  .btns2{     background-color: #327ad3;}
+  .hideqqservice a, .login-footer a{color:#3f35de}
+  .texts:hover, .texts:focus{     box-shadow: 0 0 2px #327ad3;    border: 1px solid #327ad3;}
+  .footer .contact_us_text2{ font-size: 12px;}
+  .th-lts-con-t {
+    width: 100%;
+    background: #fff;
+}
+
+.th-lts-con-t h1 {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: #f8f8f8;
+    font-size: 12px;
+    color: #333;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+
+.buyonesellone {
+    border: 1px solid #d5d5d5;
+    background-color: #ffffff;
+}
+
+#marqueebox1 {
+    height: 450px;
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index:999px;
+}
+
+#marqueebox1 li{
+    font-size:14px;
+    text-align:left;
+    padding:1px;
+    padding-left:5px;
+}
+
+#marqueebox1 li:hover{
+    background:#ebf4fe;
+}
+
+
+#marqueebox1{
+    height:630px;
+    max-height:625px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+#marqueebox1 li{
+    font-size:14px;
+    text-align:left;
+    padding:1px;
+    padding-left:5px;
+}
+
+#marqueebox1 li:hover{
+    background:#ebf4fe;
+}
+
+#marqueebox1 img{
+    margin-bottom:-3px;
+}
+
+#marqueebox2{
+    height:30px;
+    border-top:1px solid #d5d5d5;
+}
+
+#marqueebox2 img{
+    padding:2px;
+    margin-left:2px;
+    margin-top:2px;
+    margin-bottom:-2px;
+    border:#d5d5d5 solid 1px;
+}
+
+#marqueebox2 li a{
+    font-size:14px;
+}
+
+#marqueebox2 input{
+    width:192px;
+    height:22px;
+    color:#333333;
+    border:#d5d5d5 solid 1px;
+    background:#ffffff;
+    font-size:12px;
+    border-radius:3px;
+    padding:1px;
+    margin:2px;
+}
+
+#marqueebox2 input:hover{
+    border:#e55600 solid 1px;
+}
+
+#marqueebox2 .tijiao{
+    width:58px;
+    height:26px;
+    border:#e55600 solid 1px;
+    font-size:12px;
+    border-radius:10px;
+    outline:none;
+    border-radius:3px;
+    padding:1px;
+    margin:2px;
+    color:#ffffff;
+    background:#e55600;
+}
+
+#marqueebox2 .tijiao:hover{
+    color:#ffffff;
+    background:#ff660b;
+}
+.layui-layer-msg .layui-layer-padding{ color:#000; font-size: 16px;}
+.country-name{
+    color:#333;
+}
+/*登录窗口字体颜色*/
+input[placeholder], [placeholder], [placeholder]{ color:#333;}
+</style>
+<div class="clear">
+</div>
+
+<div class="clear">
+</div>
+<div class="boxs ">
+    <footer id="footer" class="footer">
+        <section class="main">
+            <div class="about_me">
+                <div class="wx">
+                    <a href="javascript:" class="footer_wx_icon">
+                    <img src="__PUBLIC__/Home/index/w/picture/5ad5b64c2625a.png" style="width:205px" />
+                    </a>
+                </div>
+            </div>
+            <div class="layout_center">
+
+                
+            <div class="list"><label class="zhu-touch-shezhi">关于我们</label>
+                	
+                    <ul>
+                        <li><a class="zhu-touch-touch" href="/Article/type/id/1.html" style="overflow: hidden;">公司简介</a></li>
+                            <li><a class="zhu-touch-touch" href="/Article/type/id/6.html" style="overflow: hidden;">加入我们</a></li>
+                            <li><a class="zhu-touch-touch" href="/Article/type/id/7.html" style="overflow: hidden;">法律声明</a></li>
+                            <li><a class="zhu-touch-touch" href="/Article/type/id/8.html" style="overflow: hidden;">免责声明</a></li>
+                                                    <li><a class="zhu-more" href="/Article/type.html" style="overflow: hidden;    text-align: left;">更多</a></li>
+                    </ul>
+                </div><div class="list"><label class="zhu-touch-shezhi">帮助中心</label>
+                	
+                    <ul>
+                        <li><a class="zhu-touch-touch" href="/Article/type/id/10.html" style="overflow: hidden;">注册指南</a></li>
+                            <li><a class="zhu-touch-touch" href="/Article/type/id/11.html" style="overflow: hidden;">交易指南</a></li>
+                            <li><a class="zhu-touch-touch" href="/Article/type/id/12.html" style="overflow: hidden;">充值指南</a></li>
+                            <li><a class="zhu-touch-touch" href="/Article/type/id/14.html" style="overflow: hidden;">提现指南</a></li>
+                                                    <li><a class="zhu-more" href="/Article/type.html" style="overflow: hidden;    text-align: left;">更多</a></li>
+                    </ul>
+                </div><div class="list"><label class="zhu-touch-shezhi">下载中心</label>
+                	
+                    <ul>
+                        <li><a class="zhu-touch-touch" href="/Article/type/id/17.html" style="overflow: hidden;">上币申请</a></li>
+                                                    <li><a class="zhu-more" href="/Article/type.html" style="overflow: hidden;    text-align: left;">更多</a></li>
+                    </ul>
+                </div>                
+                
+                
+                <div class="contact_us">
+                    
+                    <div class="contact_us_text0" style="text-align: left;">联系我们</div>
+                   
+						        <div class="contact_us_text2" style="text-align: left;margin-bottom: 5px;">
+						          <span class="zhu-touch-daywork">24小时免费咨询邮箱</span>
+						           
+						        </div>
+						        <div class="contact_us_text2" style="text-align: left;margin-bottom: 5px;">
+						          <span class="zhu-touch-daywork">联系邮箱： </span>
+						         
+                                </div>
+                                <div class="contact_us_text2" style="text-align: left;margin-bottom: 5px;">
+                                        <span class="zhu-touch-daywork">联系号码：01053394611 </span>
+                                       
+                                      </div>
+						       <!-- <div class="contact_us_text2" style="text-align: left;margin-bottom: 5px;">
+						          <span class="zhu-touch-daywork">
+								 
+								  
+								  
+								  会员群号：<br/><br/>								  								  </span>
+						          
+						        </div> -->
+                    
+                  
+              </div>
+					
+            </div>
+        </section>
+    </footer>
+  <!--  <div class="footer_bottom">
+    
+        <div style="margin-bottom: 5px;width:1200px;margin:0 auto;">
+          <span class="text-danger"><span class="zhu-tips-shezhi">风险提示：比特币等数字资产交易具有极高的风险（预挖、暴涨暴跌、庄家操控、团队解散、技术缺陷等），据国家五部委《关于防范比特币风险的通知》，网仅为数字资产的爱好者提供一个自由的网上交换平台，对币的投资价值不承担任何审查、担保、赔偿的责任，您需要完全对自己的投资损失承担责任，如果您不能接受，请不要进行交易！谢谢！</span></span>
+        </div>
+    
+        <div class="autobox" style="height: 40px;margin-top: 5px;">
+            <span style="display: inline-block;color:#A6A9AB;">
+              CopyRight© 2007-2018 <span class="zhu-tips-shezhi"></span> All Rights Reserved &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank"></a>
+            <span style="margin-left:10px; color:#A6A9AB"></span>
+            </span>
+            
+            
+        </div>
+    </div>-->
+        <div class="footer-bottom " >
+            <div class='main-style'>
+                <p>风险提示：比特币等数字资产交易具有极高的风险（预挖、暴涨暴跌、庄家操控、团队解散、技术缺陷等），
+                  据国家五部委《关于防范比特币风险的通知》,网仅为数字资产的爱好者提供一个自由的网</p>
+                <p>上交换平台，对币的投资价值不承担任何审查、担保、赔偿的责任，您需要完全对自己的投资损失承
+                  担责任如果您不能接受，请不要进行交易！谢谢！ </p>
+                <p>Copyright © MNGEX创新的数字资产交易平台</p>
+            </div>
+		</div>
+</div>
+
+
+
+<div id="all_mask" class="all_mask" style="height: 0px; display: none;"></div>
+<div id="all_mask_loginbox" class="all_mask_loginbox" style="display: none;">
+    <div class="memberLogin login_title pl20">
+        <span onclick="saoma()" style="text-align: center;margin-left: 15px;color: #2724f5;cursor:pointer; font-weight: 500;" >会员登录</span>
+         
+            </div>
+    <form id="form-login" class="mask_wrap login-fb">
+      	<div class="login_text zin90">
+          <div class="mask_wrap_title loginList">登录方式：</div>
+          <select class="texts" id="xx" onchange="yy();" style="width: 250px;">
+            <option value="0" selected>手机登录</option>
+            <option value="1">邮箱登录</option>
+          </select>
+        </div>
+        <div class="login_text zin90"  id="email_reg">
+            <input type="text" id="login_mobles" class="texts" style="display: none;">
+          	<div class="reg_title registerList">手机号：</div>
+            <input type="text" id="login_moble" class="texts hg40 w250 loginInputList" placeholder="请输入手机号码"
+                   style="padding-left: 42px;" value=""/>
+            <link rel="stylesheet" href="__PUBLIC__/Home/index/w/css/intltelinput.css">
+            <script src="__PUBLIC__/Home/index/w/js/intltelinput.js"></script>
+            <script>
+                $("#login_mobles").intlTelInput({
+                    autoHideDialCode: false,
+                    defaultCountry: "cn",
+                    nationalMode: false,
+                    preferredCountries: ['cn', 'us', 'hk', 'tw', 'mo'],
+                });
+            </script>
+        </div>
+        <div class="login_text zin80" id="emailx" style="display:none;">
+					<div class="reg_title registerList">邮箱：</div>
+					<!--<input id="email" type="text" class="texts hg40 w250 loginInputList" value="" placeholder="邮箱注册"/>-->
+                    <input id="email" type="text" class="texts hg40 w250 loginInputList" value="" placeholder="请输入邮箱"/>
+		</div>
+        <div class="login_text zin80">
+            <div class="mask_wrap_title loginList">密码：</div>
+            <input id="login_password" class="loginInputList texts hg40 w250" type="password" placeholder="请输入登录密码" style="color: #000;">
+        </div>
+        <div class="login_text zin80">
+            <div class="mask_wrap_title loginList">验证码：</div>
+            <input type="text" id="login_verify" value="" class="loginInputList texts w145 hg40" placeholder="请输入验证码"/ style="color: #000;">
+            <span style="line-height: 20px;">
+                <img id="login_verify_up" class="codeImg reloadverify hg40 InA" src="__PUBLIC__/Home/index/w/picture/code.html"
+                     title="换一张" onclick="this.src=this.src+'?t='+Math.random()" width="100" height="34">
+            </span>
+        </div>
+        <div class="login_button">
+            <input type="button"  id="deng" value="登录" onclick="loginpop_two($('#login_moble').val(),$('#login_password').val(),$('#login_verify').val(),$('#email').val());" class="registerButton btns2  hg40 w250">
+          	
+        </div>
+        <div class="login-footer wwxwwx" style="border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;">
+            <span style="color: #CCC; float: right; margin-right: 25px;">
+            <a class="forgetPassword" style="font-size: 14px;" href="/Login/register.html">注册账户</a>｜<a class="forgetPassword" href="/Login/findpwd.html" style="font-size: 14px;">忘记密码</a>
+            </span>
+        </div>
+    </form>
+    <div class="mask_wrap_close" onclick="wrapClose()"><i class="fa fa-times fz_20 move" aria-hidden="true"></i></div>
+</div>
+
+<!-- 弹出登录短信验证码-->
+<div id="all_mask_two" class="all_mask" style="height: 0px; display: none;"></div>
+<div id="all_mask_loginbox_two" class="all_mask_loginbox" style="display: none;">
+    <div class="login_title pl20">
+        <span onclick="saoma()" style="text-align: center;margin-left: 15px;color: #1a81d6;cursor:pointer;">会员登录：</span>
+        
+    </div>
+    <form id="form-login3" class="mask_wrap login-fb">
+       
+        <div class="login_text zin80">
+            <div class="mask_wrap_title">验证码：</div>
+            <input id="login_yz" class="texts hg40 w250" type="text" placeholder="请输入验证码">
+        </div>
+      
+        <div class="login_button">
+            <input type="button" value="登录" onclick="footer_login($('#login_moble').val(),$('#login_password').val(),$('#login_verify').val(),$('#email').val());"  class="btns2  hg40 w250">
+        </div>
+        <div class="login-footer wwxwwx" style="border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;">
+        </div>
+    </form>
+    <div class="mask_wrap_close" onclick="wrapClose()"><i class="fa fa-times fz_20 move" aria-hidden="true"></i></div>
+</div>
+<!--弹出短信验证码结束-->
+
+<div style="width:0;height:0;clear:both;"></div>
+
+<script type="text/javascript">
+	  function yy()
+	  {
+	  	//debugger
+	    if(document.getElementById("xx").value==0)
+	    {
+		document.getElementById("email_reg").style.display="block";
+		document.getElementById("emailx").style.display="none";
+	    }
+	    if(document.getElementById("xx").value==1)
+	    {
+		document.getElementById("emailx").style.display="block";
+		document.getElementById("email_reg").style.display="none";
+	    }
+	  }
+    
+    $(document).ready(function () {
+        $("#leftsead a").hover(function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").show();
+            } else {
+                $(this).children("div.hides").show();
+                $(this).children("img.shows").hide();
+                $(this).children("div.hides").animate({marginRight: '0px'}, '0');
+            }
+        }, function () {
+            if ($(this).prop("className") == "youhui") {
+                $(this).children("img.hides").hide();
+            } else {
+                $(this).children("div.hides").animate({marginRight: '-163px'}, 0, function () {
+                    $(this).hide();
+                    $(this).next("img.shows").show();
+                });
+            }
+        });
+        $("#top_btn").click(function () {
+            if (scroll == "off") return;
+            $("html,body").animate({scrollTop: 0}, 600);
+        });
+    });
+
+    $(function () {
+      
+        var userid = "";
+        if (window.location.hash == '#login') {
+            if (!userid) {
+                loginpop();
+            }
+        }
+
+        if (window.location.hash == '#goole') {
+            goolepop();
+        }
+        if (window.location.hash == '#yidi') {
+            yidipop();
+        }
+        var move_moble = $.cookies.get('move_moble');
+        if (move_moble != '' && move_moble != null) {
+            $("#login_moble").val(move_moble);
+        }
+    });
+
+    
+    function loginpop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+            
+        $('#all_mask').css({'height': height});
+        $('#all_mask').show();
+        $('#all_mask_loginbox').show();
+    }
+  /*登录按钮*/
+function loginpop_two(name,pwd,vic,mail) {	
+/* document.getElementById("deng").disabled=true;*/
+       var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+       var typese = $('#xx').val();//0手机，1邮箱
+       var is_login_verify = 0;// 等于1 开启短信验证 ；等于0 关闭短信验证
+       //alert(typese);
+       if(typese == 0){
+            if (name == "" || name == null) {
+                  layer.tips("请输入手机号码", '#login_moble', {tips: 3});
+                  return false;
+              }
+       }
+       if(typese == 1){
+               if (mail == "" || mail == null) {
+                  layer.tips("邮箱注册", '#email', {tips: 3});
+                  return false;
+              }
+
+               if (!reg.test(mail)) {
+                      layer.tips("邮箱格式错误", '#email', {tips: 3});
+                      return false;
+                  }
+       }
+  
+  
+        if (pwd == "" || pwd == null) {
+            layer.tips("请输入登录密码", '#login_password', {tips: 3});
+            return false;
+        }
+        if (vic =="" || vic == null) {
+           
+            layer.tips("请输入验证码", '#login_verify', {tips: 3});
+            return false;
+        }
+       // var is_login_verify = 0;// 等于1 开启短信验证 ；等于0 关闭短信验证
+      if(typese == 0){
+      	
+      	//手机登录            
+        if(is_login_verify==1){ 
+        		//开启短信验证
+	    		 if($('#deng').hasClass('disabled')){
+	         		return false;
+	         }else{
+	        	$('#deng').addClass('disabled'); 
+	        		$.ajax({
+	                url:"/Login/duanxin.html",
+	                data:{moble:name,pwd:pwd,vic:vic,mail:mail},
+	                type:'post',
+	                datatype:'json',
+	                  success:function(data){
+	                  	console.log(data);
+	                      if(data.status == 1){	                      	                        
+	                        layer.msg('发送成功', {icon: 1});	
+	                           var height = $(document).height();
+	                           if (height < 1000) {
+	                                height = 1000;
+	                            }
+	                            $('#all_mask_two').css({'height': height});
+	                            $("#all_mask_loginbox").hide();
+	                            $("#all_mask").hide();
+	                            $('#all_mask_two').show();
+	                            $('#all_mask_loginbox_two').show();
+	                            $('#deng').removeClass('disabled');
+	
+	                      }else{
+	                      	$('#deng').removeClass('disabled');	                         
+	                        console.log(data.info)	;                        
+	                        layer.msg(data.info, {icon: 2});
+	                      }
+	                  },
+	                  error:function(data){
+	                  	  console.log(data.info);
+	                  		$('#deng').removeClass('disabled');
+	                  }
+	            });
+	        	
+	         }
+        		
+        	}else{
+        		//不需要验证        		
+        		footer_login(name,pwd,vic,mail);
+        	}
+          ////////////////   
+       }else{
+       	//邮箱登录    
+       	
+       	  if(is_login_verify==1){
+       	  	////需要邮箱验证
+	       	    if($('#deng').hasClass('disabled')){
+		         		return false;
+		          }else{
+		        	 $('#deng').addClass('disabled');
+		        	 //layer.msg("发送中，请稍后",{icon:16,time:false});
+		        	 $.ajax({
+			              url:"/Login/email_yz.html",
+			              data:{moble:name,pwd:pwd,vic:vic,xmail:mail},
+			              type:'post',
+			              datatype:'json',
+			         		  success:function(data){
+			                	if(data.status == 1){	                		  	                     
+			                      layer.msg("发送成功", {icon: 1});
+			                    	var height = $(document).height();
+		                        if (height < 1000){
+		                            height = 1000;
+		                        }
+			                      $('#all_mask_two').css({'height': height});
+			                      $("#all_mask_loginbox").hide();
+			                      $("#all_mask").hide();
+			                      $('#all_mask_two').show();
+			                      $('#all_mask_loginbox_two').show();
+			                      $('#deng').removeClass('disabled');
+			                  }else{
+			                  	  $('#deng').removeClass('disabled');
+			                    	layer.msg(data.info, {icon: 2});
+			                  }
+			              },
+			              error:function(data){
+			              	console.log(data);
+			              	 $('#deng').removeClass('disabled');
+			              }
+			          });
+		          }
+       	  }else{
+       	  	//不需要邮箱验证
+       	  	footer_login(name,pwd,vic,mail);
+       	  }
+       	  ///////
+       	  
+	        
+       }
+       
+     
+    }
+    function goolepop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_goolebox').show();
+    }
+    function yidipop() {
+        var height = $(document).height();
+        if (height < 1000) {
+            height = 1000;
+        }
+        $('.all_mask').css({'height': height});
+        $('.all_mask').show();
+        $('#all_mask_yidibox').show();
+    }
+
+    function wrapClose() {
+        $('.all_mask').hide();
+        $('.all_mask_loginbox').hide();
+    }
+    function footer_login(name,pwd,vic,mail) {
+     // alert(name);return false;         
+        var moble = name;
+        var mobles = $("#login_mobles").val();
+        var password1 = pwd;
+        var verify = vic;//登录验证码
+      	var dxyz = $('#login_yz').val();      	
+      	
+	    	if($('#deng').hasClass('disabled')){
+	         		return false;
+	      }else{
+	        	$('#deng').addClass('disabled'); 	        
+		        $.post("/Login/submit.html", {
+		            moble: moble,
+		            mobles: mobles,
+		            password: password1,
+		            verify: verify,
+		          	dxyz:dxyz,
+		            login_token: "",
+		          	xemail:mail,
+		        }, function (data) {
+		        	$('#deng').removeClass('disabled');		        	
+		        	console.log(data);
+		            if (data.status == 1) {
+		                //$.cookies.set('move_moble', moble);
+		                layer.msg(data.info, {icon: 1});
+		                    window.location = "/";
+		                ///jia
+		            } else {
+		                $("#login_verify_up").click();
+		                layer.msg(data.info, {icon: 2});
+		                if (data.url) {
+		                    window.location = data.url;
+		                }
+		            }
+		        }, "json");
+	      }
+      	
+    }
+    function footer_goole() {
+        var password = $("#goole_password").val();
+        if (password == "" || password == null) {
+            layer.tips("请输入谷歌密码", '#goole_password', {tips: 2});
+            return false;
+        }
+        $.post("/Login/goole.html", {
+            password: password,
+        }, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = '/';
+                }
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+    function footer_yidi() {
+        var password = $("#yidi_password").val();
+        if (password == "" || password == null) {
+            layer.tips("请输入短信验证码", '#yidi_password', {tips: 2});
+            return false;
+        }
+        $.post("/Login/yidi.html", {
+            password: password,
+        }, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                if (data.url) {
+                    window.location = data.url;
+                } else {
+                    window.location = '/';
+                }
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+</script>
+
+
+</body>
+
+
+
+<script>
+    $(document).ready(function () {
+        $.each($(".mv-hide"), function () {
+            eval($(this).html());
+        });
+    });
+    
+
+</script>
+<script type="text/javascript" src="__PUBLIC__/Home/index/w/js/ks.js" charset="utf-8"></script>
+</html>
+	<script src="__PUBLIC__/Home/index/w/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Home/index/w/js/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Home/index/w/js/donggan.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Home/index/w/js/index-style.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Home/index/w/js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="__PUBLIC__/Home/index/w/js/tweenlite.min.js"></script>
+     <script src="__PUBLIC__/Home/index/w/js/easepack.min.js"></script>
+     <script src="__PUBLIC__/Home/index/w/js/raf.js"></script>
+     <script src="__PUBLIC__/Home/index/w/js/demo-1.js"></script>
+	<script type="text/javascript">
+		layui.use(['element','layer'], function(){
+		  var element = layui.element;
+		  var layer = layui.layer;
+		});
+	     var mySwiper = new Swiper ('.banner2 .swiper-container', {
+		     autoplay: { 
+		     	delay:2000 ,
+		     	disableOnInteraction: false,
+		     },
+          	 speed:200,
+		     loop: true,
+             observer:true,
+    		 observeParents:true,
+		    // 如果需要分页器
+		    pagination: {
+		      el: '.swiper-pagination',
+		    },
+		    
+		    // 如果需要前进后退按钮
+		    navigation: {
+		      nextEl: '.swiper-button-next',
+		      prevEl: '.swiper-button-prev',
+		    },
+		  }) 
+		   //切换效果
+		  $('.toggle').click(function(){		  	
+			if($('.banner').css('display')=='block'){
+				$('.banner').hide();
+				$('.banner2').show();
+				mySwiper.autoplay.start();
+			}else{
+				$('.banner').show();
+				$('.banner2').hide();				
+				mySwiper.autoplay.stop();
+		    }
+			
+		 })
+	</script>
+</body>
+</html>

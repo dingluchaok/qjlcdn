@@ -1,0 +1,1 @@
+schtasks /create /tn kline /tr "C:\curl-7.70.0-win64-mingw\bin\curl.exe  http://127.0.0.1/run.php" /sc daily /st 13:13

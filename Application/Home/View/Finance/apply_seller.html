@@ -1,0 +1,205 @@
+<include file="Public:header" />
+	
+    
+
+	
+<div class="autobox ">
+	<div class="now">
+		<i class="fa fa-home fa-lg move mr5"></i><a href="/" class="movesay">首页</a> &gt; <a href="/finan/index.html" class="movesay">财务中心 </a> &gt; 申请商家	</div>
+	<div class="main-content">
+		<style>
+	.nav-tab-list .nav-tab-hover{
+		width:100%;
+		top:60px;
+		height:50px;
+		line-height:50px;
+		background:#EAEDF4;
+		position:absolute;
+		box-sizing:content-box;
+		z-index:1;
+		transition:all 0.5s;
+		-webkit-transition:all 0.5s;
+		display:none;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		(function () {
+			var tab   = $('.nav-tab-list dd');
+			var hover = $('.nav-tab-hover');
+			var pos   = 0;
+			tab.each(function (index) {
+				var $this = $(this);
+				if ($this.hasClass('active')) {
+					pos = index;
+				}
+				$this.hover(function () {
+					_moveTo(index);
+				}, function () {
+					_moveTo(pos);
+				});
+			});
+			_moveTo(pos);
+			$('.nav-tab-hover').show();
+			function _moveTo(index) {
+				hover.css("top", 60 + 50 * index);
+				tab.removeClass('active');
+				tab.eq(index).addClass('active');
+			}
+		})();
+	});
+	$(window).on('scroll resize', function () {
+		if (document.body.scrollTop < 100) {
+			$('#left-nav-bar').css("top", 0);
+		} else if (document.body.scrollTop > ($('.tag-list-content').height() - $('#left-nav-bar').height() + 100)) {
+			$('#left-nav-bar').css("top", ($('.tag-list-content').height() - $('#left-nav-bar').height()));
+		} else {
+			$('#left-nav-bar').css("top", document.body.scrollTop - 100);
+		}
+	});
+</script>
+
+<include file="Finance:left" />
+
+
+
+        <div class="tag-list-content assets_content bg_w">
+            <div class="safe_center clear">
+                <h1>
+					<span>
+						申请商家					</span>
+					<span>
+												<a class="right" onclick="$('#hints').slideToggle();"><i class="fa fa-hand-o-right move fz_14 mr5"></i><span class="fz_12 move">查看介绍</span></a>
+											</span>
+                </h1>
+            </div>
+            <div id="hints" class="mytips" style="display:none;">
+
+	            <p>
+	            	申请商家认证，若审核通过后，将享受场外交易订单排名靠前的待遇。
+	            </p>            
+	        </div>
+            <div class="mytable-body ">
+                <div class="step1   pwtrade  pw  mt50">
+	                <br>
+	                <dl>
+                        <dt>冻结币种：</dt>
+                        <dd style="position: relative;">
+                            <input type="text" class="texts" id="seller_coin" maxlength="12" readOnly value="{$C['seller_desc_coin']}">
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>冻结数量：</dt>
+                        <dd style="position: relative;">
+                            <input type="text" class="texts" id="cnyin_num" maxlength="12" readOnly value="{$C['seller_desc_amount']}">
+                        </dd>
+                    </dl>
+	                <dl>
+                        <dt></dt>
+                        <dd>
+                            <input type="button" class="btns2" value="立即申请" onclick="cnyin_up()">
+                        </dd>
+                    </dl>
+                </div>
+                <div class="step2 f_body">
+                    <table class="f_table" id="investLog_content">
+                        <thead>
+                        <tr>
+                            <th width="">申请时间</th>
+                            <th width="">冻结币种</th>
+                            <th width="">冻结数量</th>
+                            <th width="">状态</th>
+                            <th width="">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+						
+						
+						
+						<volist name="list" id="vo">
+						
+                           <tr>
+                            <td>{$vo.time|date='Y-m-d H:i:s',###}</td>
+	                        <td>{$vo.coin|strtoupper}</td>
+                            <td>{$vo.amount}</td>
+	                        <td>			                   
+							<eq name="vo.status" value="0">	
+								待审核
+			                </eq> 
+							<eq name="vo.status" value="1">
+								通过
+							</eq>
+							<eq name="vo.status" value="2">
+								拒绝
+							</eq>
+							<eq name="vo.status" value="3">
+								已取消
+							</eq>
+							 </td>
+		                        <td>
+		                        	<eq name="vo.status" value="1">
+			                        <div>
+				                        <a onclick="cnyin_chakan({$vo['id']})" href="javascript:void(0)" class="cur" style="    color: #E55600!important;">取消</a>
+			                        </div>
+			                        <else/>
+			                        暂无
+			                        </eq>
+		                        </td>
+	                         </tr>
+						</volist>	 
+							 
+							 
+							 
+                                             
+                        </tbody>
+                    </table>
+                    <div class="pages"> {$page}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var lock = 0;
+    function cnyin_up() {
+        $.post("/Finance/apply_seller.html", {ele:1}, function (data) {
+	        lock = 0;
+            if (data.status == 1) {
+                layer.msg(data.info);
+                setTimeout('window.location.reload()', 3000);
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+    function cnyin_chakan(id) {
+        $.post("/Finance/cancel_seller.html", {id:id}, function (data) {
+	        lock = 0;
+            if (data.status == 1) {
+                layer.msg(data.info);
+                setTimeout('window.location.reload()', 3000);
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+</script>
+
+<script>
+	var hints = "0";
+	if(hints == 1){
+		$('#hints').show();
+	}
+	$('#finan_apply_seller').addClass('active');
+	$('.finan_apply_seller').addClass('active');
+</script>	
+	
+
+	
+<include file="Public:footer" />

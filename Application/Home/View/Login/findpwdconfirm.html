@@ -1,0 +1,250 @@
+<include file="Public:header" />
+
+
+<div class="autobox">
+	<div class="now">
+		<i class="fa fa-home fa-lg move mr5"></i><a href="/" class="">首页 </a>&gt; 找回登录密码	</div>
+	<div class="login_step">
+		<div class="login_step">
+			<ul class="order clear" style="margin-left: 312px;">
+				<li><i class="fa fa-circle  fz_40 "><span>1</span></i>确认账号					<div class="order_line"></div>
+				</li>
+				<li><i class="fa fa-circle  fz_40 move"><span>2</span></i>重置密码					<div class="order_line"></div>
+				</li>
+				<li><i class="fa fa-circle  fz_40"><span>3</span></i>完成</li>
+			</ul>
+		</div>
+	</div>
+	<div class="reg_box">
+		<div class="reg_wrap pt47">
+		
+		
+	
+	
+		
+				<div class="reg_input_box reg-fb" id="email_reg">
+					<div class="reg_title">手机号：</div>
+					<input type="text" id="mobles" class="texts" style="display: none;"> 
+					<input type="text" id="moble" class="texts wh300 hg40" placeholder="请输入手机号码" onblur="check_moble()" style="padding-left: 40px;    width: 295px;"/>
+					<link rel="stylesheet" href="/mollymobi/css/intlTelInput.css">
+					
+					
+				</div>
+				<div class="reg_input_box reg-fb">
+					<div class="reg_title">验证码：</div>
+					<input id="moble_verify" type="text" class="texts w300 hg40" placeholder="请输入验证码"/> <span id="reg_moble" class="" style="position: absolute;
+    left: 210px;top: 2px;"></span>
+				</div>
+				
+		
+		
+		
+		
+		
+			<div class="reg_input_box reg-fb">
+				<div class="reg_title">新密码：</div>
+				<input type="password" id="password" class="texts w300"/>
+			</div>
+			<div class="reg_input_box reg-fb">
+				<div class="reg_title">确认密码：</div>
+				<input type="password" id="repassword" class="texts w300"/>
+			</div>
+			<br/>	
+			
+			<div class="reg_button_box">
+				<input type="button" class="btns2 w300" value="下一步" onclick="password_up();"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/mollymobi/js/intlTelInput.js"></script>
+
+<script>
+						$("#mobles").intlTelInput({
+							autoHideDialCode: false,
+							defaultCountry: "cn",
+							nationalMode: false,
+							preferredCountries: ['cn', 'us', 'hk', 'tw', 'mo'],
+						});
+					</script>
+
+
+
+<script>
+	$(function () {
+		var height = $(document).height();
+		if (height < 1000) {
+			height = 1000;
+		}
+		$('#step2').height(height);
+	});
+
+
+
+	function check_moble() {
+		var moble  = $('#moble').val();
+		var mobles = $('#mobles').val();
+		if (moble == "" || moble == null) {
+			layer.tips("请输入手机号", '#moble', {tips: 2});
+			return false;
+		}
+		$.post("/Login/check_pwdmoble.html", {
+			moble: moble,
+			mobles: mobles,
+			token: ""
+		}, function (data) {
+			if (data.status == 1) {
+				$("#step1").show();
+				$("#step2").show();
+				$('#reg_moble').html('<a class="move" onclick="new_send()">点击发送验证码</a>');
+			} else {
+				layer.tips(data.info, '#moble', {tips: 2});
+				return false;
+			}
+		}, 'json');
+	}
+
+
+	function new_send() {
+		$("#step1").show();
+		$("#step2").show();
+	}
+
+
+	function moble_findpwd(type) {
+		var moble  = $("#moble").val();
+		var mobles = $("#mobles").val();
+		var verify = $("#verify").val();
+		if (moble == "" || moble == null) {
+			layer.tips("请输入手机号码", '#moble', {tips: 2});
+			return false;
+		}
+		if (verify == "" || verify == null) {
+			layer.tips("请输入图形验证码", '#verify', {tips: 2});
+			return false;
+		}
+		$.post("/verify/moble_findpwd.html", {
+			moble: moble,
+			mobles: mobles,
+			type: type,
+			verify: verify,
+			token: ""
+		}, function (data) {
+			if (data.status == 1) {
+				layer.msg(data.info, {icon: 1});
+				$("#step1").hide();
+				$("#step2").hide();
+				$("#moble_verify").focus();
+				$('#moble').attr("disabled", "disabled");
+				$('#mobles').attr("disabled", "disabled");
+				var obj      = $('#reg_moble');
+				var wait     = 60;
+				var interval = setInterval(function () {
+					obj.html("<a>" + wait + "秒可再次发送" + "</a>");
+					wait--;
+					if (wait < 0) {
+						clearInterval(interval);
+						$(".reloadverify").click();
+						$("#verify").val('');
+						obj.html('<a class="move" onclick="new_send()">点击重新发送</a>');
+					}
+					;
+				}, 1000);
+			} else {
+				$(".reloadverify").click();
+				layer.msg(data.info, {icon: 2});
+				if (data.url) {
+					window.location = data.url;
+				}
+			}
+		}, "json");
+	}
+
+
+	function findpwd_up() {
+		var moble        = $("#moble").val();
+		var mobles       = $("#mobles").val();
+		var moble_verify = $("#moble_verify").val();
+
+
+		if (moble == "" || moble == null) {
+			layer.tips("请输入手机号", '#moble', {tips: 2});
+			return false;
+		}
+		if (moble_verify == "" || moble_verify == null) {
+			layer.tips("请输入验证码", '#moble_verify', {tips: 2});
+			return false;
+		}
+
+		$.post("/Login/findpwd.html", {
+			moble: moble,
+			mobles: mobles,
+			moble_verify: moble_verify,
+			token: ""
+		}, function (data) {
+			if (data.status == 1) {
+				layer.msg(data.info, {icon: 1});
+				window.location = '/Login/findpwdconfirm';
+				
+			} else {
+				layer.msg(data.info, {icon: 2});
+				if (data.url) {
+					window.location = data.url;
+				}
+			}
+		}, "json");
+	}
+</script>
+
+<script>
+	function password_up() {
+
+		var password   = $("#password").val();
+		var repassword = $("#repassword").val();
+
+
+
+		if (password == "" || password == null) {
+			layer.tips("请输入新密码", '#password', {tips: 3});
+			return false;
+		}
+		if (repassword == "" || repassword == null) {
+			layer.tips("请输入确认密码", '#repassword', {tips: 3});
+			return false;
+		}
+		if (password != repassword) {
+			layer.tips("确认密码错误", '#repassword', {tips: 3});
+			return false;
+		}
+
+		$.post("/Login/password_up.html", {
+			password: password,
+			token: ""
+		}, function (data) {
+			console.log(data);
+			if (data.status == 1) {
+				layer.msg(data.info, {icon: 1});
+				window.location = '/Login/findpwdinfo';
+			} else {
+				layer.msg(data.info, {icon: 2});
+				if (data.url) {
+					window.location = data.url;
+				}
+			}
+		}, "json");
+	}
+</script>
+
+
+<script>
+	$('#index_box').addClass('active');
+</script>
+
+
+
+
+
+
+<include file="Public:footer" />

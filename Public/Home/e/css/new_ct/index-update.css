@@ -1,0 +1,380 @@
+﻿
+.focus-mode {
+    top: 110px;
+}
+
+/*背景*/
+.foucs-pic {
+    /*background: url(../images/banner.png) no-repeat;*/
+}
+
+.foucs-link {
+    height: 100%;
+
+}
+
+.foucs-link img {
+    height: 550px;
+    width:1200px;
+}
+
+/*登录框*/
+.index-login {
+    border: none;
+
+}
+
+/*未登录*/
+.index-login .Cointiger {
+    /*color: #48505d; !*这个颜色需要改*!*/
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 60px;
+    margin-bottom: 30px;
+    height: 60px;
+    padding-left: 265px;
+}
+
+.index-login .Cointiger span {
+    margin-right: 5px
+}
+
+.index-login .Cointiger span.coin {
+    font-weight: 100;
+    font-family: "STHeiti Light";
+    display: block;
+    float: left;
+}
+
+.index-login .Cointiger span.tiger {
+    font-weight: 600;
+    float: left;
+    display: block;
+    font-family: "STHeiti Light";
+}
+
+.index-login .login-list {
+    padding: 0;
+    position: fixed;
+    top:308px;
+}
+
+.login-hd {
+    padding: 0;
+    margin-bottom: 90px;
+}
+
+.login-hd h6 {
+    font-size: 40px;
+    text-align: center;
+    line-height: 45px;
+    color: #a0a9bd;
+}
+
+.login-list {
+    margin-bottom: 10px;
+}
+
+.login-list li {
+    border-radius: 4px;
+    width: auto;
+    height: auto;
+}
+
+.login-list li .login-input {
+    padding: 0;
+    border-radius: 4px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    caret-color: #fff;
+    font-size: 16px;
+    -webkit-box-shadow: 0 0 0 30px #333c4b inset !important;
+    -webkit-text-fill-color: #fff;
+    background-color: rgba(51,60,75,0.5);
+}
+
+.login-list li input[name=mobileNumber] {
+    width: 300px;
+    height: 60px;
+}
+
+.login-list li input[name=loginPword] {
+    width: 260px;
+    height: 60px;
+}
+input[type=text]:focus, input[type=password]:focus {
+    /*border: 1px solid #fff;*/
+}
+input {
+    /*-webkit-text-fill-color:#333;*/
+}
+
+.index-login .register-btn-box {
+    width: 260px;
+    height: 60px;
+
+}
+
+.index-login .register-btn-box input {
+    -webkit-text-fill-color: #fff;
+    width: 100%;
+    height: 100%;
+    line-height: 45px;
+    border-radius: 4px;
+    background: url(https://hbex.io/css/images/index-btn.png) no-repeat -7px;
+}
+
+.register-btn-box .register-btn {
+    font-size: 16px;
+}
+
+.bazaar-wrap-box {
+    padding: 20px 0;
+    padding-top: 17px;
+}
+
+.forget-txt .forget {
+    font-size: 16px;
+    padding: 0;
+}
+
+.forget-txt .span {
+    font-size: 16px;
+    margin-top: 3px;
+}
+.forget {
+    font-size: 14px !important;
+}
+/*登陆后*/
+
+.index-loginIn .Cointiger {
+    /*color: #48505d; !*这个颜色需要改*!*/
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 60px;
+    margin-bottom: 30px;
+    height: 60px;
+    padding-left: 265px;
+}
+
+.index-loginIn .Cointiger span {
+    margin-right: 5px
+}
+
+.index-loginIn .Cointiger span.coin {
+    font-weight: 100;
+    font-family: "STHeiti Light";
+    display: block;
+    float: left;
+}
+
+.index-loginIn .Cointiger span.tiger {
+    font-weight: 600;
+    float: left;
+    display: block;
+    font-family: "STHeiti Light";
+}
+
+.index-loginIn .login-list {
+    padding: 0;
+}
+
+.index-loginIn .login-hd {
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+.index-loginIn .login-hd h6 {
+    font-size: 40px;
+    text-align: center;
+    line-height: 45px;
+    color: #a0a9bd;
+}
+
+.property {
+    font-size: 30px;
+    text-align: center;
+    color: #4088b8;
+    margin-bottom: 40px;
+}
+
+.wel-btn {
+    text-align: center;
+}
+
+.wel-btn .small-btn-blue, .wel-btn .small-btn-green {
+    padding: 0;
+    float: none;
+    margin-right: 20px;
+    width: 260px;
+    height: 60px;
+    display: inline-block;
+    line-height: 60px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    border: 1px solid #6bbaf7;
+    color: #6bbaf7;
+}
+
+/*交易信息*/
+.optionalLIst {
+    border: 1px solid rgba(37, 43, 54, 0.1)
+}
+
+.optionalLIst .perChooseImg {
+    padding-right: 20px;
+    margin-top: -3px;
+}
+
+.optionalLIst, .indexcash {
+    color: #fff;
+    box-shadow: none;
+}
+
+#btnHeader {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color:#fff;
+}
+
+#btnHeader tr th:last-child {
+    border-right: none;
+}
+
+.bazaar-table table td:last-child {
+    border-right: none;
+}
+
+.bazaar-table table td, .bazaar-table table th {
+    border-bottom: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+}
+
+.save1, .save2, .save3 ,.save4{
+    left: 20px;
+    top: 11px;
+}
+
+.makingIcon {
+    cursor: pointer;
+    /*position: absolute;*/
+    float: right;
+    width: 20px;
+    height: 20px;
+    /*top: 4px;*/
+    /*right:0px;*/
+    z-index: 1000;
+    background: url(https://hbex.io/css/images/markingicon.png) no-repeat center
+}
+
+#thBtc {
+    border-right: none;
+}
+
+/*合作伙伴*/
+.Partner {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #535763;
+    min-width:1420px;
+    margin-bottom: 20px;
+}
+
+.Partner .wrap {
+    padding-top: 70px;
+    padding-bottom: 0px;
+}
+
+.Partner li {
+    /*padding: 0;*/
+    width: 11%;
+    line-height:98px;
+    height:98px;
+    /*background: url("../images/partner1.png") no-repeat;*/
+}
+
+.Partner p {
+    padding-bottom: 0px;
+}
+
+/*资金管理模块*/
+.body {
+    background-color: #333c4b;
+}
+
+
+
+/*首页排序*/
+.bazaar-table i {
+    margin-left: 4px;
+    position: absolute;
+    width: 12px;
+    top: 8px;
+    color: #4E5B85;
+}
+
+.bazaar-table i b {
+    left: 0;
+    transform: scale(0.7);
+    height: 9px;
+    display: block;
+}
+.bazaar-table .hb_icon_sort_asc:before {
+    content: "\25B2";
+}
+.bazaar-table .hb_icon_sort_desc:before {
+    content: "\25BC";
+}
+.hb_icon_sort_desc:before, .hb_icon_sort_asc:before{
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+}
+.asc>.hb_icon_sort_desc{
+    color: #7A98F7;
+}
+.desc>.hb_icon_sort_asc {
+    color: #7A98F7;
+}
+
+/*友情链接*/
+.sponsor {
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.img li {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+.img li a {
+    width: 100%;
+    height:100%;
+
+}
+.sponsor li>img {
+    height: 28px;
+}
+.bazaar-table table th {
+    /*text-align: right;*/
+}
+.bazaar-table tbody tr td ,.bazaar-table table td{
+    /*text-align: right;*/
+}
+.bazaar-table tbody tr td:nth-child(2),.bazaar-table table th:nth-child(2){
+    text-align: left;
+}

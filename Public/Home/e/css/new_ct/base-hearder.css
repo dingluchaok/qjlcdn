@@ -1,0 +1,383 @@
+﻿
+@media (min-width: 1366px){
+    .header-box{
+        width: 87.85%!important;
+    }
+}
+a{text-decoration:none;}
+.header-box:after {content:"\20";display: block;height: 0;visibility: hidden;clear: both;}
+.header-box { zoom:1; position:relative;}
+
+.quick-box{ float: right;padding-top: 38px;}
+.language{ float: right; position: relative; cursor: pointer; margin-left: 20px; line-height: 15px; padding: 2px 10px; border: 1px solid #424b66; text-align: center; font-size: 12px;}
+.quick-box .quick-login{ float: right;}
+.quick-box .quick-login a{   font-size: 14px;}
+.quick-box .quick-login em{ padding: 0 10px;}
+.language-icon{ width:10px; height: 8px; margin-left: 10px; float: right; margin-top:6px;}
+.national-icon{ width:28px; height: 18px; margin-right: 5px; display: inline-block; *display: inline; overflow: hidden; zoom:1; vertical-align: middle; background:url(../../images/new_ct/zh.png) }
+.english-icon{background: url(../../images/new_ct/en.png) }
+.kokr-icon{ background:url(https://hbex.io/images/coinTigerImages/ko.png) }
+.hide {
+	display: none;
+}
+/* 弹出层 */
+.pop-lang{ position: absolute; top: -1px; left: -89px; background-color: #fff; border: 1px solid #e7e7e7; width: 111px;  z-index: 9999; text-align: left; overflow: hidden; zoom:1;}
+.pop-lang .pop-uage{ padding: 5px 9px; border-bottom: 1px solid #e7e7e7; margin-bottom: -1px; display: block;}
+.pop-lang .pop-uage:hover{ background-color: #f5f5f5; color: #212f5c}
+/* header */
+.header-wrap{ background-color: #282d3b;}
+.header-box{ width: 1240px; margin: auto; }
+.header-box .logo{ padding: 25px 0; float: left;}
+.menu-list{  zoom:1; padding-left: 20px;}
+.menu-list li{ float: left; padding: 0 20px;}
+.menu-list li a{min-width: 120px; text-align: center; padding: 0px 0 25px; float: left; color: #fff}
+.menu-list li.active a{color:#108ee9;}
+
+.header-info{ float: right; padding-top: 30px}
+.header-info .asset-txt{float: right; border: 1px solid #fff; padding: 7px 33px 6px 5px; position: relative; color: #fff;}
+.header-info .asset-txt .asset-icon{ width:20px; height: 13px; background-position: -251px 0; position: absolute; right: 10px; top: 10px; }
+.header-info .asset-txt .asset-icon2{ background-position:-178px -84px; height: 19px; top: 8px; }
+.head-info-icon{ float: right; width:22px; height: 26px; position: relative; background-position:-285px 0; margin:5px 10px 0 20px;  }
+.head-info-icon .info-digit{ position: absolute;  z-index: 9; top: -6px; font-size: 12px; background-color: #2aaf00; color: #fff; padding:0 5px; border-radius: 20px;}
+.LoginAfter {
+	width:300px;float:right }
+.header-wrap {
+    background-color: #282d3b;
+    border-bottom: 1px solid #3c4250;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 1420px;
+}
+
+.header-box {
+    width: 100%;
+    padding: 0px 50px;
+    box-sizing: border-box;
+    /*min-width: 1200px;*/
+}
+
+/*logo*/
+.header-box .logo {
+    padding: 0;
+    margin-top: 28px;
+    margin-right:50px;
+}
+
+.header-box .logo a {
+    height: 40px;
+    display: block;
+}
+
+.header-box .logo a img {
+    height: 100%;
+}
+
+/*right*/
+.header-box .quick-box {
+    padding-top: 30px;
+    color: #fff;
+}
+
+.header-box .quick-box .language {
+    height: 40px;
+    width: 120px;
+    line-height: 40px;
+    border: 1px solid #a6b7d2;
+    padding: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-left: 50px;
+    box-sizing: border-box;
+}
+
+.header-box .quick-box .quick-login {
+    height: 40px;
+    line-height: 40px;
+}
+
+.header-box .quick-box .quick-login a {
+    margin-right: 0;
+    color: #ffffff;
+}
+
+.header-box .quick-box .quick-login a#User {
+    height: 70px;
+    display: inline-block;
+}
+
+.header-box .quick-box .quick-login .aaa {
+    margin-right: 50px;
+}
+.header-box .quick-box .quick-login .aaa:hover {
+    color: #ce5277
+}
+
+.header-box .quick-box .quick-login a.unlogin {
+    margin-left: 0;
+}
+
+.header-box .quick-box .quick-login a:hover,.header-box .quick-box .quick-login a:active{
+    color:#108ee9;
+}
+.language .pop-lang {
+    background-color: #292f3d;
+    border: none;
+    top: 40px;
+    width: 120px;
+    border-radius: 4px;
+}
+
+.language .pop-lang a {
+    color: #fff;
+
+}
+
+.pop-lang .pop-uage {
+    border-bottom: none;
+}
+
+.pop-lang .pop-uage:hover {
+    background-color: #343c4c;
+    color: #ffffff;
+    border-bottom: none;
+    border: none;
+}
+
+/*右边图标的更改*/
+.LoginAfter {
+    width: auto;
+}
+
+.LoginAfter .quick-login i.head-info-icon {
+    background: url(https://hbex.io/css/images/header-right.png) no-repeat -50px -5px;
+    width: 28px;
+    height: 40px;
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+.LoginAfter .quick-login a {
+    position: relative;
+}
+
+.LoginAfter .quick-login a.head-info-icon {
+    background: url(https://hbex.io/css/images/header-right.png) no-repeat -96px -5px;
+    width: 28px;
+    height: 40px;
+    margin-left: 50px;
+    margin-right: 0;
+}
+
+.LoginAfter .quick-login #User i:first-child {
+    /*background: url(../images/theader-righ.png) no-repeat;*/
+    background: url(https://hbex.io/css/images/personal.png) no-repeat;
+    position: absolute;
+    left: -60px;
+    width: 30px;
+    height: 30px;
+}
+
+.headInfoIcon .info-digit {
+    background-color: #fa2e25;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    top: -3px;
+    right: -4px;
+    padding: 0;
+    position: absolute;
+}
+
+.LoginAfter .userMessage {
+    width: 100px;
+    background-color: #292f3d;
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 2px 2px #3f4451; */
+    top: 80px;
+    right: 295px;
+    border: 1px solid #1b2937;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 5px #3f4451;
+}
+
+.LoginAfter .userMessage li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+}
+
+.LoginAfter .userMessage li a {
+    color: #fff;
+}
+
+/*ul列表*/
+.header-box .menu-list li {
+    padding: 0;
+    position: relative;
+}
+
+.header-box .menu-list li:first-child {
+    padding: 0;
+}
+
+.menu-list li a {
+    padding: 0;
+    min-width: 0px;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    padding-right: 40px;
+}
+
+.menu-list li.active a {
+    color: #108ee9;text-decoration:none;
+}
+.menu-list li:hover a {
+    color:#108ee9;
+}
+/*20180120修改*/
+
+.header-box {
+    padding: 0;
+}
+
+
+.header-box .quick-box .language {
+    border: none;
+    text-align: left;
+    width: 50px;
+    margin-left: 30px;
+}
+
+.LoginAfter .quick-login a.head-info-icon {
+    margin-left: 20px;
+}
+
+.LoginAfter .userMessage {
+    right: 128px;
+}
+
+/*邮箱icon*/
+.LoginAfter .quick-login a.headInfoIcon {
+    background: url("https://hbex.io/css/images/email.png") no-repeat bottom;
+    width: 24px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    top:42px;
+    right:75px;
+}
+.header-box .quick-box .quick-login a#User {
+    margin-right: 40px;
+}
+
+.LoginAfter .quick-login i.drapDownIcon {
+    background: url("https://hbex.io/css/images/drapdown.png") no-repeat;
+    width: 20px;
+    height:15px;
+    display: inline-block;
+}
+
+.LoginAfter .quick-login #User i.personalIcon {
+    background: url("https://hbex.io/css/images/person.png") no-repeat;
+    width: 20px;
+    height:15px;
+    left: -35px;
+    top:13px;
+}
+.header-box .quick-box .quick-login .aaa{
+    margin-right: 30px;
+}
+.header-box .quick-box .quick-login .aaa.active {
+    color: #ce5277
+}
+/*提示框*/
+ .otc_info_box {
+     position: absolute;
+     top: 71px;
+     left: -92px;
+     width: 240px;
+     height:168px;
+     background: url(../../images/new_ct/headermessage.png) no-repeat;
+     z-index:1000;
+     text-align: center;
+ }
+ .info_title {
+     margin-top: 33px;
+     font-size: 16px;
+     color: #bdc8dd;
+     line-height: 1;
+ }
+ .info_desc {
+     margin-top: 28px;
+     color: #8e99ae;
+     font-size: 14px;
+     line-height: 1;
+     position: relative;
+ }
+ .info_desc:after,.info_desc:before{
+     content: '';
+     position: absolute;
+     top: 6px;
+     height: 1px;
+     width: 60px;
+     display: block;
+     background-color: rgb(65, 77, 97);
+
+}
+.info_desc:after{
+    left: 9px;
+}
+.info_desc:before {
+    right:9px;
+}
+ .info_other >span{
+     margin: 0 15px;
+
+ }
+ .info_other {
+     margin-top: 18px;
+ }
+ .otcGuideClose {
+     width: 10px;
+     height: 10px;
+     cursor: pointer;
+     background: url(../../images/new_ct/sprite.png) no-repeat;
+     background-position: -390px -30px;
+     position: absolute;
+     right:10px;
+     top: 17px;
+ }
+ .c2c_trade {
+     position: relative;
+ }
+ #foundTwo > li >a {
+     line-height: 40px !important;
+     text-align: center;
+     width: 100%;
+     height: 40px;
+     padding-righ: 0;
+
+ }
+ #foundTwo {
+     min-width: 100px;
+ }
+#foundTwo > li:hover {
+    background: #343c4c
+}
+#foundTwo  {
+    position: absolute;
+    right: -50%;
+    transform: translatex(-38%);
+}
+.clearPadding {
+    padding-right: 0 !important;
+    color: #fff !important;
+}
+.text-em {
+    text-indent: 2em
+}

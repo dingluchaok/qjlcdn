@@ -1,0 +1,184 @@
+<include file="Public:header" />
+		
+<div class="autobox ">
+	<div class="now">
+		<i class="fa fa-home fa-lg move mr5"></i><a href="/" class="movesay">首页</a> &gt; <a href="/finan/index.html" class="movesay">财务中心 </a> &gt; 我的广告	</div>
+	<div class="main-content">
+		<style>
+	.nav-tab-list .nav-tab-hover{
+		width:100%;
+		top:60px;
+		height:50px;
+		line-height:50px;
+		background:#EAEDF4;
+		position:absolute;
+		box-sizing:content-box;
+		z-index:1;
+		transition:all 0.5s;
+		-webkit-transition:all 0.5s;
+		display:none;
+	}
+a{color:#707070}
+</style>
+<script type="text/javascript">
+	$(function () {
+		(function () {
+			var tab   = $('.nav-tab-list dd');
+			var hover = $('.nav-tab-hover');
+			var pos   = 0;
+			tab.each(function (index) {
+				var $this = $(this);
+				if ($this.hasClass('active')) {
+					pos = index;
+				}
+				$this.hover(function () {
+					_moveTo(index);
+				}, function () {
+					_moveTo(pos);
+				});
+			});
+			_moveTo(pos);
+			$('.nav-tab-hover').show();
+			function _moveTo(index) {
+				hover.css("top", 60 + 50 * index);
+				tab.removeClass('active');
+				tab.eq(index).addClass('active');
+			}
+		})();
+	});
+	$(window).on('scroll resize', function () {
+		if (document.body.scrollTop < 100) {
+			$('#left-nav-bar').css("top", 0);
+		} else if (document.body.scrollTop > ($('.tag-list-content').height() - $('#left-nav-bar').height() + 100)) {
+			$('#left-nav-bar').css("top", ($('.tag-list-content').height() - $('#left-nav-bar').height()));
+		} else {
+			$('#left-nav-bar').css("top", document.body.scrollTop - 100);
+		}
+	});
+</script>
+
+
+<include file="Finance:left" />
+
+
+
+		<div class="tag-list-content">
+			<div class="assets_content bg_w">
+				<div class="safe_center clear ">
+					<h1>
+						<a href="/Finance/myad?type=1&state=1" style="font-size:14px;<eq name='Think.get.state' value='1'>color:#4f94e7;font-weight:bold;</eq>">进行中</a>
+						<a href="/Finance/myad?type=1&state=2" style="font-size:14px;<eq name='Think.get.state' value='2'>color:#4f94e7;font-weight:bold;</eq>">已下架</a>
+					</h1>
+				</div>
+				<div class="mytable-body ">
+					<div class="f_body  step2">
+						<table class="f_table" id="investLog_content">
+							<thead>
+							<tr>
+								<th>状态</th>
+								<th>编号</th>
+								<th>类型</th>
+								<th>国家</th>
+								<th>价格</th>
+								<th>交易数量</th>
+								<th>剩余数量</th>
+								<th>创建时间</th>
+								<td>操作</td>
+							</tr>
+							</thead>
+							<tbody>
+														
+								 <volist name="list" id="vo">
+								 <tr>
+								  <td>
+								  	<eq name="vo.state" value="1">进行中</eq>
+						<eq name="vo.state" value="2">已下架</eq>
+						<eq name="vo.state" value="4">已冻结</eq>
+								  </td>
+								  <td>
+								  	<a href="{:U('Newad/advdetail',array('type'=>$type,'id'=>$vo['id']))}" style="color:rgba(0,0,0,0.7);">{$vo.ad_no}</a>
+								  </td>
+								  <td>
+								  	 <eq name="type" value="1">出售{$vo.coin|strtoupper}<else/>购买{$vo.coin|strtoupper}</eq>
+								  </td>
+								  <td>{$vo.location}</td>
+								  <td>{$vo.price} {$vo['currency_type']}</td>
+								  <td>{$vo.deal}</td>
+								  <td>{$vo.remain}</td>
+								  <td>{$vo['add_time']|date="Y-m-d H:i:s",###}</td>
+								  <td>
+                            		<input type="button" onclick="window.location.href='{:U(\'Newad/ediad\',array(\'id\'=>$vo[\'id\'],\'type\'=>$type))}'" value="编辑" style="outline: none;border:1px solid #108ee9;color:#108ee9;background: #fff;border-radius: 4px;padding:2px 5px;">
+							<eq name="vo.state" value="1">
+								<input class="down" id="{$vo.id}" type="button" value="下架" style="outline: none;border:1px solid #108ee9;color:#108ee9;background: #fff;border-radius: 4px;padding:2px 5px;">
+							</eq>
+							<eq name="vo.state" value="2">
+								<input class="up" id="{$vo.id}" type="button" value="上架" style="outline: none;border:1px solid #108ee9;color:#108ee9;background: #fff;border-radius: 4px;padding:2px 5px;">
+							</eq>
+							<eq name="vo.state" value="4">
+								<input class="dong" type="button" value="上架" style="outline: none;border:1px solid #108ee9;color:#108ee9;background: #fff;border-radius: 4px;padding:2px 5px;">
+							</eq>
+                            	  </td>
+								 </tr>
+								 </volist>					
+								
+							</tbody>
+						</table>
+						<div class="pages">{$page}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<script>
+	var hints = "0";
+	if(hints == 1){
+		$('#hints').show();
+	}
+	$('#finance_box').addClass('active');
+	$('.finan_ad').addClass('active');
+	var shelf = "{$shelf_token}";
+	var type = "{$type}";
+	function closetanchu(){
+		layer.closeAll('loading');
+	}
+    $('.down').click(function(){
+		layer.load(0, {shade: [0.5,'#8F8F8F']});
+        $.post("{:U('Newad/setShelf')}",{id : $(this).attr('id'), token:shelf, type:type, act:2},function(data){
+			shelf = data.url;
+			setTimeout("closetanchu()",4000);
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+				window.location.href=window.location.href;
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+    $('.up').click(function(){
+        layer.load(0, {shade: [0.5,'#8F8F8F']});
+        $.post("{:U('Newad/setShelf')}",{id : $(this).attr('id'), token:shelf, type:type, act:1},function(data){
+            shelf = data.url;
+            setTimeout("closetanchu()",4000);
+            if(data.status==1){
+                layer.msg(data.info,{icon : 1 });
+                window.location.href=window.location.href;
+            }else{
+                layer.msg(data.info,{icon : 2 });
+            }
+        });
+    });
+    $('.dong').click(function(){
+        layer.load(0, {shade: [0.5,'#8F8F8F']});
+        setTimeout("closetanchu()",3000);
+        layer.msg('请联系管理员解除冻结!',{icon : 2 });
+    });
+</script>	
+	
+<include file="Public:footer" />
