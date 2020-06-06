@@ -154,6 +154,37 @@ class KLineController extends Controller
     }
 	public function history()
     {
+        // date
+        $timeShare = I('resolution', 15);
+        $bid = strtolower(I('symbol', ''));
+        $from = I('from', 0);
+        $to = I('to', 0);
+
+        if ($timeShare == 'D') {
+            $timeShare = 60*24;
+        }
+        //步长 秒
+        $step=$timeShare*60;
+
+        if(in_array($timeShare,[1,5,15,30])){
+            $from=strtotime(date('Y-m-d H:i:00',$from));
+            $fen=(int)date('i',$from);
+            $cha=$fen % $timeShare;
+            $start=$from-$cha*60;
+        }elseif ($timeShare==60){
+            $start=strtotime(date('Y-m-d H:00:00',$from));
+        }elseif ($timeShare==60*24){
+            $start=strtotime(date('Y-m-d 00:00:00',$from));
+        }else{
+            $start=strtotime(date('Y-m-d H:00:00',$from));
+        }
+
+        $params = $timeShare . ' ' . $bid . ' ' .$from.' '.$to.' '.$start.' '.$step;
+        $path="python ".dirname(__FILE__)."\\runtrade\\task.py ";
+        @passthru($path . $params);
+        exit;
+
+
         //分钟间隔
         $timeShare = I('resolution', 15);
         $bid = strtolower(I('symbol', ''));
@@ -194,6 +225,21 @@ class KLineController extends Controller
             return $this->resJson($respondContent);
         }
         //$max_price=$min_price=$data[0]['price'];
+        // $params = str_replace('"', "'",  "$start $to $step ".json_encode($data, true)." ".json_encode($respondContent, true));
+
+        // file_put_contents(dirname(__FILE__)."\json.txt", $params);
+        
+        // $path="C:\Windows\python-3.8.3-embed-win32\python ".dirname(__FILE__)."\call.py "; //需要注意的是：末尾要加一个空格
+
+        // $wk = @exec($path);
+
+        // echo $wk;
+
+        // exit;
+
+        
+
+        
         for ( $i = $start; $i <= $to; $i = $i + $step ){
             $trans_amount=0;
             $max_price=0;$min_price=0;

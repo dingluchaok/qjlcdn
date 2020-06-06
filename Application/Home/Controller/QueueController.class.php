@@ -515,9 +515,12 @@ class QueueController extends HomeController
 	
 	public function upTrade($market = NULL)
 	{
+		$np = M('Market')->where(array('name'=>$market))->find();
+		
 		//die();
 		//$userid = rand(1, 2, 3);
 		$userid = 1535;
+		//  1 buy 2 sell
 		$type = rand(1, 2);
 		
 		if (!$market) {
@@ -538,6 +541,13 @@ class QueueController extends HomeController
 		$min_price = round(C("market")[$market]["new_price"] * 10000);
 		$max_price = round(C("market")[$market]["sell_price"] * 10000);
 		$price = round(rand($min_price, $max_price) / 10000, C("market")[$market]["round"]);
+
+		// 买入挂盘修正买入永远小于均价
+		if($type == 1 && $price > $np['new_price'] || $type == 2 && $price < $np['new_price']){
+			$price = $np['new_price'];
+		}
+
+
 		$max_num = round((C('market')[$market]['trade_max'] / $price), 4);
 		$min_num = round((C('market')[$market]['trade_min'] / $price), 4);
 		$num = round(rand($min_num, $max_num) / 10000, C('market')[$market]['round']);//dump($num);
