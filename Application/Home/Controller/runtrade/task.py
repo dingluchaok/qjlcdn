@@ -49,7 +49,7 @@ def main():
     start = int(params[4])
     step = int(params[5])
     # print(timeShare, bid, fm, to)
-    pdata = np.array(qy(bid,str(fm),str(to), 'limit 0, 100000'))
+    pdata = np.array(qy(bid,str(fm),str(to), ''))
     # print(123)
     # cpd = []
     # for ix in pdata:
